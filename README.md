@@ -1,12 +1,11 @@
 <h1 align="center">Hi 👋, I'm Arun Ramkrishna</h1>
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=huharun&label=Profile%20views&color=0e75b6&style=flat" alt="huharun" /> </p>
 
 - 📫 How to reach me **arunramkrishna997@gmail.com**
 
 [![](https://visitcount.itsvg.in/api?id=huharun&icon=0&color=1)](https://visitcount.itsvg.in)
 
 ## 🌐 Connect with me::
-<a href="https://www.leetcode.com/huharun" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="huharun" height="30" width="40" /></a>
+[![LinkedIn](https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg)](https://www.leetcode.com/huharun) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/arun-ramkrishna-7b4b4719a) 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/arunu_11) 
 
