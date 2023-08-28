@@ -5,7 +5,7 @@
 [![](https://visitcount.itsvg.in/api?id=huharun&icon=0&color=1)](https://visitcount.itsvg.in)
 
 ## 🌐 Connect with me::
-<a href="https://www.leetcode.com/huharun" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="huharun" height="15" width="40" /></a>
+<a href="https://www.leetcode.com/huharun" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="huharun" height="10" width="40" />Leetcode</a>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/arun-ramkrishna-7b4b4719a) 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/arunu_11) 
 
