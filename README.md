@@ -1,7 +1,7 @@
 [![](https://visitcount.itsvg.in/api?id=huharun&icon=0&color=1)](https://visitcount.itsvg.in)
 
 
-<h1 align="center">Hi 👋, I'm Arun Ramkrishna</h1>
+<h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
 - 📫reach me **arunramkrishna997@gmail.com**
 
