@@ -9,8 +9,8 @@
 
 ## 🌐 Connect with me::
 <a href="https://www.leetcode.com/huharun" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="huharun" height="20" width="40" /></a>
-<a href="https://linkedin.com/in/arun-ramkrishna-7b4b4719a" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="arun-ramkrishna-7b4b4719a" height="20" width="40" /></a>
-<a href="https://instagram.com/a" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="a" height="20" width="40" /></a>
+<a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="arun-ramkrishna-7b4b4719a" height="20" width="40" /></a>
+<a href="https://instagram.com/arunxh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="a" height="20" width="40" /></a>
 
 
 
