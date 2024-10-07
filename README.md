@@ -1,40 +1,108 @@
-[![](https://visitcount.itsvg.in/api?id=huharun&icon=0&color=1)](https://visitcount.itsvg.in)
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Thangapalam's Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .contact-info, .resume-section {
+            margin: 20px 0;
+        }
+        a {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
 
 <h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
-- 📫reach me **arunramkrishna997@gmail.com**
+<div class="contact-info">
+    <p>📫 Reach me at <a href="mailto:arunramkrishna997@gmail.com">arunramkrishna997@gmail.com</a></p>
+    <p>📞 +1 313-639-7215</p>
+    <p>📍 Detroit, MI 48201</p>
+</div>
 
+<h2>🌐 Connect with me:</h2>
+<a href="https://www.leetcode.com/huharun" target="_blank">LeetCode</a> | 
+<a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank">LinkedIn</a> | 
+<a href="https://instagram.com/arunxh" target="_blank">Instagram</a>
 
+<h2>💻 Professional Summary</h2>
+<p>Detail-oriented graduate student in Computer Science and Engineering with expertise in software development and IT support. Proficient in key programming languages and frameworks, with hands-on experience in agile project management. Collaborative team player committed to delivering high-quality solutions.</p>
 
-## 🌐 Connect with me::
-<a href="https://www.leetcode.com/huharun" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="huharun" height="20" width="40" /></a>
-<a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="arun-ramkrishna-7b4b4719a" height="20" width="40" /></a>
-<a href="https://instagram.com/arunxh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="a" height="20" width="40" /></a>
+<h2>🎓 Education</h2>
+<h3>Wayne State University, Detroit, MI, USA</h3>
+<p><strong>Master of Science in Computer Science</strong><br>
+Expected Graduation: December 2025<br>
+GPA: 3.22</p>
 
+<h3>United Institute of Technology, Coimbatore, India</h3>
+<p><strong>Bachelor of Engineering in Computer Science and Engineering</strong><br>
+Graduated: May 2022<br>
+GPA: 3.12</p>
 
+<h3>Relevant Coursework</h3>
+<ul>
+    <li>Data Structures and Algorithms</li>
+    <li>Database Management Systems</li>
+    <li>Software Engineering Principles</li>
+    <li>Web Development and Design</li>
+    <li>Artificial Intelligence</li>
+    <li>Operating Systems and Network Security</li>
+</ul>
 
-## 💻 Tech Stack:
-<p align="left">
- <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a>
- <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a> 
-  <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a>
-  <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> 
-  <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
-  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
-  <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> 
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
-   <a href="https://codeigniter.com" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/codeigniter.svg" alt="codeigniter" width="40" height="40"/> </a> 
-   <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a>
-   </p>
+<h2>📊 Certifications and Projects</h2>
+<ul>
+    <li><strong>Tata Data Visualization</strong>, Forage (April 2024) - Created data visualizations for Tata Consultancy Services.</li>
+    <li><strong>J.P. Morgan Software Engineering</strong>, Forage (July 2024) - Set up a development environment and fixed repository issues.</li>
+    <li><strong>Goldman Sachs Software Engineering</strong>, Forage (July 2024) - Assessed IT security and recommended improvements.</li>
+    <li><strong>Secure File Storage</strong>, UIT (Winter 2022) - Developed a file storage system with encryption.</li>
+    <li><strong>Digital Library</strong>, UIT (Winter 2021) - Implemented PDF book export as part of a dynamic repository.</li>
+</ul>
 
+<h2>🛠️ Technical Skills</h2>
+<p><strong>Programming Languages:</strong> Python, PHP, C, JavaScript, jQuery<br>
+<strong>Frameworks & Software:</strong> VS Code, Sublime Text, CodeIgniter, Jupyter Notebook, Raspberry Pi, PuTTY, Git<br>
+<strong>Databases:</strong> MySQL, MongoDB<br>
+<strong>Applications:</strong> Microsoft Word, Excel, PowerPoint, Project<br>
+<strong>Operating Systems:</strong> Windows, Linux</p>
 
+<h2>💼 Work Experience</h2>
+<h3>Student Assistant, Wayne State University C&IT (CCTS)</h3>
+<p><strong>August 2024 - Present</strong><br>
+- Support classroom technology and AV equipment.<br>
+- Assist with tech issues for faculty and students.<br>
+- Manage computer labs and online learning platforms.</p>
 
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=huharun&theme=dark&hide_border=true&include_all_commits=false&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=huharun&theme=dark&hide_border=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=huharun&theme=dark&hide_border=true&include_all_commits=false&count_private=false&layout=compact)
+<h3>Junior Developer, Enova Software and Hardware Solutions</h3>
+<p><strong>June 2022 - June 2023</strong><br>
+- Contributed to designing, coding, and testing features for the COE Software Application.<br>
+- Utilized skills in jQuery, Ajax, PHP, CodeIgniter, and MySQL.<br>
+- Engaged in an agile software development lifecycle.</p>
 
----
+<h2>🏅 Honors and Activities</h2>
+<ul>
+    <li>Member, CSE Department Association, UIT (Fall 2019; Winter 2020)</li>
+    <li>Secretary, CSE Department Association, UIT (Fall 2021; Winter 2022)</li>
+</ul>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<h2>📊 GitHub Stats:</h2>
+<img src="https://github-readme-stats.vercel.app/api?username=huharun&theme=dark&hide_border=true" alt="GitHub Stats">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=huharun&theme=dark&hide_border=true" alt="Streak Stats">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=huharun&theme=dark&hide_border=true&layout=compact" alt="Top Languages">
+
+<footer>
+    <p>Created with ❤️ using GitHub Pages</p>
+</footer>
+</body>
+</html>
