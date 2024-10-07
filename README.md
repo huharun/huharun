@@ -3,7 +3,7 @@
 <h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
 <p align="center">
-    📫 Reach me: <strong>arunramkrishna997@gmail.com</strong>
+    📫 Reach me: <strong>arunramkrishna997@gmail.com | +1 313-639-7215</strong>
 </p>
 
 ---
