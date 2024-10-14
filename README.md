@@ -3,8 +3,11 @@
 <h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
 <p align="center">
-    <a href="https://huharun.github.io/huharun/" target="_blank">Resume</a>
+    <a href="https://huharun.github.io/huharun/" target="_blank" style="font-size: 24px; text-decoration: none; color: #007BFF;">
+        📄 Resume
+    </a>
 </p>
+
 
 
 
