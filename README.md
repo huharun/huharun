@@ -2,7 +2,8 @@
 
 <h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
-<a href="https://huharun.github.io/huharun/">Resume</a>
+<a href="https://huharun.github.io/huharun/" style="display: block; text-align: center; color: white; background-color: #007BFF; padding: 15px 30px; border-radius: 5px; text-decoration: none; transition: background-color 0.3s;">Resume</a>
+
 
 <p align="center">
     📫 Reach me: <strong>arunramkrishna997@gmail.com | +1 313-639-7215</strong>
