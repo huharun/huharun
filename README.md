@@ -2,9 +2,8 @@
 
 <h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <a href="https://huharun.github.io/huharun/" target="_blank" style="color: white; background-color: #007BFF; padding: 15px 30px; border-radius: 5px; text-decoration: none; transition: background-color 0.3s;">Resume</a>
-</div>
+[Resume](https://huharun.github.io/huharun/)
+
 
 
 
