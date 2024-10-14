@@ -2,17 +2,11 @@
 
 <h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
-<p align="center">
-    <a href="https://huharun.github.io/huharun/" target="_blank" style="font-size: 24px; text-decoration: none; color: #007BFF;">
+<p align="center" style="font-size: 24px; color: #007BFF;">
+    <a href="https://huharun.github.io/huharun/" target="_blank">
         📄 Resume
     </a>
 </p>
-
-
-
-
-
-
 
 <p align="center">
     📫 Reach me: <strong>arunramkrishna997@gmail.com | +1 313-639-7215</strong>
