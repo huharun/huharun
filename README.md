@@ -2,7 +2,10 @@
 
 <h1 align="center">Hi 👋, I'm Arun Thangapalam</h1>
 
-[Resume](https://huharun.github.io/huharun/)
+<p align="center">
+    <a href="https://huharun.github.io/huharun/" target="_blank">Resume</a>
+</p>
+
 
 
 
