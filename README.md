@@ -67,7 +67,6 @@
 
 ## 📊 GitHub Stats
 <p align="center">
-    <img src="https://github-readme-stats.vercel.app/api?username=huharun&theme=radical&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" /><br/>
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=huharun&theme=radical&hide_border=true" alt="GitHub Streak" /><br/>
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=huharun&theme=radical&hide_border=true&include_all_commits=true&count_private=true&layout=compact" alt="Top Languages" />
 </p>
