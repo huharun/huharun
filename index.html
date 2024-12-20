@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
 <body>
-
     <div class="container">
-        <header>
+        <!-- Header Section -->
+        <header class="intro-section">
             <h1>Hi 👋, I'm Arun Thangapalam</h1>
             <h2>Graduate Student | Software Developer</h2>
             <div class="contact-info">
@@ -21,7 +21,8 @@
             </div>
         </header>
 
-        <section>
+        <!-- Connect Section -->
+        <section class="connect-section">
             <h2>🌐 Connect with Me</h2>
             <p>
                 <a href="https://www.leetcode.com/huharun" target="_blank">LeetCode</a> | 
@@ -30,22 +31,27 @@
             </p>
         </section>
 
-        <section>
+        <!-- Professional Summary Section -->
+        <section class="summary-section">
             <h2>💻 Professional Summary</h2>
             <p>Detail-oriented graduate student in Computer Science and Engineering with expertise in software development and IT support. Proficient in key programming languages and frameworks, with hands-on experience in agile project management. Collaborative team player committed to delivering high-quality solutions.</p>
         </section>
 
-        <section>
+        <!-- Education Section -->
+        <section class="education-section">
             <h2>🎓 Education</h2>
-            <h3>Wayne State University, Detroit, MI, USA</h3>
-            <p><strong>Master of Science in Computer Science</strong><br>
-            Expected Graduation: December 2025<br>
-            GPA: 3.44</p>
-
-            <h3>United Institute of Technology, Coimbatore, India</h3>
-            <p><strong>Bachelor of Engineering in Computer Science and Engineering</strong><br>
-            Graduated: May 2022<br>
-            GPA: 3.12</p>
+            <div class="education">
+                <h3>Wayne State University, Detroit, MI, USA</h3>
+                <p><strong>Master of Science in Computer Science</strong><br>
+                Expected Graduation: December 2025<br>
+                GPA: 3.44</p>
+            </div>
+            <div class="education">
+                <h3>United Institute of Technology, Coimbatore, India</h3>
+                <p><strong>Bachelor of Engineering in Computer Science and Engineering</strong><br>
+                Graduated: May 2022<br>
+                GPA: 3.12</p>
+            </div>
 
             <h3>Relevant Coursework</h3>
             <ul>
@@ -59,11 +65,11 @@
             </ul>
         </section>
 
-        <section>
+        <!-- Certifications and Projects Section -->
+        <section class="projects-section">
             <h2>📊 Certifications and Projects</h2>
             <h3>DBMS1 Project: Driveway Sealing Management System (December 2024)</h3>
             <p>Designed a database for managing client registrations, quotes, orders, and bills. Implemented user registration, quote submission, and negotiation workflows. Developed dashboards for clients and contractors to manage requests, quotes, and bills. Created SQL queries for generating reports (e.g., Big Clients, Overdue Bills). Implemented features for bill negotiation and status tracking.</p>
-            
             <ul>
                 <li><strong>J.P. Morgan Software Engineering</strong>, Forage (July 2024) - Set up a development environment and fixed repository issues. Used Perspective to create live data visualizations.</li>
                 <li><strong>Goldman Sachs Software Engineering</strong>, Forage (July 2024) - Assessed IT security and identified outdated password hashing algorithms. Recommended improvements and wrote a summary memo.</li>
@@ -71,7 +77,8 @@
             </ul>
         </section>
 
-        <section>
+        <!-- Technical Skills Section -->
+        <section class="skills-section">
             <h2>🛠️ Technical & Computer Skills</h2>
             <p><strong>Programming Languages:</strong> Python, PHP, C, JavaScript<br>
             <strong>Software & Frameworks:</strong> VS Code, Sublime Text, CodeIgniter, Jupyter Notebook, PuTTY, XAMPP, Git, React<br>
@@ -81,24 +88,29 @@
             <strong>Operating Systems:</strong> Windows, Linux</p>
         </section>
 
-        <section>
+        <!-- Work Experience Section -->
+        <section class="work-section">
             <h2>💼 Work Experience</h2>
-            <h3>Student Assistant, Wayne State University C&IT (CCTS)</h3>
-            <p><strong>August 2024 - Present</strong><br>
-            - Support classroom technology and AV equipment.<br>
-            - Assist with tech issues for faculty and students.<br>
-            - Manage computer labs and online learning platforms.</p>
-
-            <h3>Junior Developer, Enova Software and Hardware Solutions</h3>
-            <p><strong>June 2022 - June 2023</strong><br>
-            - Contributed to designing, coding, and testing features for the COE Software Application.<br>
-            - Utilized skills in JQuery, Ajax, PHP, CodeIgniter (MVC Framework), and MySQL (phpMyAdmin).<br>
-            - Played a vital role in processing and managing students' data, improving accuracy and security.<br>
-            - Worked closely with cross-functional teams to meet project deadlines and requirements.<br>
-            - Engaged in an agile and dynamic software development lifecycle, ensuring efficient project delivery.</p>
+            <div class="job">
+                <h3>Student Assistant, Wayne State University C&IT (CCTS)</h3>
+                <p><strong>August 2024 - Present</strong><br>
+                - Support classroom technology and AV equipment.<br>
+                - Assist with tech issues for faculty and students.<br>
+                - Manage computer labs and online learning platforms.</p>
+            </div>
+            <div class="job">
+                <h3>Junior Developer, Enova Software and Hardware Solutions</h3>
+                <p><strong>June 2022 - June 2023</strong><br>
+                - Contributed to designing, coding, and testing features for the COE Software Application.<br>
+                - Utilized skills in JQuery, Ajax, PHP, CodeIgniter (MVC Framework), and MySQL (phpMyAdmin).<br>
+                - Played a vital role in processing and managing students' data, improving accuracy and security.<br>
+                - Worked closely with cross-functional teams to meet project deadlines and requirements.<br>
+                - Engaged in an agile and dynamic software development lifecycle, ensuring efficient project delivery.</p>
+            </div>
         </section>
 
-        <section>
+        <!-- Honors and Activities Section -->
+        <section class="honors-section">
             <h2>🏅 Honors and Activities</h2>
             <ul>
                 <li>Member, CSE Department Association, UIT 2019 - 2020</li>
@@ -106,160 +118,10 @@
             </ul>
         </section>
 
+        <!-- Footer -->
         <footer>
             <p>Created with ❤️ by Arun Thangapalam</p>
         </footer>
     </div>
-
 </body>
 </html>
-
-
-<style>
-    /* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-/* Body Styles */
-body {
-    background-color: #f4f7fc;
-    color: #333;
-    line-height: 1.6;
-    font-size: 16px;
-    padding: 20px;
-}
-
-/* Container */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Header */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 36px;
-    color: #333;
-}
-
-header h2 {
-    font-size: 22px;
-    color: #555;
-    margin-top: 10px;
-}
-
-.contact-info ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-.contact-info li {
-    font-size: 16px;
-    color: #666;
-    margin: 5px 0;
-}
-
-.contact-info a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-/* Section Styles */
-section {
-    margin-bottom: 40px;
-}
-
-section h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #444;
-    border-bottom: 2px solid #0066cc;
-    padding-bottom: 5px;
-}
-
-section h3 {
-    font-size: 20px;
-    color: #333;
-    margin-top: 15px;
-}
-
-section p {
-    font-size: 16px;
-    color: #666;
-    margin-top: 10px;
-}
-
-section ul {
-    list-style: none;
-    margin-top: 10px;
-}
-
-section ul li {
-    font-size: 16px;
-    color: #666;
-    margin: 5px 0;
-}
-
-/* Link Styles */
-a {
-    text-decoration: none;
-    color: #0066cc;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 14px;
-    color: #888;
-}
-
-footer p {
-    margin-top: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    header h2 {
-        font-size: 18px;
-    }
-
-    section h2 {
-        font-size: 24px;
-    }
-
-    section h3 {
-        font-size: 18px;
-    }
-
-    section p, section ul li {
-        font-size: 14px;
-    }
-}
-
-</style>
