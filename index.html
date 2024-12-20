@@ -4,207 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arun Thangapalam's Portfolio</title>
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header Section */
-        .intro-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .intro-section h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .intro-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #555;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .contact-info ul {
-            list-style: none;
-        }
-
-        .contact-info ul li {
-            margin-bottom: 10px;
-        }
-
-        /* Connect Section */
-        .connect-section {
-            text-align: center;
-            margin-bottom: 40px;
-            animation: fadeInUp 1.5s ease-out;
-        }
-
-        .connect-section a {
-            color: #0077b5;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .connect-section a:hover {
-            color: #005582;
-        }
-
-        /* Summary Section */
-        .summary-section {
-            margin-bottom: 40px;
-            animation: fadeInUp 2s ease-out;
-        }
-
-        /* Education Section */
-        .education-section {
-            margin-bottom: 40px;
-        }
-
-        .education h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            color: #444;
-        }
-
-        ul {
-            list-style: disc;
-            padding-left: 20px;
-        }
-
-        /* Projects Section */
-        .projects-section {
-            margin-bottom: 40px;
-            animation: fadeInUp 2.5s ease-out;
-        }
-
-        .projects-section h3 {
-            margin-bottom: 15px;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            margin-bottom: 40px;
-        }
-
-        /* Work Experience Section */
-        .work-section {
-            margin-bottom: 40px;
-        }
-
-        .job {
-            margin-bottom: 20px;
-        }
-
-        /* Honors Section */
-        .honors-section {
-            margin-bottom: 40px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        /* Animation Definitions */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .intro-section h1 {
-                font-size: 2rem;
-            }
-            .intro-section h2 {
-                font-size: 1.2rem;
-            }
-            .contact-info ul li {
-                font-size: 0.9rem;
-            }
-            .container {
-                padding: 10px;
-            }
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; padding: 20px; margin: 0;">
+
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        
         <!-- Header Section -->
-        <header class="intro-section">
-            <h1>Hi 👋, I'm Arun Thangapalam</h1>
-            <h2>Graduate Student | Software Developer</h2>
-            <div class="contact-info">
-                <ul>
-                    <li>📫 Reach me at <a href="mailto:arunramkrishna997@gmail.com">arunramkrishna997@gmail.com</a></li>
-                    <li>📞 +1 313-639-7215</li>
-                    <li>📍 Detroit, MI 48201</li>
+        <header class="intro-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px; animation: fadeIn 1s ease-in-out;">Hi 👋, I'm Arun Thangapalam</h1>
+            <h2 style="font-size: 1.5rem; margin-bottom: 20px; color: #555; animation: fadeIn 2s ease-in-out;">Graduate Student | Software Developer</h2>
+            <div class="contact-info" style="text-align: center;">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;">📫 Reach me at <a href="mailto:arunramkrishna997@gmail.com" style="color: #0077b5; text-decoration: none;">arunramkrishna997@gmail.com</a></li>
+                    <li style="margin-bottom: 10px;">📞 +1 313-639-7215</li>
+                    <li style="margin-bottom: 10px;">📍 Detroit, MI 48201</li>
                 </ul>
             </div>
         </header>
 
         <!-- Connect Section -->
-        <section class="connect-section">
-            <h2>🌐 Connect with Me</h2>
+        <section class="connect-section" style="text-align: center; margin-bottom: 40px; animation: fadeInUp 1.5s ease-out;">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">🌐 Connect with Me</h2>
             <p>
-                <a href="https://www.leetcode.com/huharun" target="_blank">LeetCode</a> | 
-                <a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank">LinkedIn</a> | 
-                <a href="https://instagram.com/arunxh" target="_blank">Instagram</a>
+                <a href="https://www.leetcode.com/huharun" target="_blank" style="color: #0077b5; text-decoration: none; margin-right: 10px;">LeetCode</a> | 
+                <a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank" style="color: #0077b5; text-decoration: none; margin-right: 10px;">LinkedIn</a> | 
+                <a href="https://instagram.com/arunxh" target="_blank" style="color: #0077b5; text-decoration: none;">Instagram</a>
             </p>
         </section>
 
         <!-- Professional Summary Section -->
-        <section class="summary-section">
-            <h2>💻 Professional Summary</h2>
+        <section class="summary-section" style="margin-bottom: 40px; animation: fadeInUp 2s ease-out;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">💻 Professional Summary</h2>
             <p>Detail-oriented graduate student in Computer Science and Engineering with expertise in software development and IT support. Proficient in key programming languages and frameworks, with hands-on experience in agile project management. Collaborative team player committed to delivering high-quality solutions.</p>
         </section>
 
         <!-- Education Section -->
-        <section class="education-section">
-            <h2>🎓 Education</h2>
-            <div class="education">
-                <h3>Wayne State University, Detroit, MI, USA</h3>
-                <p><strong>Master of Science in Computer Science</strong><br>
-                Expected Graduation: December 2025<br>
-                GPA: 3.44</p>
+        <section class="education-section" style="margin-bottom: 40px;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">🎓 Education</h2>
+            <div class="education" style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Wayne State University, Detroit, MI, USA</h3>
+                <p><strong>Master of Science in Computer Science</strong><br>Expected Graduation: December 2025<br>GPA: 3.44</p>
             </div>
-            <div class="education">
-                <h3>United Institute of Technology, Coimbatore, India</h3>
-                <p><strong>Bachelor of Engineering in Computer Science and Engineering</strong><br>
-                Graduated: May 2022<br>
-                GPA: 3.12</p>
+            <div class="education" style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">United Institute of Technology, Coimbatore, India</h3>
+                <p><strong>Bachelor of Engineering in Computer Science and Engineering</strong><br>Graduated: May 2022<br>GPA: 3.12</p>
             </div>
 
-            <h3>Relevant Coursework</h3>
-            <ul>
+            <h3 style="margin-top: 20px;">Relevant Coursework</h3>
+            <ul style="list-style: disc; padding-left: 20px;">
                 <li>Data Structures and Algorithms</li>
                 <li>Database Management Systems</li>
                 <li>Artificial Intelligence</li>
@@ -216,11 +63,11 @@
         </section>
 
         <!-- Certifications and Projects Section -->
-        <section class="projects-section">
-            <h2>📊 Certifications and Projects</h2>
-            <h3>DBMS1 Project: Driveway Sealing Management System (December 2024)</h3>
+        <section class="projects-section" style="margin-bottom: 40px; animation: fadeInUp 2.5s ease-out;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">📊 Certifications and Projects</h2>
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px;">DBMS1 Project: Driveway Sealing Management System (December 2024)</h3>
             <p>Designed a database for managing client registrations, quotes, orders, and bills. Implemented user registration, quote submission, and negotiation workflows. Developed dashboards for clients and contractors to manage requests, quotes, and bills. Created SQL queries for generating reports (e.g., Big Clients, Overdue Bills). Implemented features for bill negotiation and status tracking.</p>
-            <ul>
+            <ul style="list-style: disc; padding-left: 20px;">
                 <li><strong>J.P. Morgan Software Engineering</strong>, Forage (July 2024) - Set up a development environment and fixed repository issues. Used Perspective to create live data visualizations.</li>
                 <li><strong>Goldman Sachs Software Engineering</strong>, Forage (July 2024) - Assessed IT security and identified outdated password hashing algorithms. Recommended improvements and wrote a summary memo.</li>
                 <li><strong>Tata Data Visualization</strong>, Forage (April 2024) - Created data visualizations for Tata Consultancy Services. Prepared questions for client meetings and developed visuals to support decision-making.</li>
@@ -228,8 +75,8 @@
         </section>
 
         <!-- Technical Skills Section -->
-        <section class="skills-section">
-            <h2>🛠️ Technical & Computer Skills</h2>
+        <section class="skills-section" style="margin-bottom: 40px;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">🛠️ Technical & Computer Skills</h2>
             <p><strong>Programming Languages:</strong> Python, PHP, C, JavaScript<br>
             <strong>Software & Frameworks:</strong> VS Code, Sublime Text, CodeIgniter, Jupyter Notebook, PuTTY, XAMPP, Git, React<br>
             <strong>Machine Learning:</strong> scikit-learn, Pandas, NumPy, Matplotlib, Supervised Learning<br>
@@ -239,17 +86,17 @@
         </section>
 
         <!-- Work Experience Section -->
-        <section class="work-section">
-            <h2>💼 Work Experience</h2>
-            <div class="job">
-                <h3>Student Assistant, Wayne State University C&IT (CCTS)</h3>
+        <section class="work-section" style="margin-bottom: 40px;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">💼 Work Experience</h2>
+            <div class="job" style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Student Assistant, Wayne State University C&IT (CCTS)</h3>
                 <p><strong>August 2024 - Present</strong><br>
                 - Support classroom technology and AV equipment.<br>
                 - Assist with tech issues for faculty and students.<br>
                 - Manage computer labs and online learning platforms.</p>
             </div>
-            <div class="job">
-                <h3>Junior Developer, Enova Software and Hardware Solutions</h3>
+            <div class="job" style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Junior Developer, Enova Software and Hardware Solutions</h3>
                 <p><strong>June 2022 - June 2023</strong><br>
                 - Contributed to designing, coding, and testing features for the COE Software Application.<br>
                 - Utilized skills in JQuery, Ajax, PHP, CodeIgniter (MVC Framework), and MySQL (phpMyAdmin).<br>
@@ -260,18 +107,20 @@
         </section>
 
         <!-- Honors and Activities Section -->
-        <section class="honors-section">
-            <h2>🏅 Honors and Activities</h2>
-            <ul>
+        <section class="honors-section" style="margin-bottom: 40px;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">🏅 Honors and Activities</h2>
+            <ul style="list-style: disc; padding-left: 20px;">
                 <li>Member, CSE Department Association, UIT 2019 - 2020</li>
                 <li>Secretary, CSE Department Association, UIT 2021 - 2022</li>
             </ul>
         </section>
 
         <!-- Footer -->
-        <footer>
+        <footer style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #777;">
             <p>Created with ❤️ by Arun Thangapalam</p>
         </footer>
+
     </div>
+
 </body>
 </html>
