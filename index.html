@@ -1,231 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arun Ramkrishna Thangapalam | Liquid Glass Portfolio</title>
-<style>
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
-    color: #111;
-    line-height: 1.5;
-    overflow-x: hidden;
-  }
-
-  /* Navbar */
-  nav {
-    position: sticky;
-    top:0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 30px;
-    background: rgba(255,255,255,0.4);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(200,200,200,0.3);
-    z-index:1000;
-    border-radius: 12px;
-    margin:10px;
-  }
-  nav .logo {font-weight:bold; font-size:1.4rem;}
-  nav ul {display:flex; list-style:none; gap:20px;}
-  nav ul li a {text-decoration:none; color:#111; font-weight:500; transition:0.3s;}
-  nav ul li a:hover {color:#007aff;}
-
-  .menu-toggle {display:none; font-size:2rem; cursor:pointer;}
-  @media(max-width:768px){
-    nav ul {display:none; flex-direction:column; background: rgba(255,255,255,0.5); backdrop-filter: blur(12px); position:absolute; top:60px; right:0; width:200px; padding:20px; border-radius:12px;}
-    nav ul.active {display:flex;}
-    .menu-toggle {display:block;}
-  }
-
-  /* Hero */
-  .hero {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    min-height:80vh;
-    padding:40px 20px;
-    background: rgba(255,255,255,0.3);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    margin:20px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    text-align:center;
-    transition:0.5s ease;
-  }
-  .hero h1 {font-size:3rem; margin-bottom:10px;}
-  .hero h2 {font-weight:400; margin-bottom:20px; color:#007aff;}
-  .hero p a {color:#007aff; margin:0 10px; transition:0.3s;}
-  .hero p a:hover {text-decoration:underline;}
-
-  /* Sections */
-  section {max-width:900px; margin:50px auto; padding:0 20px;}
-  section h2 {font-size:2rem; margin-bottom:20px; border-bottom:1px solid rgba(0,0,0,0.1); padding-bottom:5px;}
-  
-  .card {
-    background: rgba(255,255,255,0.3);
-    backdrop-filter: blur(15px);
-    padding:20px;
-    margin-bottom:20px;
-    border-radius:20px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    transition:0.3s;
-  }
-  .card:hover {transform:translateY(-5px); box-shadow:0 16px 32px rgba(0,0,0,0.2);}
-
-  /* Buttons */
-  .btn {
-    display:inline-block;
-    padding:10px 18px;
-    margin-top:10px;
-    background: rgba(0,122,255,0.3);
-    backdrop-filter: blur(10px);
-    border-radius:15px;
-    color:#007aff;
-    font-weight:bold;
-    text-decoration:none;
-    transition:0.3s;
-    box-shadow: 0 4px 12px rgba(0,122,255,0.2);
-  }
-  .btn:hover {background: rgba(0,122,255,0.5); box-shadow:0 8px 24px rgba(0,122,255,0.4); color:#fff;}
-
-  /* Footer */
-  footer {text-align:center; padding:20px; margin-top:40px; color:#555;}
-
-  /* Fade-in animations */
-  .fade-in {opacity:0; transform:translateY(20px); transition:all 0.7s ease;}
-  .fade-in.show {opacity:1; transform:translateY(0);}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arun Ramkrishna Thangapalam - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Glassmorphism Styles */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    .glass-dark {
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    /* Liquid Animation Keyframes */
+    @keyframes liquidFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .liquid-float {
+      animation: liquidFloat 6s ease-in-out infinite;
+    }
+    /* Fade In Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Hover Glass Effect */
+    .glass-hover:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+    }
+    /* Background Gradient */
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+  </style>
 </head>
-<body>
+<body class="font-sans">
+  <!-- Navigation -->
+  <nav class="glass-dark fixed w-full top-0 z-50 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-white">Arun Ramkrishna Thangapalam</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="text-white hover:text-blue-200 transition-colors">Home</a></li>
+        <li><a href="#about" class="text-white hover:text-blue-200 transition-colors">About</a></li>
+        <li><a href="#experience" class="text-white hover:text-blue-200 transition-colors">Experience</a></li>
+        <li><a href="#projects" class="text-white hover:text-blue-200 transition-colors">Projects</a></li>
+        <li><a href="#leadership" class="text-white hover:text-blue-200 transition-colors">Leadership</a></li>
+        <li><a href="#contact" class="text-white hover:text-blue-200 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<!-- Navbar -->
-<nav>
-  <div class="logo">Arun T.</div>
-  <div class="menu-toggle">☰</div>
-  <ul>
-    <li><a href="#summary">Summary</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#leadership">Leadership</a></li>
-  </ul>
-</nav>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center text-center py-20 px-4 relative overflow-hidden">
+    <div class="container mx-auto animate__animated animate__fadeInDown">
+      <div class="glass p-8 rounded-3xl max-w-4xl mx-auto glass-hover">
+        <h2 class="text-5xl font-bold mb-4 text-white">Arun Ramkrishna Thangapalam</h2>
+        <p class="text-2xl mb-4 text-blue-100">Computer Science Graduate Student | Full-Stack Developer | AI/ML Enthusiast</p>
+        <p class="text-lg mb-8 text-white/80">Based in Detroit, MI | Passionate about building scalable, intelligent systems</p>
+        <a href="#contact" class="bg-white/20 text-white py-3 px-6 rounded-xl hover:bg-white/30 transition-all glass-hover inline-block">Get in Touch</a>
+      </div>
+    </div>
+    <div class="absolute inset-0 liquid-float opacity-20">
+      <div class="w-full h-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-pulse"></div>
+    </div>
+  </section>
 
-<!-- Hero -->
-<div class="hero fade-in">
-  <h1>Arun Ramkrishna Thangapalam</h1>
-  <h2>Graduate Student | Software Developer</h2>
-  <p>
-    <a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank">LinkedIn</a> | 
-    <a href="https://github.com/" target="_blank">GitHub</a> | 
-    <a href="https://leetcode.com/huharun" target="_blank">LeetCode</a>
-  </p>
-</div>
+  <!-- About Section -->
+  <section id="about" class="py-20 px-4">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+          <p class="text-lg text-white mb-6">
+            I am a graduate student in Computer Science at Wayne State University, with industry and academic experience in full-stack development and machine learning. Proficient in Python, PHP, JavaScript, and modern frameworks, I thrive in agile environments, solving real-world problems with scalable, intelligent systems. I’m seeking opportunities in software engineering and AI/ML to create impactful solutions.
+          </p>
+        </div>
+        <div class="space-y-4 fade-in">
+          <h3 class="text-2xl font-semibold text-white mb-4">Technical Skills</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="glass p-4 rounded-xl text-white glass-hover">
+              <strong>Languages:</strong> Python, PHP, JavaScript, C, HTML, CSS, SQL
+            </div>
+            <div class="glass p-4 rounded-xl text-white glass-hover">
+              <strong>Frameworks & Tools:</strong> React, CodeIgniter, Node.js, Git, VS Code, Jupyter
+            </div>
+            <div class="glass p-4 rounded-xl text-white glass-hover">
+              <strong>Machine Learning & Data:</strong> scikit-learn, Pandas, NumPy, MySQL, MongoDB, Matplotlib
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Summary -->
-<section id="summary" class="fade-in">
-  <h2>Professional Summary</h2>
-  <p>Graduate student in Computer Science with industry and academic experience in full-stack development and machine learning. Proficient in Python, PHP, JavaScript, and modern frameworks. Experienced in agile environments and solving real-world problems with scalable, intelligent systems. Seeking software engineering or AI/ML roles.</p>
-</section>
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 px-4 bg-white/5">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Work Experience</h2>
+      <div class="space-y-8 max-w-4xl mx-auto">
+        <!-- Wayne State University -->
+        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+          <h3 class="text-2xl font-semibold text-white mb-2">Student Assistant — Wayne State University, C&IT</h3>
+          <p class="text-blue-100 mb-4">Aug 2024 – Present | Detroit, MI</p>
+          <ul class="list-disc list-inside space-y-2 text-white/90">
+            <li>Support classroom AV technology and campus IT infrastructure.</li>
+            <li>Troubleshoot hardware/software issues for faculty and students.</li>
+            <li>Maintain computer labs and online learning platforms.</li>
+          </ul>
+        </div>
+        <!-- Enova Software -->
+        <div class="glass p-6 rounded-2xl fade-in delay-300 glass-hover">
+          <h3 class="text-2xl font-semibold text-white mb-2">Junior Developer — Enova Software and Hardware Solutions</h3>
+          <p class="text-blue-100 mb-4">Jun 2022 – Jun 2023</p>
+          <ul class="list-disc list-inside space-y-2 text-white/90">
+            <li>Built and maintained backend features using CodeIgniter, PHP, and MySQL.</li>
+            <li>Developed responsive web interfaces with jQuery and Ajax.</li>
+            <li>Automated student data processing, reducing manual workload by 40%.</li>
+            <li>Collaborated cross-functionally in Agile sprints to deliver production-ready features.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Education -->
-<section id="education" class="fade-in">
-  <h2>Education</h2>
-  <div class="card">
-    <h3>Wayne State University — MS in Computer Science</h3>
-    <p>Expected Dec 2025 | GPA: 3.48</p>
-  </div>
-  <div class="card">
-    <h3>United Institute of Technology — BE in CSE</h3>
-    <p>2018–2022 | GPA: 3.12</p>
-  </div>
-</section>
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-4">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <!-- In-Context Learning vs Fine-Tuning -->
+        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+          <h3 class="text-xl font-semibold mb-2 text-white">In-Context Learning vs Fine-Tuning</h3>
+          <p class="text-blue-100 mb-4">May 2025 | Machine Learning Course Project</p>
+          <p class="text-white/90 mb-4">Built a Streamlit app to compare ICL vs fine-tuned models on QA, classification, and translation using Hugging Face and Ollama (LLaMA3, DeepSeek-R1). Evaluated with F1, BLEU, Accuracy, and BERTScore.</p>
+          <a href="https://github.com/yourusername/icl-vs-finetuning" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View on GitHub →</a>
+        </div>
+        <!-- Phishing Website Detection -->
+        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover">
+          <h3 class="text-xl font-semibold mb-2 text-white">Phishing Website Detection</h3>
+          <p class="text-blue-100 mb-4">Apr 2025 | Intelligent Systems Course Project</p>
+          <p class="text-white/90 mb-4">Trained 11 ML models (e.g., XGBoost, SVM, MLP) to classify phishing URLs with over 95% accuracy. Visualized results using ROC curves and confusion matrices.</p>
+          <a href="https://github.com/yourusername/phishing-detection" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View on GitHub →</a>
+        </div>
+        <!-- Driveway Sealing Management System -->
+        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover">
+          <h3 class="text-xl font-semibold mb-2 text-white">Driveway Sealing Management System</h3>
+          <p class="text-blue-100 mb-4">Dec 2024 | DBMS1 Course Project</p>
+          <p class="text-white/90 mb-4">Built a PHP/MySQL platform for client registration, quote submission, billing, and status tracking with dashboards and SQL reports.</p>
+          <a href="https://github.com/yourusername/driveway-system" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View on GitHub →</a>
+        </div>
+        <!-- Virtual Experience -->
+        <div class="glass p-6 rounded-2xl fade-in delay-600 glass-hover">
+          <h3 class="text-xl font-semibold mb-2 text-white">Virtual Experience — Forage</h3>
+          <p class="text-blue-100 mb-4">Apr–Jul 2024</p>
+          <p class="text-white/90 mb-4">Developed financial visualizations for J.P. Morgan, assessed hashing methods for Goldman Sachs, and designed data dashboards for Tata Consultancy.</p>
+          <a href="https://www.theforage.com/profile/yourprofile" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View Certificates →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Skills -->
-<section id="skills" class="fade-in">
-  <h2>Technical Skills</h2>
-  <ul>
-    <li><strong>Languages:</strong> Python, PHP, JavaScript, C, HTML, CSS, SQL</li>
-    <li><strong>Frameworks & Tools:</strong> React, CodeIgniter, Node.js, Git, VS Code, Jupyter</li>
-    <li><strong>Machine Learning & Data:</strong> scikit-learn, Pandas, NumPy, MySQL, MongoDB, Matplotlib</li>
-  </ul>
-</section>
+  <!-- Leadership & Activities Section -->
+  <section id="leadership" class="py-20 px-4 bg-white/5">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Leadership & Activities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+          <h3 class="text-xl font-semibold mb-2 text-white">Secretary, CSE Department Association</h3>
+          <p class="text-blue-100 mb-4">United Institute of Technology | 2021–2022</p>
+          <p class="text-white/90">Organized events and coordinated activities for the Computer Science department.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover">
+          <h3 class="text-xl font-semibold mb-2 text-white">Member, CSE Department Association</h3>
+          <p class="text-blue-100 mb-4">United Institute of Technology | 2019–2020</p>
+          <p class="text-white/90">Contributed to department initiatives and technical workshops.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover">
+          <h3 class="text-xl font-semibold mb-2 text-white">Hockey & Ball Badminton Player</h3>
+          <p class="text-blue-100 mb-4">University & High School Level</p>
+          <p class="text-white/90">Represented teams in university-level hockey and high school-level ball badminton competitions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Experience -->
-<section id="experience" class="fade-in">
-  <h2>Work Experience</h2>
-  <div class="card">
-    <h3>Student Assistant — Wayne State University, C&IT (Aug 2024 – Present)</h3>
-    <ul>
-      <li>Support classroom AV technology and campus IT infrastructure.</li>
-      <li>Troubleshoot hardware/software issues for faculty and students.</li>
-      <li>Maintain computer labs and online learning platforms.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Junior Developer — Enova Software and Hardware Solutions (Jun 2022 – Jun 2023)</h3>
-    <ul>
-      <li>Built backend features using CodeIgniter, PHP, MySQL.</li>
-      <li>Developed responsive web interfaces with jQuery & Ajax.</li>
-      <li>Automated student data processing, reducing manual workload by 40%.</li>
-    </ul>
-  </div>
-</section>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 text-center">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-12 text-white animate__animated animate__fadeInUp">Get in Touch</h2>
+      <p class="text-xl mb-8 text-white/80">I'm excited to connect for software engineering or AI/ML opportunities!</p>
+      <div class="glass p-8 rounded-3xl max-w-2xl mx-auto fade-in glass-hover">
+        <div class="space-y-4 text-left md:text-center">
+          <p class="text-white">📍 Detroit, MI</p>
+          <p class="text-white">📞 <a href="tel:+13136397215" class="text-blue-200 hover:text-blue-100">(313) 639-7215</a></p>
+          <p class="text-white">✉️ <a href="mailto:arunramkrishna997@gmail.com" class="text-blue-200 hover:text-blue-100">arunramkrishna997@gmail.com</a></p>
+          <div class="flex flex-wrap justify-center space-x-4 mt-4">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-blue-200 hover:text-blue-100">LinkedIn</a> |
+            <a href="https://github.com/yourusername" target="_blank" class="text-blue-200 hover:text-blue-100">GitHub</a> |
+            <a href="https://leetcode.com/yourusername" target="_blank" class="text-blue-200 hover:text-blue-100">LeetCode</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Projects -->
-<section id="projects" class="fade-in">
-  <h2>Projects & Virtual Experience</h2>
-  <div class="card">
-    <h3>In-Context Learning vs Fine-Tuning (May 2025)</h3>
-    <p>Streamlit app comparing ICL vs fine-tuned models on QA, classification, translation using Hugging Face + Ollama.</p>
-    <a class="btn" href="https://github.com/YOUR-ICL-PROJECT" target="_blank">View Project</a>
-  </div>
-  <div class="card">
-    <h3>Phishing Website Detection (Apr 2025)</h3>
-    <p>Trained 11 ML models to classify phishing URLs with 95%+ accuracy. Visualized ROC & confusion matrices.</p>
-    <a class="btn" href="https://github.com/YOUR-PHISHING-PROJECT" target="_blank">View Project</a>
-  </div>
-  <div class="card">
-    <h3>Driveway Sealing Management System (Dec 2024)</h3>
-    <p>PHP/MySQL platform for client registration, quotes, billing, and tracking.</p>
-    <a class="btn" href="https://github.com/YOUR-DBMS-PROJECT" target="_blank">View Project</a>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer class="glass-dark p-4 text-center text-white">
+    <p>&copy; 2025 Arun Ramkrishna Thangapalam. All rights reserved.</p>
+  </footer>
 
-<!-- Leadership -->
-<section id="leadership" class="fade-in">
-  <h2>Leadership & Activities</h2>
-  <ul>
-    <li>Secretary, CSE Department Association, UIT (2021–2022)</li>
-    <li>Member, CSE Department Association, UIT (2019–2020)</li>
-    <li>Hockey (University Level) & Ball Badminton (High School Level)</li>
-  </ul>
-</section>
-
-<footer>
-  <p>© 2025 Arun Ramkrishna Thangapalam | Made with ❤️</p>
-</footer>
-
-<script>
-  // Hamburger menu toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('nav ul');
-  menuToggle.addEventListener('click', ()=>{navLinks.classList.toggle('active');});
-
-  // Scroll fade-in animation
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOnScroll = new IntersectionObserver((entries, observer)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('show'); observer.unobserve(entry.target);}
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
-  }, {threshold:0.2});
-  faders.forEach(fade => appearOnScroll.observe(fade));
-</script>
+
+    // Fade-in on scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Stagger delays for animations
+    document.querySelectorAll('.delay-200').forEach(el => el.style.transitionDelay = '0.2s');
+    document.querySelectorAll('.delay-300').forEach(el => el.style.transitionDelay = '0.3s');
+    document.querySelectorAll('.delay-400').forEach(el => el.style.transitionDelay = '0.4s');
+    document.querySelectorAll('.delay-600').forEach(el => el.style.transitionDelay = '0.6s');
+  </script>
 </body>
 </html>
