@@ -6,88 +6,131 @@
   <title>Arun Ramkrishna Thangapalam - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
   <style>
-    /* Glassmorphism Styles */
+    /* iOS 26-inspired Glassmorphism */
     .glass {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
     .glass-dark {
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(15px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
-    /* Liquid Animation Keyframes */
-    @keyframes liquidFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+    .glass-hover:hover {
+      box-shadow: 0 12px 40px rgba(0, 153, 255, 0.5), 0 0 20px rgba(255, 105, 180, 0.3);
+      transform: translateY(-5px);
     }
-    .liquid-float {
-      animation: liquidFloat 6s ease-in-out infinite;
+    /* Liquid Blob Background */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      mix-blend-mode: overlay;
+      filter: blur(50px);
+      opacity: 0.7;
+      animation: float 15s infinite ease-in-out;
+    }
+    .blob:nth-child(1) {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #ff69b4, transparent);
+      top: 10%;
+      left: 15%;
+      animation-duration: 12s;
+    }
+    .blob:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #667eea, transparent);
+      top: 50%;
+      right: 10%;
+      animation-duration: 18s;
+      animation-delay: -4s;
+    }
+    .blob:nth-child(3) {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, #ff8c00, transparent);
+      bottom: 20%;
+      left: 30%;
+      animation-duration: 14s;
+      animation-delay: -8s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(50px, -30px) scale(1.1); }
+      50% { transform: translate(-40px, 20px) scale(0.9); }
+      75% { transform: translate(30px, 40px) scale(1.05); }
     }
     /* Fade In Animation */
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    /* Hover Glass Effect */
-    .glass-hover:hover {
-      transform: scale(1.02);
-      transition: transform 0.3s ease;
-      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
-    }
-    /* Background Gradient */
+    /* Background */
     body {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #6b48ff 100%);
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
-<body class="font-sans">
+<body class="font-sans relative">
+  <!-- Liquid Blob Background -->
+  <div class="fixed inset-0 z-0">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+  </div>
+
   <!-- Navigation -->
   <nav class="glass-dark fixed w-full top-0 z-50 p-4">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold text-white">Arun Ramkrishna Thangapalam</h1>
       <ul class="flex space-x-6">
-        <li><a href="#home" class="text-white hover:text-blue-200 transition-colors">Home</a></li>
-        <li><a href="#about" class="text-white hover:text-blue-200 transition-colors">About</a></li>
-        <li><a href="#experience" class="text-white hover:text-blue-200 transition-colors">Experience</a></li>
-        <li><a href="#projects" class="text-white hover:text-blue-200 transition-colors">Projects</a></li>
-        <li><a href="#leadership" class="text-white hover:text-blue-200 transition-colors">Leadership</a></li>
-        <li><a href="#contact" class="text-white hover:text-blue-200 transition-colors">Contact</a></li>
+        <li><a href="#home" class="text-white hover:text-pink-300 transition-colors">Home</a></li>
+        <li><a href="#about" class="text-white hover:text-pink-300 transition-colors">About</a></li>
+        <li><a href="#experience" class="text-white hover:text-pink-300 transition-colors">Experience</a></li>
+        <li><a href="#projects" class="text-white hover:text-pink-300 transition-colors">Projects</a></li>
+        <li><a href="#leadership" class="text-white hover:text-pink-300 transition-colors">Leadership</a></li>
+        <li><a href="#contact" class="text-white hover:text-pink-300 transition-colors">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center text-center py-20 px-4 relative overflow-hidden">
+  <section id="home" class="min-h-screen flex items-center justify-center text-center py-20 px-4 relative z-10">
     <div class="container mx-auto animate__animated animate__fadeInDown">
-      <div class="glass p-8 rounded-3xl max-w-4xl mx-auto glass-hover">
+      <div class="glass p-8 rounded-3xl max-w-4xl mx-auto glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
         <h2 class="text-5xl font-bold mb-4 text-white">Arun Ramkrishna Thangapalam</h2>
         <p class="text-2xl mb-4 text-blue-100">Computer Science Graduate Student | Full-Stack Developer | AI/ML Enthusiast</p>
         <p class="text-lg mb-8 text-white/80">Based in Detroit, MI | Passionate about building scalable, intelligent systems</p>
-        <a href="#contact" class="bg-white/20 text-white py-3 px-6 rounded-xl hover:bg-white/30 transition-all glass-hover inline-block">Get in Touch</a>
+        <a href="#contact" class="bg-white/20 text-white py-3 px-6 rounded-xl hover:bg-pink-500/30 transition-all glass-hover inline-block">Get in Touch</a>
       </div>
-    </div>
-    <div class="absolute inset-0 liquid-float opacity-20">
-      <div class="w-full h-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-pulse"></div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-20 px-4">
+  <section id="about" class="py-20 px-4 relative z-10">
     <div class="container mx-auto">
       <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">About Me</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <p class="text-lg text-white mb-6">
             I am a graduate student in Computer Science at Wayne State University, with industry and academic experience in full-stack development and machine learning. Proficient in Python, PHP, JavaScript, and modern frameworks, I thrive in agile environments, solving real-world problems with scalable, intelligent systems. I’m seeking opportunities in software engineering and AI/ML to create impactful solutions.
           </p>
@@ -95,13 +138,13 @@
         <div class="space-y-4 fade-in">
           <h3 class="text-2xl font-semibold text-white mb-4">Technical Skills</h3>
           <div class="grid md:grid-cols-2 gap-4">
-            <div class="glass p-4 rounded-xl text-white glass-hover">
+            <div class="glass p-4 rounded-xl text-white glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
               <strong>Languages:</strong> Python, PHP, JavaScript, C, HTML, CSS, SQL
             </div>
-            <div class="glass p-4 rounded-xl text-white glass-hover">
+            <div class="glass p-4 rounded-xl text-white glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
               <strong>Frameworks & Tools:</strong> React, CodeIgniter, Node.js, Git, VS Code, Jupyter
             </div>
-            <div class="glass p-4 rounded-xl text-white glass-hover">
+            <div class="glass p-4 rounded-xl text-white glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
               <strong>Machine Learning & Data:</strong> scikit-learn, Pandas, NumPy, MySQL, MongoDB, Matplotlib
             </div>
           </div>
@@ -111,12 +154,11 @@
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="py-20 px-4 bg-white/5">
+  <section id="experience" class="py-20 px-4 bg-white/5 relative z-10">
     <div class="container mx-auto">
       <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Work Experience</h2>
       <div class="space-y-8 max-w-4xl mx-auto">
-        <!-- Wayne State University -->
-        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-2xl font-semibold text-white mb-2">Student Assistant — Wayne State University, C&IT</h3>
           <p class="text-blue-100 mb-4">Aug 2024 – Present | Detroit, MI</p>
           <ul class="list-disc list-inside space-y-2 text-white/90">
@@ -125,8 +167,7 @@
             <li>Maintain computer labs and online learning platforms.</li>
           </ul>
         </div>
-        <!-- Enova Software -->
-        <div class="glass p-6 rounded-2xl fade-in delay-300 glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in delay-300 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-2xl font-semibold text-white mb-2">Junior Developer — Enova Software and Hardware Solutions</h3>
           <p class="text-blue-100 mb-4">Jun 2022 – Jun 2023</p>
           <ul class="list-disc list-inside space-y-2 text-white/90">
@@ -141,58 +182,54 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-20 px-4">
+  <section id="projects" class="py-20 px-4 relative z-10">
     <div class="container mx-auto">
       <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-        <!-- In-Context Learning vs Fine-Tuning -->
-        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-xl font-semibold mb-2 text-white">In-Context Learning vs Fine-Tuning</h3>
           <p class="text-blue-100 mb-4">May 2025 | Machine Learning Course Project</p>
           <p class="text-white/90 mb-4">Built a Streamlit app to compare ICL vs fine-tuned models on QA, classification, and translation using Hugging Face and Ollama (LLaMA3, DeepSeek-R1). Evaluated with F1, BLEU, Accuracy, and BERTScore.</p>
-          <a href="https://github.com/yourusername/icl-vs-finetuning" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View on GitHub →</a>
+          <a href="https://github.com/huharun/icl_vs_finetuning" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
         </div>
-        <!-- Phishing Website Detection -->
-        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-xl font-semibold mb-2 text-white">Phishing Website Detection</h3>
           <p class="text-blue-100 mb-4">Apr 2025 | Intelligent Systems Course Project</p>
           <p class="text-white/90 mb-4">Trained 11 ML models (e.g., XGBoost, SVM, MLP) to classify phishing URLs with over 95% accuracy. Visualized results using ROC curves and confusion matrices.</p>
-          <a href="https://github.com/yourusername/phishing-detection" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View on GitHub →</a>
+          <a href="https://github.com/huharun/project_IS" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
         </div>
-        <!-- Driveway Sealing Management System -->
-        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-xl font-semibold mb-2 text-white">Driveway Sealing Management System</h3>
           <p class="text-blue-100 mb-4">Dec 2024 | DBMS1 Course Project</p>
           <p class="text-white/90 mb-4">Built a PHP/MySQL platform for client registration, quote submission, billing, and status tracking with dashboards and SQL reports.</p>
-          <a href="https://github.com/yourusername/driveway-system" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View on GitHub →</a>
+          <a href="https://github.com/huharun/reactmysql/tree/main/project2" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
         </div>
-        <!-- Virtual Experience -->
-        <div class="glass p-6 rounded-2xl fade-in delay-600 glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in delay-600 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-xl font-semibold mb-2 text-white">Virtual Experience — Forage</h3>
           <p class="text-blue-100 mb-4">Apr–Jul 2024</p>
           <p class="text-white/90 mb-4">Developed financial visualizations for J.P. Morgan, assessed hashing methods for Goldman Sachs, and designed data dashboards for Tata Consultancy.</p>
-          <a href="https://www.theforage.com/profile/yourprofile" target="_blank" class="text-blue-200 hover:text-blue-100 transition-colors">View Certificates →</a>
+          <a href="https://github.com/huharun/forage_jpmc_swe_tasks" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Leadership & Activities Section -->
-  <section id="leadership" class="py-20 px-4 bg-white/5">
+  <section id="leadership" class="py-20 px-4 bg-white/5 relative z-10">
     <div class="container mx-auto">
       <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Leadership & Activities</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        <div class="glass p-6 rounded-2xl fade-in glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-xl font-semibold mb-2 text-white">Secretary, CSE Department Association</h3>
           <p class="text-blue-100 mb-4">United Institute of Technology | 2021–2022</p>
           <p class="text-white/90">Organized events and coordinated activities for the Computer Science department.</p>
         </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-xl font-semibold mb-2 text-white">Member, CSE Department Association</h3>
           <p class="text-blue-100 mb-4">United Institute of Technology | 2019–2020</p>
           <p class="text-white/90">Contributed to department initiatives and technical workshops.</p>
         </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover">
+        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
           <h3 class="text-xl font-semibold mb-2 text-white">Hockey & Ball Badminton Player</h3>
           <p class="text-blue-100 mb-4">University & High School Level</p>
           <p class="text-white/90">Represented teams in university-level hockey and high school-level ball badminton competitions.</p>
@@ -202,19 +239,20 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 px-4 text-center">
+  <section id="contact" class="py-20 px-4 text-center relative z-10">
     <div class="container mx-auto">
       <h2 class="text-4xl font-bold mb-12 text-white animate__animated animate__fadeInUp">Get in Touch</h2>
       <p class="text-xl mb-8 text-white/80">I'm excited to connect for software engineering or AI/ML opportunities!</p>
-      <div class="glass p-8 rounded-3xl max-w-2xl mx-auto fade-in glass-hover">
+      <div class="glass p-8 rounded-3xl max-w-2xl mx-auto fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
         <div class="space-y-4 text-left md:text-center">
           <p class="text-white">📍 Detroit, MI</p>
-          <p class="text-white">📞 <a href="tel:+13136397215" class="text-blue-200 hover:text-blue-100">(313) 639-7215</a></p>
-          <p class="text-white">✉️ <a href="mailto:arunramkrishna997@gmail.com" class="text-blue-200 hover:text-blue-100">arunramkrishna997@gmail.com</a></p>
+          <p class="text-white">📞 <a href="tel:+13136397215" class="text-pink-300 hover:text-pink-200">+1 (313) 639-7215</a></p>
+          <p class="text-white">✉️ <a href="mailto:arunramkrishna997@gmail.com" class="text-pink-300 hover:text-pink-200">arunramkrishna997@gmail.com</a></p>
           <div class="flex flex-wrap justify-center space-x-4 mt-4">
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-blue-200 hover:text-blue-100">LinkedIn</a> |
-            <a href="https://github.com/yourusername" target="_blank" class="text-blue-200 hover:text-blue-100">GitHub</a> |
-            <a href="https://leetcode.com/yourusername" target="_blank" class="text-blue-200 hover:text-blue-100">LeetCode</a>
+            <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank" class="text-pink-300 hover:text-pink-200">LinkedIn</a> |
+            <a href="https://github.com/huharun" target="_blank" class="text-pink-300 hover:text-pink-200">GitHub</a> |
+            <a href="https://leetcode.com/u/huharun/" target="_blank" class="text-pink-300 hover:text-pink-200">LeetCode</a> |
+            <a href="https://drive.google.com/file/d/1B7WJlyEkSRk2rOZV8K6TzaIioYmKZMmA/view" target="_blank" class="text-pink-300 hover:text-pink-200">Resume</a>
           </div>
         </div>
       </div>
@@ -222,7 +260,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="glass-dark p-4 text-center text-white">
+  <footer class="glass-dark p-4 text-center text-white relative z-10">
     <p>&copy; 2025 Arun Ramkrishna Thangapalam. All rights reserved.</p>
   </footer>
 
@@ -260,6 +298,15 @@
     document.querySelectorAll('.delay-300').forEach(el => el.style.transitionDelay = '0.3s');
     document.querySelectorAll('.delay-400').forEach(el => el.style.transitionDelay = '0.4s');
     document.querySelectorAll('.delay-600').forEach(el => el.style.transitionDelay = '0.6s');
+
+    // Initialize VanillaTilt for 3D tilt effect
+    VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+      max: 5,
+      speed: 400,
+      perspective: 1000,
+      glare: true,
+      'max-glare': 0.3
+    });
   </script>
 </body>
 </html>
