@@ -1,176 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arun Ramkrishna Thangapalam - Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-/* ===== Root Variables ===== */
-:root {
-    --nav-height: 64px;
-}
-
-/* ===== Body & Background ===== */
-body {
-    margin: 0;
-    min-height: 300vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
-    color: #f3f4f6;
-    background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.05), rgba(0,0,0,0)) 0 0 / cover,
-                radial-gradient(circle at 75% 75%, rgba(200,220,255,0.06), rgba(0,0,0,0)) 0 0 / cover,
-                #000000;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-/* ===== Parallax Background ===== */
-.parallax-bg {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), rgba(255,255,255,0) 70%),
-                radial-gradient(circle at 70% 70%, rgba(200,220,255,0.06), rgba(0,0,0,0) 70%),
-                #000000;
-    z-index: -2;
-}
-
-/* ===== Navigation ===== */
-nav {
-    height: var(--nav-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 50;
-    background: rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(173,216,230,0.1);
-}
-
-nav.scrolled {
-    background: rgba(0,0,0,0.4);
-}
-
-.nav-menu {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-item {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-}
-
-/* ===== Glass Cards ===== */
-.glass {
-    position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 32px;
-    backdrop-filter: blur(3px) saturate(180%);
-    -webkit-backdrop-filter: blur(3px) saturate(180%);
-    box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2), inset 0 0 12px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    will-change: transform, box-shadow;
-}
-
-/* Static overlay for depth */
-.glass::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 32px;
-    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.1));
-    mix-blend-mode: overlay;
-    z-index: 0;
-}
-
-.glass > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* Hover effect: subtle lift + glow */
-.glass:hover {
-    transform: translateY(-4px);
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.25), 
-                inset 0 0 15px rgba(255,255,255,0.15), 
-                0 0 20px rgba(173,216,230,0.2);
-}
-
-/* ===== Inputs & Buttons ===== */
-.liquid-button, .liquid-input {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    backdrop-filter: blur(3px) saturate(150%);
-    -webkit-backdrop-filter: blur(3px) saturate(150%);
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
-}
-
-.liquid-button:hover, .liquid-input:focus {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.25);
-}
-
-/* ===== Footer ===== */
-footer {
-    padding: 0 1rem;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 50;
-    background: rgba(0,0,0,0.1);
-    border-top: 1px solid rgba(173,216,230,0.1);
-}
-
-/* ===== Star Canvas ===== */
-#star-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Ramkrishna Thangapalam - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ================== ROOT VARIABLES ================== */
+        :root {
+            --nav-height: 64px;
+        }
+        
+        /* ================== BODY & BACKGROUND ================== */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
+            color: #f3f4f6;
+            background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.05), rgba(0,0,0,0)),
+            radial-gradient(circle at 75% 75%, rgba(200,220,255,0.06), rgba(0,0,0,0)), #000;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main, section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ================== PARALLAX BACKGROUND ================== */
+        .parallax-bg {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: -2;
+        }
+        
+        /* ================== NAVIGATION ================== */
+        nav {
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            background: rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(173,216,230,0.1);
+            transition: background 0.3s;
+            overflow: hidden; /* keep distortion inside */
+        }
+        
+        nav.scrolled {
+            background: rgba(0,0,0,0.4);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: background 0.3s;
+        }
+        
+        .nav-item.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* ================== GLASS EFFECT CARDS ================== */
+        .glass {
+            position: relative;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 32px;
+            backdrop-filter: blur(2px) saturate(180%);
+            -webkit-backdrop-filter: blur(2px) saturate(180%);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .glass:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        
+        .glass p, .glass strong, .glass h1, .glass h3, .glass a {
+            color: #f3f4f6;
+        }
+        
+        .glass::before { display: none; }
+        .glass::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            z-index: -1;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            filter: url(#glass-distortion);
+            -webkit-filter: url(#glass-distortion);
+        }
+        
+        /* ================== LIQUID BUTTONS & INPUTS ================== */
+        .liquid-button, .liquid-input {
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            backdrop-filter: blur(3px) saturate(150%);
+            -webkit-backdrop-filter: blur(3px) saturate(150%);
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .liquid-button:hover, .liquid-input:focus {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.25);
+        }
+        
+        .liquid-button::after, .liquid-input::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            z-index: -1;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            filter: url(#glass-distortion);
+            -webkit-filter: url(#glass-distortion);
+        }
+        
+        /* ================== ANIMATIONS ================== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        /* ================== NAV & FOOTER DISTORTION ================== */
+        nav::after, footer::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            filter: url(#glass-distortion);
+            -webkit-filter: url(#glass-distortion);
+        }
+        
+        /* ================== FOOTER ================== */
+        footer {
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(173,216,230,0.1);
+            margin-top: auto;
+        }
+        
+        /* ================== STAR CANVAS ================== */
+        #star-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
-<div class="parallax-bg"></div>
-<canvas id="star-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></canvas>
-
-<!-- NAV -->
-<nav>
-    <h1 class="text-xl md:text-2xl font-medium">Arun Ramkrishna Thangapalam</h1>
-    <ul class="nav-menu">
-        <li class="nav-item" data-target="#home">Home</li>
-        <li class="nav-item" data-target="#about">About</li>
-        <li class="nav-item" data-target="#experience">Experience</li>
-        <li class="nav-item" data-target="#projects">Projects</li>
-        <li class="nav-item" data-target="#leadership">Leadership</li>
-        <li class="nav-item" data-target="#contact">Contact</li>
-    </ul>
-</nav>
-
-<!-- HOME -->
+    <div class="parallax-bg"></div>
+    <canvas id="star-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></canvas>
+    <svg style="display:none;">
+        <filter id="glass-distortion">
+            <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" result="turb"/>
+            <feDisplacementMap in="SourceGraphic" in2="turb" scale="10"/>
+        </filter>
+    </svg>
+    <!-- NAV -->
+    <nav>
+        <h1 class="text-xl md:text-2xl font-medium">Arun Ramkrishna Thangapalam</h1>
+        <ul class="nav-menu">
+            <li class="nav-item" data-target="#home">Home</li>
+            <li class="nav-item" data-target="#about">About</li>
+            <li class="nav-item" data-target="#experience">Experience</li>
+            <li class="nav-item" data-target="#projects">Projects</li>
+            <li class="nav-item" data-target="#leadership">Leadership</li>
+            <li class="nav-item" data-target="#contact">Contact</li>
+        </ul>
+    </nav>
+    
+    <!-- HOME -->
     <section id="home" class="min-h-screen flex items-center justify-center text-center py-20 px-4 relative z-10">
         <div class="container mx-auto">
             <div class="glass p-12 rounded-3xl">
                 <h1 class="text-5xl font-medium mb-4">Arun Ramkrishna Thangapalam</h1>
                 <p class="text-2xl mb-4 text-gray-200">Computer Science Graduate Student | Full-Stack Developer | AI/ML Enthusiast</p>
                 <p class="text-lg mb-8 text-gray-400">Based in Detroit, MI | Passionate about building scalable, intelligent systems</p>
-                <a href="#contact" class="bg-white/20 py-3 px-6 rounded-2xl inline-block">Get in Touch</a>
+                <a href="#contact" class="glass py-3 px-6 rounded-2xl inline-block mt-4">Get in Touch</a>
+                <a href="https://drive.google.com/file/d/13_MfvVnZ82MwHvPEqBwIx2vBVsVmyh29/view" target="_blank" class="glass py-3 px-6 rounded-2xl inline-block mt-4">Download Resume</a>
             </div>
         </div>
     </section>
@@ -202,7 +246,7 @@ footer {
     </section>
     
     <!-- EXPERIENCE -->
-    <section id="experience" class="py-20 px-4 bg-white/5 relative z-10">
+    <section id="experience" class="py-20 px-4 relative z-10">
         <div class="container mx-auto">
             <h2 class="text-4xl font-medium text-center mb-12">Work Experience</h2>
             <div class="space-y-8 max-w-4xl mx-auto">
@@ -272,7 +316,7 @@ footer {
     </section>
     
     <!-- LEADERSHIP -->
-    <section id="leadership" class="py-20 px-4 bg-white/5 relative z-10">
+    <section id="leadership" class="py-20 px-4 relative z-10">
         <div class="container mx-auto">
             <h2 class="text-4xl font-medium text-center mb-12">Leadership & Activities</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -311,7 +355,6 @@ footer {
                     <p>📍 Detroit, MI</p>
                     <p>📞 <a href="tel:+13136397215">+1 (313) 639-7215</a></p>
                     <p>✉️ <a href="mailto:arunramkrishna997@gmail.com">arunramkrishna997@gmail.com</a></p>
-                    <p>💬 <a href="https://wa.me/13136397215">WhatsApp: +1 (313) 639-7215</a></p>
                     <div class="flex flex-wrap justify-center space-x-4 mt-4">
                         <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -333,68 +376,109 @@ footer {
             </div>
         </div>
     </section>
-
-<footer class=" p-4 text-center">&copy; 2025 Arun Thangapalam</footer>
-
-<script>
-// Smooth scroll for nav
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const target = document.querySelector(item.dataset.target);
-        target.scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-// Form demo
-document.getElementById('email-form').addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Message sent! (demo)');
-});
-
-// Canvas stars
-const canvas = document.getElementById('star-canvas');
-const ctx = canvas.getContext('2d');
-
-let stars = [];
-const colors = ['#ffffff', '#fffae3', '#ccffff'];
-const STAR_COUNT = 200;
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-for (let i = 0; i < STAR_COUNT; i++) {
-    stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 0.6 + 0.3,
-        speed: Math.random() * 0.2 + 0.05,
-        flicker: Math.random() * 0.05,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        phase: Math.random() * Math.PI * 2
-    });
-}
-
-function drawStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    stars.forEach(star => {
-        star.y -= star.speed;
-        if (star.y < 0) star.y = canvas.height;
-        const alpha = 0.7 + Math.sin(Date.now() * 0.005 + star.phase) * star.flicker;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = star.color;
-        ctx.globalAlpha = alpha;
-        ctx.fill();
-    });
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(drawStars);
-}
-
-drawStars();
-</script>
+    
+    <footer class=" p-4 text-center">&copy; 2025 Arun Thangapalam</footer>
+    
+    
+    <script>
+        // ================== NAVIGATION ==================
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('section');
+        
+        // Smooth scroll to section on nav click
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelector(item.dataset.target).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Highlight active nav item and add scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('scrolled', window.scrollY > 10);
+            
+            let current = '';
+            sections.forEach(sec => {
+                if (window.scrollY >= sec.offsetTop - nav.offsetHeight) current = sec.id;
+            });
+            
+            navItems.forEach(item => {
+                item.classList.toggle('active', item.dataset.target === '#' + current);
+            });
+        });
+        
+        // ================== INTERSECTION OBSERVER ==================
+        // Animate sections on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(sec => observer.observe(sec));
+        
+        // ================== EMAIL FORM ==================
+        const emailForm = document.getElementById('email-form');
+        emailForm.addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Message sent! (demo)');
+        });
+        
+        // ================== STAR CANVAS ==================
+        const canvas = document.getElementById('star-canvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        const colors = ['#ffffff', '#fffae3', '#ccffff', '#ffd700', '#ff69b4', '#00ffff', '#7fffd4', '#ff4500'];
+        
+        // Resize canvas and generate stars
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            stars = Array.from({ length: Math.min(300, Math.floor(window.innerWidth / 3)) }, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() + 0.5,
+                speed: Math.random() * 0.3 + 0.05,
+                flicker: Math.random() * 0.5,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                phase: Math.random() * Math.PI * 2
+            }));
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        // Draw stars with flickering animation
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(s => {
+                s.y -= s.speed;
+                if (s.y < 0) s.y = canvas.height;
+                
+                const alpha = 0.5 + Math.sin(Date.now() * 0.005 + s.phase) * s.flicker;
+                ctx.save();
+                ctx.globalAlpha = alpha;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                ctx.fillStyle = s.color;
+                ctx.fill();
+                ctx.restore();
+            });
+            requestAnimationFrame(drawStars);
+        }
+        drawStars();
+        
+        // ================== GLASS DISTORTION ANIMATION ==================
+        const feTurbulence = document.querySelector('feTurbulence');
+        function animateDistortion() {
+            const time = Date.now() * 0.002;
+            feTurbulence.setAttribute('baseFrequency', 0.03 + Math.sin(time) * 0.01);
+            requestAnimationFrame(animateDistortion);
+        }
+        animateDistortion();
+    </script>
 </body>
 </html>
