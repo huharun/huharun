@@ -1,312 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arun Ramkrishna Thangapalam - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-  <style>
-    /* iOS 26-inspired Glassmorphism */
-    .glass {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    .glass-dark {
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(15px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-    .glass-hover:hover {
-      box-shadow: 0 12px 40px rgba(0, 153, 255, 0.5), 0 0 20px rgba(255, 105, 180, 0.3);
-      transform: translateY(-5px);
-    }
-    /* Liquid Blob Background */
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      mix-blend-mode: overlay;
-      filter: blur(50px);
-      opacity: 0.7;
-      animation: float 15s infinite ease-in-out;
-    }
-    .blob:nth-child(1) {
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, #ff69b4, transparent);
-      top: 10%;
-      left: 15%;
-      animation-duration: 12s;
-    }
-    .blob:nth-child(2) {
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, #667eea, transparent);
-      top: 50%;
-      right: 10%;
-      animation-duration: 18s;
-      animation-delay: -4s;
-    }
-    .blob:nth-child(3) {
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, #ff8c00, transparent);
-      bottom: 20%;
-      left: 30%;
-      animation-duration: 14s;
-      animation-delay: -8s;
-    }
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(50px, -30px) scale(1.1); }
-      50% { transform: translate(-40px, 20px) scale(0.9); }
-      75% { transform: translate(30px, 40px) scale(1.05); }
-    }
-    /* Fade In Animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* Background */
-    body {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #6b48ff 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arun Ramkrishna Thangapalam - Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+/* ===== Root Variables ===== */
+:root {
+    --nav-height: 64px;
+}
+
+/* ===== Body & Background ===== */
+body {
+    margin: 0;
+    min-height: 300vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
+    color: #f3f4f6;
+    background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.05), rgba(0,0,0,0)) 0 0 / cover,
+                radial-gradient(circle at 75% 75%, rgba(200,220,255,0.06), rgba(0,0,0,0)) 0 0 / cover,
+                #000000;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ===== Parallax Background ===== */
+.parallax-bg {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), rgba(255,255,255,0) 70%),
+                radial-gradient(circle at 70% 70%, rgba(200,220,255,0.06), rgba(0,0,0,0) 70%),
+                #000000;
+    z-index: -2;
+}
+
+/* ===== Navigation ===== */
+nav {
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+    background: rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(173,216,230,0.1);
+}
+
+nav.scrolled {
+    background: rgba(0,0,0,0.4);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+}
+
+/* ===== Glass Cards ===== */
+.glass {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 32px;
+    backdrop-filter: blur(3px) saturate(180%);
+    -webkit-backdrop-filter: blur(3px) saturate(180%);
+    box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2), inset 0 0 12px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    will-change: transform, box-shadow;
+}
+
+/* Static overlay for depth */
+.glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+    mix-blend-mode: overlay;
+    z-index: 0;
+}
+
+.glass > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effect: subtle lift + glow */
+.glass:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.25), 
+                inset 0 0 15px rgba(255,255,255,0.15), 
+                0 0 20px rgba(173,216,230,0.2);
+}
+
+/* ===== Inputs & Buttons ===== */
+.liquid-button, .liquid-input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(3px) saturate(150%);
+    -webkit-backdrop-filter: blur(3px) saturate(150%);
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.liquid-button:hover, .liquid-input:focus {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+}
+
+/* ===== Footer ===== */
+footer {
+    padding: 0 1rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 50;
+    background: rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(173,216,230,0.1);
+}
+
+/* ===== Star Canvas ===== */
+#star-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+</style>
 </head>
-<body class="font-sans relative">
-  <!-- Liquid Blob Background -->
-  <div class="fixed inset-0 z-0">
-    <div class="blob"></div>
-    <div class="blob"></div>
-    <div class="blob"></div>
-  </div>
+<body>
+<div class="parallax-bg"></div>
+<canvas id="star-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></canvas>
 
-  <!-- Navigation -->
-  <nav class="glass-dark fixed w-full top-0 z-50 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-white">Arun Ramkrishna Thangapalam</h1>
-      <ul class="flex space-x-6">
-        <li><a href="#home" class="text-white hover:text-pink-300 transition-colors">Home</a></li>
-        <li><a href="#about" class="text-white hover:text-pink-300 transition-colors">About</a></li>
-        <li><a href="#experience" class="text-white hover:text-pink-300 transition-colors">Experience</a></li>
-        <li><a href="#projects" class="text-white hover:text-pink-300 transition-colors">Projects</a></li>
-        <li><a href="#leadership" class="text-white hover:text-pink-300 transition-colors">Leadership</a></li>
-        <li><a href="#contact" class="text-white hover:text-pink-300 transition-colors">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+    <h1 class="text-xl md:text-2xl font-medium">Arun Ramkrishna Thangapalam</h1>
+    <ul class="nav-menu">
+        <li class="nav-item" data-target="#home">Home</li>
+        <li class="nav-item" data-target="#about">About</li>
+        <li class="nav-item" data-target="#experience">Experience</li>
+        <li class="nav-item" data-target="#projects">Projects</li>
+        <li class="nav-item" data-target="#leadership">Leadership</li>
+        <li class="nav-item" data-target="#contact">Contact</li>
+    </ul>
+</nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center text-center py-20 px-4 relative z-10">
-    <div class="container mx-auto animate__animated animate__fadeInDown">
-      <div class="glass p-8 rounded-3xl max-w-4xl mx-auto glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-        <h2 class="text-5xl font-bold mb-4 text-white">Arun Ramkrishna Thangapalam</h2>
-        <p class="text-2xl mb-4 text-blue-100">Computer Science Graduate Student | Full-Stack Developer | AI/ML Enthusiast</p>
-        <p class="text-lg mb-8 text-white/80">Based in Detroit, MI | Passionate about building scalable, intelligent systems</p>
-        <a href="#contact" class="bg-white/20 text-white py-3 px-6 rounded-xl hover:bg-pink-500/30 transition-all glass-hover inline-block">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 px-4 relative z-10">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">About Me</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <p class="text-lg text-white mb-6">
-            I am a graduate student in Computer Science at Wayne State University, with industry and academic experience in full-stack development and machine learning. Proficient in Python, PHP, JavaScript, and modern frameworks, I thrive in agile environments, solving real-world problems with scalable, intelligent systems. I’m seeking opportunities in software engineering and AI/ML to create impactful solutions.
-          </p>
-        </div>
-        <div class="space-y-4 fade-in">
-          <h3 class="text-2xl font-semibold text-white mb-4">Technical Skills</h3>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="glass p-4 rounded-xl text-white glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-              <strong>Languages:</strong> Python, PHP, JavaScript, C, HTML, CSS, SQL
+<!-- HOME -->
+    <section id="home" class="min-h-screen flex items-center justify-center text-center py-20 px-4 relative z-10">
+        <div class="container mx-auto">
+            <div class="glass p-12 rounded-3xl">
+                <h1 class="text-5xl font-medium mb-4">Arun Ramkrishna Thangapalam</h1>
+                <p class="text-2xl mb-4 text-gray-200">Computer Science Graduate Student | Full-Stack Developer | AI/ML Enthusiast</p>
+                <p class="text-lg mb-8 text-gray-400">Based in Detroit, MI | Passionate about building scalable, intelligent systems</p>
+                <a href="#contact" class="bg-white/20 py-3 px-6 rounded-2xl inline-block">Get in Touch</a>
             </div>
-            <div class="glass p-4 rounded-xl text-white glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-              <strong>Frameworks & Tools:</strong> React, CodeIgniter, Node.js, Git, VS Code, Jupyter
+        </div>
+    </section>
+    
+    <!-- ABOUT -->
+    <section id="about" class="py-20 px-4 relative z-10">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-medium text-center mb-12">About Me</h2>
+            
+            <div class="glass p-6 rounded-3xl mb-8">
+                <p class="text-lg text-gray-200">
+                    I am a graduate student in Computer Science at Wayne State University, with industry and academic experience in full-stack development and machine learning. Proficient in Python, PHP, JavaScript, and modern frameworks, I thrive in agile environments, solving real-world problems with scalable, intelligent systems. I’m seeking opportunities in software engineering and AI/ML to create impactful solutions.
+                </p>
             </div>
-            <div class="glass p-4 rounded-xl text-white glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-              <strong>Machine Learning & Data:</strong> scikit-learn, Pandas, NumPy, MySQL, MongoDB, Matplotlib
+            
+            <h3 class="text-2xl font-medium mb-4 text-center">Technical Skills</h3>
+            <div class="space-y-4 max-w-3xl mx-auto">
+                <div class="glass p-4 rounded-2xl">
+                    <strong>Languages:</strong> Python, PHP, JavaScript, C, HTML, CSS, SQL
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <strong>Frameworks & Tools:</strong> React, CodeIgniter, Node.js, Git, VS Code, Jupyter
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <strong>Machine Learning & Data:</strong> scikit-learn, Pandas, NumPy, MySQL, MongoDB, Matplotlib
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-20 px-4 bg-white/5 relative z-10">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-medium text-center mb-12">Work Experience</h2>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-2xl font-medium mb-2">Student Assistant — Wayne State University, C&IT</h3>
+                    <p class="text-gray-200 mb-4">Aug 2024 – Present | Detroit, MI</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-400">
+                        <li>Support classroom AV technology and campus IT infrastructure.</li>
+                        <li>Troubleshoot hardware/software issues for faculty and students.</li>
+                        <li>Maintain computer labs and online learning platforms.</li>
+                    </ul>
+                </div>
+                <div class="glass p-6 rounded-3xl">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <h3 class="text-2xl font-medium">Junior Developer — Enova Software and Hardware Solutions</h3>
+                        <a href="https://drive.google.com/file/d/1B7WJlyEkSRk2rOZV8K6TzaIioYmKZMmA/view" target="_blank" aria-label="View detailed resume for Junior Developer role at Enova">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/>
+                                <path d="M14 2v6h6"/>
+                                <path d="M12 18v-6m-3 3h6"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-gray-200 mb-4">Jun 2022 – Jun 2023</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-400">
+                        <li>Built and maintained backend features using CodeIgniter, PHP, and MySQL.</li>
+                        <li>Developed responsive web interfaces with jQuery and Ajax.</li>
+                        <li>Automated student data processing, reducing manual workload by 40%.</li>
+                        <li>Collaborated cross-functionally in Agile sprints to deliver production-ready features.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 px-4 relative z-10">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-medium text-center mb-12">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">In-Context Learning vs Fine-Tuning</h3>
+                    <p class="text-gray-200 mb-4">May 2025 | Machine Learning Course Project</p>
+                    <p class="text-gray-400 mb-4">Built a Streamlit app to compare ICL vs fine-tuned models on QA, classification, and translation using Hugging Face and Ollama (LLaMA3, DeepSeek-R1). Evaluated with F1, BLEU, Accuracy, and BERTScore.</p>
+                    <a href="https://github.com/huharun/icl_vs_finetuning" target="_blank" aria-label="View In-Context Learning vs Fine-Tuning project on GitHub">View on GitHub →</a>
+                </div>
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">Phishing Website Detection</h3>
+                    <p class="text-gray-200 mb-4">Apr 2025 | Intelligent Systems Course Project</p>
+                    <p class="text-gray-400 mb-4">Trained 11 ML models (e.g., XGBoost, SVM, MLP) to classify phishing URLs with over 95% accuracy. Visualized results using ROC curves and confusion matrices.</p>
+                    <a href="https://github.com/huharun/project_IS" target="_blank" aria-label="View Phishing Website Detection project on GitHub">View on GitHub →</a>
+                </div>
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">Driveway Sealing Management System</h3>
+                    <p class="text-gray-200 mb-4">Dec 2024 | DBMS1 Course Project</p>
+                    <p class="text-gray-400 mb-4">Built a PHP/MySQL platform for client registration, quote submission, billing, and status tracking with dashboards and SQL reports.</p>
+                    <a href="https://github.com/huharun/reactmysql/tree/main/project2" target="_blank" aria-label="View Driveway Sealing Management System project on GitHub">View on GitHub →</a>
+                </div>
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">Virtual Experience — Forage</h3>
+                    <p class="text-gray-200 mb-4">Apr–Jul 2024</p>
+                    <p class="text-gray-400 mb-4">Developed financial visualizations for J.P. Morgan, assessed hashing methods for Goldman Sachs, and designed data dashboards for Tata Consultancy.</p>
+                    <a href="https://github.com/huharun/forage_jpmc_swe_tasks" target="_blank" aria-label="View Forage Virtual Experience project on GitHub">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="py-20 px-4 bg-white/5 relative z-10">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-medium text-center mb-12">Leadership & Activities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">Secretary, CSE Department Association</h3>
+                    <p class="text-gray-200 mb-4">United Institute of Technology | 2021–2022</p>
+                    <p class="text-gray-400">Organized events and coordinated activities for the Computer Science department.</p>
+                </div>
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">Member, CSE Department Association</h3>
+                    <p class="text-gray-200 mb-4">United Institute of Technology | 2019–2020</p>
+                    <p class="text-gray-400">Contributed to department initiatives and technical workshops.</p>
+                </div>
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">Hockey & Ball Badminton Player</h3>
+                    <p class="text-gray-200 mb-4">University & High School Level</p>
+                    <p class="text-gray-400">Represented teams in university-level hockey and high school-level ball badminton competitions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 px-4 text-center relative z-10">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-medium mb-12">Get in Touch</h2>
+            <p class="text-xl mb-8 text-gray-400">I'm excited to connect for software engineering or AI/ML opportunities!</p>
+            <div class="glass p-8 rounded-3xl max-w-2xl mx-auto">
+                <form id="email-form" class="space-y-4">
+                    <input type="text" id="email-name" placeholder="Your Name" class="glass p-3 w-full rounded-lg focus:outline-none liquid-input" required>
+                    <input type="email" id="email-email" placeholder="Your Email" class="glass p-3 w-full rounded-lg focus:outline-none liquid-input" required>
+                    <textarea id="email-message" placeholder="Your Message" class="glass p-3 w-full rounded-lg focus:outline-none liquid-input" rows="4" required></textarea>
+                    <button type="submit" class="glass p-3 rounded-2xl w-full liquid-button">Send Email</button>
+                </form>
+                <div class="space-y-4 text-left md:text-center mt-4">
+                    <p>📍 Detroit, MI</p>
+                    <p>📞 <a href="tel:+13136397215">+1 (313) 639-7215</a></p>
+                    <p>✉️ <a href="mailto:arunramkrishna997@gmail.com">arunramkrishna997@gmail.com</a></p>
+                    <p>💬 <a href="https://wa.me/13136397215">WhatsApp: +1 (313) 639-7215</a></p>
+                    <div class="flex flex-wrap justify-center space-x-4 mt-4">
+                        <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/huharun" target="_blank">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.419-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.304-.536-1.528.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.655 1.648.243 2.872.12 3.176.769.84 1.235 1.91 1.235 3.221 0 4.61-2.807 5.625-5.479 5.921.431.372.814 1.103.814 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://leetcode.com/u/huharun/" target="_blank">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L.439 12.525a1.5 1.5 0 0 0 0 2.034l12.083 12.087a1.374 1.374 0 0 0 1.946 0l8.093-8.093a1.374 1.374 0 0 0 0-1.946l-8.093-8.094a1.374 1.374 0 0 0-.985-.438Zm-1.465 19.593a.627.627 0 0 1-.887 0l-3.543-3.543a.627.627 0 0 1 0-.887l3.543-3.543a.627.627 0 0 1 .887 0l3.543 3.543a.627.627 0 0 1 0 .887Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Experience Section -->
-  <section id="experience" class="py-20 px-4 bg-white/5 relative z-10">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Work Experience</h2>
-      <div class="space-y-8 max-w-4xl mx-auto">
-        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-2xl font-semibold text-white mb-2">Student Assistant — Wayne State University, C&IT</h3>
-          <p class="text-blue-100 mb-4">Aug 2024 – Present | Detroit, MI</p>
-          <ul class="list-disc list-inside space-y-2 text-white/90">
-            <li>Support classroom AV technology and campus IT infrastructure.</li>
-            <li>Troubleshoot hardware/software issues for faculty and students.</li>
-            <li>Maintain computer labs and online learning platforms.</li>
-          </ul>
-        </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-300 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-2xl font-semibold text-white mb-2">Junior Developer — Enova Software and Hardware Solutions</h3>
-          <p class="text-blue-100 mb-4">Jun 2022 – Jun 2023</p>
-          <ul class="list-disc list-inside space-y-2 text-white/90">
-            <li>Built and maintained backend features using CodeIgniter, PHP, and MySQL.</li>
-            <li>Developed responsive web interfaces with jQuery and Ajax.</li>
-            <li>Automated student data processing, reducing manual workload by 40%.</li>
-            <li>Collaborated cross-functionally in Agile sprints to deliver production-ready features.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<footer class=" p-4 text-center">&copy; 2025 Arun Thangapalam</footer>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 px-4 relative z-10">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-xl font-semibold mb-2 text-white">In-Context Learning vs Fine-Tuning</h3>
-          <p class="text-blue-100 mb-4">May 2025 | Machine Learning Course Project</p>
-          <p class="text-white/90 mb-4">Built a Streamlit app to compare ICL vs fine-tuned models on QA, classification, and translation using Hugging Face and Ollama (LLaMA3, DeepSeek-R1). Evaluated with F1, BLEU, Accuracy, and BERTScore.</p>
-          <a href="https://github.com/huharun/icl_vs_finetuning" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
-        </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-xl font-semibold mb-2 text-white">Phishing Website Detection</h3>
-          <p class="text-blue-100 mb-4">Apr 2025 | Intelligent Systems Course Project</p>
-          <p class="text-white/90 mb-4">Trained 11 ML models (e.g., XGBoost, SVM, MLP) to classify phishing URLs with over 95% accuracy. Visualized results using ROC curves and confusion matrices.</p>
-          <a href="https://github.com/huharun/project_IS" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
-        </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-xl font-semibold mb-2 text-white">Driveway Sealing Management System</h3>
-          <p class="text-blue-100 mb-4">Dec 2024 | DBMS1 Course Project</p>
-          <p class="text-white/90 mb-4">Built a PHP/MySQL platform for client registration, quote submission, billing, and status tracking with dashboards and SQL reports.</p>
-          <a href="https://github.com/huharun/reactmysql/tree/main/project2" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
-        </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-600 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-xl font-semibold mb-2 text-white">Virtual Experience — Forage</h3>
-          <p class="text-blue-100 mb-4">Apr–Jul 2024</p>
-          <p class="text-white/90 mb-4">Developed financial visualizations for J.P. Morgan, assessed hashing methods for Goldman Sachs, and designed data dashboards for Tata Consultancy.</p>
-          <a href="https://github.com/huharun/forage_jpmc_swe_tasks" target="_blank" class="text-pink-300 hover:text-pink-200 transition-colors">View on GitHub →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Leadership & Activities Section -->
-  <section id="leadership" class="py-20 px-4 bg-white/5 relative z-10">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12 text-white animate__animated animate__fadeInUp">Leadership & Activities</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        <div class="glass p-6 rounded-2xl fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-xl font-semibold mb-2 text-white">Secretary, CSE Department Association</h3>
-          <p class="text-blue-100 mb-4">United Institute of Technology | 2021–2022</p>
-          <p class="text-white/90">Organized events and coordinated activities for the Computer Science department.</p>
-        </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-200 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-xl font-semibold mb-2 text-white">Member, CSE Department Association</h3>
-          <p class="text-blue-100 mb-4">United Institute of Technology | 2019–2020</p>
-          <p class="text-white/90">Contributed to department initiatives and technical workshops.</p>
-        </div>
-        <div class="glass p-6 rounded-2xl fade-in delay-400 glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-          <h3 class="text-xl font-semibold mb-2 text-white">Hockey & Ball Badminton Player</h3>
-          <p class="text-blue-100 mb-4">University & High School Level</p>
-          <p class="text-white/90">Represented teams in university-level hockey and high school-level ball badminton competitions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 px-4 text-center relative z-10">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-12 text-white animate__animated animate__fadeInUp">Get in Touch</h2>
-      <p class="text-xl mb-8 text-white/80">I'm excited to connect for software engineering or AI/ML opportunities!</p>
-      <div class="glass p-8 rounded-3xl max-w-2xl mx-auto fade-in glass-hover" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-        <div class="space-y-4 text-left md:text-center">
-          <p class="text-white">📍 Detroit, MI</p>
-          <p class="text-white">📞 <a href="tel:+13136397215" class="text-pink-300 hover:text-pink-200">+1 (313) 639-7215</a></p>
-          <p class="text-white">✉️ <a href="mailto:arunramkrishna997@gmail.com" class="text-pink-300 hover:text-pink-200">arunramkrishna997@gmail.com</a></p>
-          <div class="flex flex-wrap justify-center space-x-4 mt-4">
-            <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank" class="text-pink-300 hover:text-pink-200">LinkedIn</a> |
-            <a href="https://github.com/huharun" target="_blank" class="text-pink-300 hover:text-pink-200">GitHub</a> |
-            <a href="https://leetcode.com/u/huharun/" target="_blank" class="text-pink-300 hover:text-pink-200">LeetCode</a> |
-            <a href="https://drive.google.com/file/d/1B7WJlyEkSRk2rOZV8K6TzaIioYmKZMmA/view" target="_blank" class="text-pink-300 hover:text-pink-200">Resume</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="glass-dark p-4 text-center text-white relative z-10">
-    <p>&copy; 2025 Arun Ramkrishna Thangapalam. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
+<script>
+// Smooth scroll for nav
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const target = document.querySelector(item.dataset.target);
+        target.scrollIntoView({ behavior: 'smooth' });
     });
+});
 
-    // Fade-in on scroll animation
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+// Form demo
+document.getElementById('email-form').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Message sent! (demo)');
+});
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
+// Canvas stars
+const canvas = document.getElementById('star-canvas');
+const ctx = canvas.getContext('2d');
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
+let stars = [];
+const colors = ['#ffffff', '#fffae3', '#ccffff'];
+const STAR_COUNT = 200;
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+for (let i = 0; i < STAR_COUNT; i++) {
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 0.6 + 0.3,
+        speed: Math.random() * 0.2 + 0.05,
+        flicker: Math.random() * 0.05,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        phase: Math.random() * Math.PI * 2
     });
+}
 
-    // Stagger delays for animations
-    document.querySelectorAll('.delay-200').forEach(el => el.style.transitionDelay = '0.2s');
-    document.querySelectorAll('.delay-300').forEach(el => el.style.transitionDelay = '0.3s');
-    document.querySelectorAll('.delay-400').forEach(el => el.style.transitionDelay = '0.4s');
-    document.querySelectorAll('.delay-600').forEach(el => el.style.transitionDelay = '0.6s');
-
-    // Initialize VanillaTilt for 3D tilt effect
-    VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-      max: 5,
-      speed: 400,
-      perspective: 1000,
-      glare: true,
-      'max-glare': 0.3
+function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(star => {
+        star.y -= star.speed;
+        if (star.y < 0) star.y = canvas.height;
+        const alpha = 0.7 + Math.sin(Date.now() * 0.005 + star.phase) * star.flicker;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = star.color;
+        ctx.globalAlpha = alpha;
+        ctx.fill();
     });
-  </script>
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(drawStars);
+}
+
+drawStars();
+</script>
 </body>
 </html>
