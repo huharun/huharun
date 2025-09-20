@@ -106,7 +106,7 @@
             color: #f3f4f6;
         }
         
-         /* ================== ANIMATIONS ================== */
+        /* ================== ANIMATIONS ================== */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -325,12 +325,13 @@
             <h2 class="text-4xl font-medium mb-12">Get in Touch</h2>
             <p class="text-xl mb-8 text-gray-400">I'm excited to connect for software engineering or AI/ML opportunities!</p>
             <div class="glass p-8 rounded-3xl max-w-2xl mx-auto">
-                <form id="email-form" class="space-y-4">
-                    <input type="text" id="email-name" placeholder="Your Name" class="glass p-3 w-full rounded-lg focus:outline-none" required>
-                    <input type="email" id="email-email" placeholder="Your Email" class="glass p-3 w-full rounded-lg focus:outline-none" required>
-                    <textarea id="email-message" placeholder="Your Message" class="glass p-3 w-full rounded-lg focus:outline-none" rows="4" required></textarea>
+                <form id="email-form" action="https://formspree.io/f/mdklqlvn" method="POST" class="space-y-4">
+                    <input type="text" name="name" id="email-name" placeholder="Your Name" class="glass p-3 w-full rounded-lg focus:outline-none" required>
+                    <input type="email" name="email" id="email-email" placeholder="Your Email" class="glass p-3 w-full rounded-lg focus:outline-none" required>
+                    <textarea name="message" id="email-message" placeholder="Your Message" class="glass p-3 w-full rounded-lg focus:outline-none" rows="4" required></textarea>
                     <button type="submit" class="glass p-3 rounded-2xl w-full">Send Email</button>
                 </form>
+                <p id="success-message" class="hidden">Thank you! Your message has been sent.</p>
                 <div class="space-y-4 text-left md:text-center mt-4">
                     <p>📍 Detroit, MI</p>
                     <p>📞 <a href="tel:+13136397215">+1 (313) 639-7215</a></p>
@@ -400,13 +401,6 @@
         
         sections.forEach(sec => observer.observe(sec));
         
-        // ================== EMAIL FORM ==================
-        const emailForm = document.getElementById('email-form');
-        emailForm.addEventListener('submit', e => {
-            e.preventDefault();
-            alert('Message sent! (demo)');
-        });
-        
         // ================== STAR CANVAS ==================
         const canvas = document.getElementById('star-canvas');
         const ctx = canvas.getContext('2d');
@@ -459,6 +453,35 @@
         //     requestAnimationFrame(animateDistortion);
         // }
         // animateDistortion();
+        
+        async function getIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                console.error('Error fetching IP:', error);
+                return 'Unknown';
+            }
+        }
+        
+        const emailForm = document.getElementById('email-form');
+        const successMessage = document.getElementById('success-message');
+        emailForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            const response = await fetch(emailForm.action, {
+                method: emailForm.method,
+                body: new FormData(emailForm),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                successMessage.classList.remove('hidden');
+                emailForm.reset(); // Clear form fields
+                setTimeout(() => successMessage.classList.add('hidden'), 5000); // Hide after 5 seconds
+            } else {
+                alert('Error sending message. Please try again.');
+            }
+        });
     </script>
 </body>
 </html>
