@@ -55,9 +55,7 @@
             overflow: hidden; /* keep distortion inside */
         }
         
-        nav.scrolled {
-            background: rgba(0,0,0,0.4);
-        }
+        
         
         .nav-menu {
             display: flex;
@@ -75,7 +73,15 @@
         }
         
         .nav-item.active {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 32px;
+            backdrop-filter: blur(2px) saturate(180%);
+            -webkit-backdrop-filter: blur(2px) saturate(180%);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            
         }
         
         /* ================== GLASS EFFECT CARDS ================== */
@@ -100,7 +106,6 @@
             color: #f3f4f6;
         }
         
-        .glass::before { display: none; }
         .glass::after {
             content: '';
             position: absolute;
@@ -113,43 +118,6 @@
             -webkit-filter: url(#glass-distortion);
         }
         
-        /* ================== LIQUID BUTTONS & INPUTS ================== */
-        .liquid-button, .liquid-input {
-            position: relative;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 16px;
-            backdrop-filter: blur(3px) saturate(150%);
-            -webkit-backdrop-filter: blur(3px) saturate(150%);
-            box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .liquid-button:hover, .liquid-input:focus {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.25);
-        }
-        
-        .liquid-button::after, .liquid-input::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
-            filter: url(#glass-distortion);
-            -webkit-filter: url(#glass-distortion);
-        }
-        
-        /* ================== ANIMATIONS ================== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease forwards;
-        }
         
         nav::after {
             content: '';
@@ -360,10 +328,10 @@
             <p class="text-xl mb-8 text-gray-400">I'm excited to connect for software engineering or AI/ML opportunities!</p>
             <div class="glass p-8 rounded-3xl max-w-2xl mx-auto">
                 <form id="email-form" class="space-y-4">
-                    <input type="text" id="email-name" placeholder="Your Name" class="glass p-3 w-full rounded-lg focus:outline-none liquid-input" required>
-                    <input type="email" id="email-email" placeholder="Your Email" class="glass p-3 w-full rounded-lg focus:outline-none liquid-input" required>
-                    <textarea id="email-message" placeholder="Your Message" class="glass p-3 w-full rounded-lg focus:outline-none liquid-input" rows="4" required></textarea>
-                    <button type="submit" class="glass p-3 rounded-2xl w-full liquid-button">Send Email</button>
+                    <input type="text" id="email-name" placeholder="Your Name" class="glass p-3 w-full rounded-lg focus:outline-none" required>
+                    <input type="email" id="email-email" placeholder="Your Email" class="glass p-3 w-full rounded-lg focus:outline-none" required>
+                    <textarea id="email-message" placeholder="Your Message" class="glass p-3 w-full rounded-lg focus:outline-none" rows="4" required></textarea>
+                    <button type="submit" class="glass p-3 rounded-2xl w-full">Send Email</button>
                 </form>
                 <div class="space-y-4 text-left md:text-center mt-4">
                     <p>📍 Detroit, MI</p>
@@ -486,13 +454,13 @@
         drawStars();
         
         // ================== GLASS DISTORTION ANIMATION ==================
-        const feTurbulence = document.querySelector('feTurbulence');
-        function animateDistortion() {
-            const time = Date.now() * 0.002;
-            feTurbulence.setAttribute('baseFrequency', 0.03 + Math.sin(time) * 0.01);
-            requestAnimationFrame(animateDistortion);
-        }
-        animateDistortion();
+        // const feTurbulence = document.querySelector('feTurbulence');
+        // function animateDistortion() {
+        //     const time = Date.now() * 0.002;
+        //     feTurbulence.setAttribute('baseFrequency', 0.03 + Math.sin(time) * 0.01);
+        //     requestAnimationFrame(animateDistortion);
+        // }
+        // animateDistortion();
     </script>
 </body>
 </html>
