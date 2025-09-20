@@ -4,7 +4,7 @@
 
 <p align="center" style="font-size: 24px; color: #007BFF;">
     <a href="https://huharun.github.io/huharun/" target="_blank">
-        📄 Resume
+        📄 Portfolio
     </a>
 </p>
 
