@@ -70,25 +70,8 @@ I'm a Computer Science graduate student at Wayne State University, passionate ab
 
 ---
 
-## 💡 Projects
-- **Driveway Sealing Management System** — Full-stack PHP/MySQL app for client/contractor management, billing, PDF export, and chat. [Repo](https://github.com/huharun/reactmysql/tree/main/project2)  
-- **Phishing Website Detection** — ML project using 11 models with 95%+ accuracy. [Repo](https://github.com/huharun/project_IS)  
-- **In-Context Learning vs Fine-Tuning** — Streamlit app comparing models on QA, classification, translation. [Repo](https://github.com/huharun/icl_vs_finetuning)  
-- **Virtual Experience — Forage** — Financial visualizations & dashboards for JP Morgan, Goldman Sachs, Tata Consultancy. [Repo](https://github.com/huharun/forage_jpmc_swe_tasks)  
-
----
-
 ## 📊 GitHub Stats
 <p align="center">
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=huharun&theme=radical&hide_border=true" alt="GitHub Streak" /><br/>
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=huharun&theme=radical&hide_border=true&include_all_commits=true&count_private=true&layout=compact" alt="Top Languages" />
-</p>
-
----
-
-## 🏅 Badges
-<p align="center">
-    ![GitHub followers](https://img.shields.io/github/followers/huharun?style=social)
-    ![LinkedIn](https://img.shields.io/badge/LinkedIn-Arun-blue?logo=linkedin)
-    ![Twitter Follow](https://img.shields.io/twitter/follow/arunxh?style=social)
 </p>
