@@ -14,6 +14,11 @@
 
 ---
 
+## 📝 About Me
+I'm a Computer Science graduate student at Wayne State University, passionate about **Full-Stack Development & AI/ML**. I build **scalable systems, solve real-world problems, and thrive in collaborative environments**. Experienced in Python, PHP, JavaScript, and modern frameworks. Seeking opportunities to create impactful solutions in **software engineering & AI/ML**.
+
+---
+
 ## 🌐 Connect with Me
 <p align="center">
     <a href="https://www.leetcode.com/huharun" target="_blank">
@@ -65,6 +70,14 @@
 
 ---
 
+## 💡 Projects
+- **Driveway Sealing Management System** — Full-stack PHP/MySQL app for client/contractor management, billing, PDF export, and chat. [Repo](https://github.com/huharun/reactmysql/tree/main/project2)  
+- **Phishing Website Detection** — ML project using 11 models with 95%+ accuracy. [Repo](https://github.com/huharun/project_IS)  
+- **In-Context Learning vs Fine-Tuning** — Streamlit app comparing models on QA, classification, translation. [Repo](https://github.com/huharun/icl_vs_finetuning)  
+- **Virtual Experience — Forage** — Financial visualizations & dashboards for JP Morgan, Goldman Sachs, Tata Consultancy. [Repo](https://github.com/huharun/forage_jpmc_swe_tasks)  
+
+---
+
 ## 📊 GitHub Stats
 <p align="center">
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=huharun&theme=radical&hide_border=true" alt="GitHub Streak" /><br/>
@@ -72,3 +85,10 @@
 </p>
 
 ---
+
+## 🏅 Badges
+<p align="center">
+    ![GitHub followers](https://img.shields.io/github/followers/huharun?style=social)
+    ![LinkedIn](https://img.shields.io/badge/LinkedIn-Arun-blue?logo=linkedin)
+    ![Twitter Follow](https://img.shields.io/twitter/follow/arunxh?style=social)
+</p>
