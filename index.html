@@ -9,20 +9,37 @@
         /* ================== ROOT VARIABLES ================== */
         :root {
             --nav-height: 64px;
+            --bg-primary: #000000;
+            --bg-gradient-1: rgba(255,255,255,0.05);
+            --bg-gradient-2: rgba(200,220,255,0.06);
+            --text-primary: #f3f4f6;
+            --text-secondary: #d1d5db;
+            --text-tertiary: #9ca3af;
+            --glass-bg: rgba(255,255,255,0.08);
+            --glass-border: rgba(255,255,255,0.15);
+            --border-color: rgba(173,216,230,0.1);
         }
+        
+        body.light-mode {
+            --bg-primary: linear-gradient(to right, #FFC0CB, #ADD8E6);;
+            --text-primary: #1a202c;
+            --text-secondary: #2d3748;
+            --text-tertiary: #4a5568;
+            }
         
         /* ================== BODY & BACKGROUND ================== */
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
-            color: #f3f4f6;
-            background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.05), rgba(0,0,0,0)),
-            radial-gradient(circle at 75% 75%, rgba(200,220,255,0.06), rgba(0,0,0,0)), #000;
+            color: var(--text-primary);
+            background: radial-gradient(circle at 25% 25%, var(--bg-gradient-1), rgba(0,0,0,0)),
+            radial-gradient(circle at 75% 75%, var(--bg-gradient-2), rgba(0,0,0,0)), var(--bg-primary);
             overflow-x: hidden;
             scroll-behavior: smooth;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         
         main, section {
@@ -34,8 +51,9 @@
         .parallax-bg {
             position: fixed;
             inset: 0;
-            background: #000;
+            background: var(--bg-primary);
             z-index: -2;
+            transition: background 0.3s ease;
         }
         
         /* ================== NAVIGATION ================== */
@@ -49,13 +67,59 @@
             width: 100%;
             top: 0;
             z-index: 50;
-            background: rgba(0,0,0,0.1);
-            border-bottom: 1px solid rgba(173,216,230,0.1);
+            border-bottom: 1px solid var(--border-color);   
             transition: background 0.3s;
-            overflow: hidden; /* keep distortion inside */
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
         }
         
         
+        /* Mobile hamburger menu */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--nav-height));
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 2rem 0;
+                transition: left 0.3s ease;
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                width: 80%;
+                text-align: center;
+                padding: 1rem;
+            }
+        }
         
         .nav-menu {
             display: flex;
@@ -73,37 +137,129 @@
         }
         
         .nav-item.active {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
             border-radius: 32px;
             backdrop-filter: blur(2px) saturate(180%);
             -webkit-backdrop-filter: blur(2px) saturate(180%);
             box-shadow: 0 6px 24px rgba(0,0,0,0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
-            
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            margin-left: 1rem;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-primary);
         }
         
         /* ================== GLASS EFFECT CARDS ================== */
         .glass {
             position: relative;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
             border-radius: 32px;
-            backdrop-filter: blur(2px) saturate(180%);
-            -webkit-backdrop-filter: blur(2px) saturate(180%);
-            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease;
             overflow: hidden;
         }
         
         .glass:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
         }
         
         .glass p, .glass strong, .glass h1, .glass h3, .glass a {
-            color: #f3f4f6;
+            color: var(--text-primary);
+        }
+        
+        .glass .text-gray-200 {
+            color: var(--text-secondary) !important;
+        }
+        
+        .glass .text-gray-400 {
+            color: var(--text-tertiary) !important;
+        }
+        
+        /* Responsive text sizes */
+        @media (max-width: 768px) {
+            .text-5xl {
+                font-size: 2rem;
+            }
+            
+            .text-4xl {
+                font-size: 1.75rem;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+            
+            .text-xl {
+                font-size: 1.125rem;
+            }
+            
+            .glass {
+                padding: 1rem !important;
+            }
+        }
+        
+        /* ================== SECTION STANDARDIZATION ================== */
+        section {
+            padding: 5rem 1rem;
+            min-height: auto;
+        }
+        
+        section#home {
+            min-height: 100vh;
+            padding: 0 1rem;
+        }
+        
+        section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Consistent spacing for all sections */
+        section h2 {
+            margin-bottom: 3rem;
+        }
+        
+        /* Standardize card heights in grid layouts */
+        .grid .glass {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            section h2 {
+                margin-bottom: 2rem;
+            }
         }
         
         /* ================== ANIMATIONS ================== */
@@ -116,7 +272,6 @@
             animation: fadeInUp 0.8s ease forwards;
         }
         
-        
         .glass::after, nav::after {
             content: '';
             position: absolute;
@@ -124,18 +279,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* sits behind nav content only */
+            z-index: -1;
             backdrop-filter: blur(0px);
             -webkit-backdrop-filter: blur(0px);
             filter: url(#glass-distortion);
         }
         
         footer {
-            position: relative; /* add this */
+            position: relative;
             padding: 1rem;
             text-align: center;
-            border-top: 1px solid rgba(173,216,230,0.1);
+            border-top: 1px solid var(--border-color);
             margin-top: auto;
+            color: var(--text-primary);
         }
         
         footer::after {
@@ -145,7 +301,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* behind footer content */
+            z-index: -1;
             backdrop-filter: blur(0px);
             -webkit-backdrop-filter: blur(0px);
             filter: url(#glass-distortion);
@@ -166,77 +322,117 @@
 </head>
 <body>
     <div class="parallax-bg"></div>
-    <canvas id="star-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></canvas>
+    <canvas id="star-canvas"></canvas>
     <svg style="display:none;">
         <filter id="glass-distortion">
             <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" result="turb"/>
             <feDisplacementMap in="SourceGraphic" in2="turb" scale="10"/>
         </filter>
     </svg>
+    
     <!-- NAV -->
     <nav>
         <h1 class="text-xl md:text-2xl font-medium">Arun's Portfolio</h1>
-        <ul class="nav-menu">
-            <li class="nav-item" data-target="#home">Home</li>
-            <li class="nav-item" data-target="#about">About</li>
-            <li class="nav-item" data-target="#experience">Experience</li>
-            <li class="nav-item" data-target="#projects">Projects</li>
-            <li class="nav-item" data-target="#leadership">Leadership</li>
-            <li class="nav-item" data-target="#contact">Contact</li>
-        </ul>
+        <div style="display: flex; align-items: center;">
+            <ul class="nav-menu">
+                <li class="nav-item" data-target="#home">Home</li>
+                <li class="nav-item" data-target="#about">About</li>
+                <li class="nav-item" data-target="#education">Education</li>
+                <li class="nav-item" data-target="#experience">Experience</li>
+                <li class="nav-item" data-target="#projects">Projects</li>
+                <li class="nav-item" data-target="#leadership">Leadership</li>
+                <li class="nav-item" data-target="#contact">Contact</li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" viewBox="0 0 24 24">
+                    <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"/>
+                </svg>
+                <svg class="moon-icon" style="display: none;" viewBox="0 0 24 24">
+                    <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"/>
+                </svg>
+            </button>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
     
     <!-- HOME -->
-    <section id="home" class="min-h-screen flex items-center justify-center text-center py-20 px-4 relative z-10">
-        <div class="container mx-auto">
-            <div class="glass p-12 rounded-3xl">
+    <section id="home" class="flex items-center justify-center text-center relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="glass p-12 rounded-3xl max-w-4xl mx-auto">
                 <h1 class="text-5xl font-medium mb-4">Arun Ramkrishna Thangapalam</h1>
-                <p class="text-2xl mb-4 text-gray-200">Computer Science Graduate Student | Full-Stack Developer | AI/ML Enthusiast</p>
-                <p class="text-lg mb-8 text-gray-400">Based in Detroit, MI | Passionate about building scalable, intelligent systems</p>
-                <a href="#contact" class="glass py-3 px-6 rounded-2xl inline-block mt-4">Get in Touch</a>
-                <a href="https://drive.google.com/file/d/1MMn3xT5wu7s17Yya3YDkXfuC5V55RLbE/view" target="_blank" class="glass py-3 px-6 rounded-2xl inline-block mt-4">Download Resume</a>
+                <p class="text-2xl mb-4 text-gray-200">CS Graduate | Software Developer | AI/ML Enthusiast</p>
+                <p class="text-lg mb-8 text-gray-400">Skilled in Python, PHP, JavaScript, REST APIs, and modern frameworks. Experienced in Agile environments, building scalable software, and deploying ML pipelines.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact" class="glass py-3 px-6 rounded-2xl inline-block">Get in Touch</a>
+                    <a href="https://drive.google.com/file/d/1MMn3xT5wu7s17Yya3YDkXfuC5V55RLbE/view" target="_blank" class="glass py-3 px-6 rounded-2xl inline-block">Download Resume</a>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- ABOUT -->
-    <section id="about" class="py-20 px-4 relative z-10">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-medium text-center mb-12">About Me</h2>
+    <section id="about" class="relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-medium text-center">About Me</h2>
             
-            <div class="glass p-6 rounded-3xl mb-8">
-                <p class="text-lg text-gray-200">
-                    I am a graduate student in Computer Science at Wayne State University, with industry and academic experience in full-stack development and machine learning. Proficient in Python, PHP, JavaScript, and modern frameworks, I thrive in agile environments, solving real-world problems with scalable, intelligent systems. I’m seeking opportunities in software engineering and AI/ML to create impactful solutions.
+            <div class="glass p-6 rounded-3xl mb-8 max-w-4xl mx-auto">
+                <p class="text-lg text-center text-gray-200">
+                    MS Computer Science (AI/ML) graduate with hands-on experience in full-stack development and AI/ML projects. Skilled in Python, PHP, JavaScript, REST APIs, and modern frameworks. Experienced in Agile environments, building scalable software, and deploying ML pipelines.
                 </p>
             </div>
             
-            <h3 class="text-2xl font-medium mb-4 text-center">Technical Skills</h3>
+            <h3 class="text-2xl font-medium mb-6 text-center">Technical Skills</h3>
             <div class="space-y-4 max-w-3xl mx-auto">
                 <div class="glass p-4 rounded-2xl">
-                    <strong>Languages:</strong> Python, PHP, JavaScript, C, HTML, CSS, SQL
+                    <strong>Programming Languages:</strong> Python, PHP, JavaScript, C#, HTML, CSS, SQL
                 </div>
                 <div class="glass p-4 rounded-2xl">
-                    <strong>Frameworks & Tools:</strong> React, CodeIgniter, Node.js, Git, VS Code, Jupyter
+                    <strong>Frameworks & Tools:</strong> React, Node.js, CodeIgniter, Git, GitHub Actions, VS Code, Docker, Jupyter
                 </div>
                 <div class="glass p-4 rounded-2xl">
-                    <strong>Machine Learning & Data:</strong> scikit-learn, Pandas, NumPy, MySQL, MongoDB, Matplotlib
+                    <strong>Machine Learning / Data:</strong> scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, MySQL, MongoDB
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <strong>Other Skills:</strong> REST APIs, Agile, Automation, NLP, Data Visualization, Cloud Basics
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- EDUCATION -->
+    <section id="education" class="relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-medium text-center">Education</h2>
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-2xl font-medium mb-2">Wayne State University</h3>
+                    <p class="text-gray-200 mb-4">MS in Computer Science (AI/ML) | Dec 2025 | GPA: 3.5</p>
+                    <p class="text-gray-400">Relevant coursework: Machine Learning, AI, Algorithms, Cybersecurity, Software Engineering</p>
+                </div>
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-2xl font-medium mb-2">United Institute of Technology</h3>
+                    <p class="text-gray-200 mb-4">BE in Computer Science and Engineering | June 2022</p>
+                    <p class="text-gray-400">Relevant coursework: Data Structures & Algorithms, OOPS, DBMS, Internet Programming, Cloud Computing</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- EXPERIENCE -->
-    <section id="experience" class="py-20 px-4 relative z-10">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-medium text-center mb-12">Work Experience</h2>
-            <div class="space-y-8 max-w-4xl mx-auto">
+    <section id="experience" class="relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-medium text-center">Work Experience</h2>
+            <div class="space-y-6 max-w-4xl mx-auto">
                 <div class="glass p-6 rounded-3xl">
                     <h3 class="text-2xl font-medium mb-2">Student Assistant — Wayne State University, C&IT</h3>
                     <p class="text-gray-200 mb-4">Aug 2024 – Present | Detroit, MI</p>
                     <ul class="list-disc list-inside space-y-2 text-gray-400">
                         <li>Support classroom AV technology and campus IT infrastructure.</li>
                         <li>Troubleshoot hardware/software issues for faculty and students.</li>
-                        <li>Maintain computer labs and online learning platforms.</li>
                     </ul>
                 </div>
                 <div class="glass p-6 rounded-3xl">
@@ -253,9 +449,9 @@
                     <p class="text-gray-200 mb-4">Jun 2022 – Jun 2023</p>
                     <ul class="list-disc list-inside space-y-2 text-gray-400">
                         <li>Built and maintained backend features using CodeIgniter, PHP, and MySQL.</li>
-                        <li>Developed responsive web interfaces with jQuery and Ajax.</li>
-                        <li>Automated student data processing, reducing manual workload by 40%.</li>
-                        <li>Collaborated cross-functionally in Agile sprints to deliver production-ready features.</li>
+                        <li>Developed responsive web interfaces with jQuery and Ajax; automated student data processing, reducing manual workload by 40%.</li>
+                        <li>Collaborated in Agile sprints to deliver production-ready features.</li>
+                        <li>Assisted in testing, debugging, and documenting code for internal and client projects.</li>
                     </ul>
                 </div>
             </div>
@@ -263,43 +459,47 @@
     </section>
     
     <!-- PROJECTS -->
-    <section id="projects" class="py-20 px-4 relative z-10">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-medium text-center mb-12">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    <section id="projects" class="relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-medium text-center">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                <div class="glass p-6 rounded-3xl">
+                    <h3 class="text-xl font-medium mb-2">DevSwarm — Multi-Agent AI Project</h3>
+                    <p class="text-gray-200 mb-4">2025</p>
+                    <p class="text-gray-400 mb-4">Developed a Python-based multi-agent system automating software project management: planning, development, testing, and analytics reporting. Implemented root and sub-agents with Jira API integration; applied AI/ML for code analysis, task prioritization, QA, and automated Markdown reports.</p>
+                    <p class="text-gray-300 text-sm mb-4">Tech: Python, Jira, AI/ML, Automation, Agile, Data Analysis</p>
+                    <a href="https://github.com/huharun/agents" target="_blank" aria-label="DevSwarm project on GitHub">View on GitHub →</a>
+                </div>
                 <div class="glass p-6 rounded-3xl">
                     <h3 class="text-xl font-medium mb-2">In-Context Learning vs Fine-Tuning</h3>
-                    <p class="text-gray-200 mb-4">May 2025 | Machine Learning Course Project</p>
-                    <p class="text-gray-400 mb-4">Built a Streamlit app to compare ICL vs fine-tuned models on QA, classification, and translation using Hugging Face and Ollama (LLaMA3, DeepSeek-R1). Evaluated with F1, BLEU, Accuracy, and BERTScore.</p>
+                    <p class="text-gray-200 mb-4">2025</p>
+                    <p class="text-gray-400 mb-4">Built a Streamlit app to compare ICL vs fine-tuned NLP models (LLaMA3, DeepSeek-R1) on QA, classification, and translation tasks; evaluated using F1, Accuracy, BLEU, BERTScore, ROUGE.</p>
+                    <p class="text-gray-300 text-sm mb-4">Tech: Python, Hugging Face, Streamlit, scikit-learn, Pandas, NumPy, ML Metrics, Data Visualization, NLP</p>
                     <a href="https://github.com/huharun/icl_vs_finetuning" target="_blank" aria-label="View In-Context Learning vs Fine-Tuning project on GitHub">View on GitHub →</a>
                 </div>
                 <div class="glass p-6 rounded-3xl">
                     <h3 class="text-xl font-medium mb-2">Phishing Website Detection</h3>
-                    <p class="text-gray-200 mb-4">Apr 2025 | Intelligent Systems Course Project</p>
-                    <p class="text-gray-400 mb-4">Trained 11 ML models (e.g., XGBoost, SVM, MLP) to classify phishing URLs with over 95% accuracy. Visualized results using ROC curves and confusion matrices.</p>
+                    <p class="text-gray-200 mb-4">2025</p>
+                    <p class="text-gray-400 mb-4">Developed ML pipelines for phishing URL classification with 11 models; performed feature engineering, EDA, visualization (ROC, confusion matrices); achieved 95%+ accuracy.</p>
+                    <p class="text-gray-300 text-sm mb-4">Tech: Python, scikit-learn, Pandas, NumPy, ML Metrics, Data Visualization</p>
                     <a href="https://github.com/huharun/project_IS" target="_blank" aria-label="View Phishing Website Detection project on GitHub">View on GitHub →</a>
                 </div>
                 <div class="glass p-6 rounded-3xl">
                     <h3 class="text-xl font-medium mb-2">Driveway Sealing Management System</h3>
-                    <p class="text-gray-200 mb-4">Dec 2024 | DBMS1 Course Project</p>
-                    <p class="text-gray-400 mb-4">Built a PHP/MySQL platform for client registration, quote submission, billing, and status tracking with dashboards and SQL reports.</p>
+                    <p class="text-gray-200 mb-4">2024</p>
+                    <p class="text-gray-400 mb-4">Created a PHP/MySQL platform for client registration, quotes, billing, and dashboards; added PDF export, image uploads, session management. Implemented OpenStreetMap address autofetch, chat, pop-up modals, role-based dashboards, and SQL reporting.</p>
+                    <p class="text-gray-300 text-sm mb-4">Tech: React, MySQL, JavaScript, HTML/CSS, Node.js, jsPDF, REST APIs</p>
                     <a href="https://github.com/huharun/reactmysql/tree/main/project2" target="_blank" aria-label="View Driveway Sealing Management System project on GitHub">View on GitHub →</a>
-                </div>
-                <div class="glass p-6 rounded-3xl">
-                    <h3 class="text-xl font-medium mb-2">Virtual Experience — Forage</h3>
-                    <p class="text-gray-200 mb-4">Apr–Jul 2024</p>
-                    <p class="text-gray-400 mb-4">Developed financial visualizations for J.P. Morgan, assessed hashing methods for Goldman Sachs, and designed data dashboards for Tata Consultancy.</p>
-                    <a href="https://github.com/huharun/forage_jpmc_swe_tasks" target="_blank" aria-label="View Forage Virtual Experience project on GitHub">View on GitHub →</a>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- LEADERSHIP -->
-    <section id="leadership" class="py-20 px-4 relative z-10">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-medium text-center mb-12">Leadership & Activities</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    <section id="leadership" class="relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-medium text-center">Leadership & Activities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 <div class="glass p-6 rounded-3xl">
                     <h3 class="text-xl font-medium mb-2">Secretary, CSE Department Association</h3>
                     <p class="text-gray-200 mb-4">United Institute of Technology | 2021–2022</p>
@@ -320,21 +520,21 @@
     </section>
     
     <!-- CONTACT -->
-    <section id="contact" class="py-20 px-4 text-center relative z-10">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-medium mb-12">Get in Touch</h2>
-            <p class="text-xl mb-8 text-gray-400">I'm excited to connect for software engineering or AI/ML opportunities!</p>
+    <section id="contact" class="text-center relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-medium">Get in Touch</h2>
+            <p class="text-xl mb-4 text-gray-600">I'm excited to connect for software engineering or AI/ML opportunities!</p>
             <div class="glass p-8 rounded-3xl max-w-2xl mx-auto">
                 <form id="email-form" action="https://formspree.io/f/mdklqlvn" method="POST" class="space-y-4">
-                    <input type="text" name="name" id="email-name" placeholder="Your Name" class="glass p-3 w-full rounded-lg focus:outline-none" required>
-                    <input type="email" name="email" id="email-email" placeholder="Your Email" class="glass p-3 w-full rounded-lg focus:outline-none" required>
-                    <textarea name="message" id="email-message" placeholder="Your Message" class="glass p-3 w-full rounded-lg focus:outline-none" rows="4" required></textarea>
+                    <input type="text" name="name" placeholder="Your Name" class="glass p-3 w-full rounded-lg focus:outline-none" required>
+                    <input type="email" name="email" placeholder="Your Email" class="glass p-3 w-full rounded-lg focus:outline-none" required>
+                    <textarea name="message" placeholder="Your Message" class="glass p-3 w-full rounded-lg focus:outline-none" rows="4" required></textarea>
                     <button type="submit" class="glass p-3 rounded-2xl w-full">Send Email</button>
                 </form>
-                <p id="success-message" class="hidden">Thank you! Your message has been sent.</p>
-                <div class="space-y-4 text-left md:text-center mt-4">
+                <p id="success-message" class="hidden mt-4">Thank you! Your message has been sent.</p>
+                <div class="space-y-4 text-left md:text-center mt-6">
                     <p>📍 Detroit, MI</p>
-                    <p>📞 <a href="tel:+13136397215">+1 (313) 639-7215</a></p>
+                    <p>📞 <a href="tel:+13136397215">(313) 639-7215</a></p>
                     <p>✉️ <a href="mailto:arunramkrishna997@gmail.com">arunramkrishna997@gmail.com</a></p>
                     <div class="flex flex-wrap justify-center space-x-4 mt-4">
                         <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank">
@@ -358,22 +558,53 @@
         </div>
     </section>
     
-    <footer class=" p-4 text-center">&copy; 2025 Arun Thangapalam</footer>
-    
+    <footer class="p-4 text-center">&copy; 2025 Arun Thangapalam</footer>
     
     <script>
+        // ================== THEME TOGGLE ==================
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-mode');
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            
+            sunIcon.style.display = isLight ? 'none' : 'block';
+            moonIcon.style.display = isLight ? 'block' : 'none';
+            
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+        
+        // ================== MOBILE MENU ==================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
         // ================== NAVIGATION ==================
         const navItems = document.querySelectorAll('.nav-item');
         const sections = document.querySelectorAll('section');
         
-        // Smooth scroll to section on nav click
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 document.querySelector(item.dataset.target).scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu on click
+                navMenu.classList.remove('active');
             });
         });
         
-        // Highlight active nav item and add scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             nav.classList.toggle('scrolled', window.scrollY > 10);
@@ -389,7 +620,6 @@
         });
         
         // ================== INTERSECTION OBSERVER ==================
-        // Animate sections on scroll
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -407,7 +637,6 @@
         let stars = [];
         const colors = ['#ffffff', '#fffae3', '#ccffff', '#ffd700', '#ff69b4', '#00ffff', '#7fffd4', '#ff4500'];
         
-        // Resize canvas and generate stars
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -425,14 +654,15 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
         
-        // Draw stars with flickering animation
         function drawStars() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const isLightMode = body.classList.contains('light-mode');
+            
             stars.forEach(s => {
                 s.y -= s.speed;
                 if (s.y < 0) s.y = canvas.height;
                 
-                const alpha = 0.5 + Math.sin(Date.now() * 0.005 + s.phase) * s.flicker;
+                const alpha = isLightMode ? 0.2 + Math.sin(Date.now() * 0.005 + s.phase) * 0.1 : 0.5 + Math.sin(Date.now() * 0.005 + s.phase) * s.flicker;
                 ctx.save();
                 ctx.globalAlpha = alpha;
                 ctx.beginPath();
@@ -445,26 +675,7 @@
         }
         drawStars();
         
-        // ================== GLASS DISTORTION ANIMATION ==================
-        // const feTurbulence = document.querySelector('feTurbulence');
-        // function animateDistortion() {
-        //     const time = Date.now() * 0.002;
-        //     feTurbulence.setAttribute('baseFrequency', 0.03 + Math.sin(time) * 0.01);
-        //     requestAnimationFrame(animateDistortion);
-        // }
-        // animateDistortion();
-        
-        async function getIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                return data.ip;
-            } catch (error) {
-                console.error('Error fetching IP:', error);
-                return 'Unknown';
-            }
-        }
-        
+        // ================== FORM SUBMISSION ==================
         const emailForm = document.getElementById('email-form');
         const successMessage = document.getElementById('success-message');
         emailForm.addEventListener('submit', async e => {
@@ -476,8 +687,8 @@
             });
             if (response.ok) {
                 successMessage.classList.remove('hidden');
-                emailForm.reset(); // Clear form fields
-                setTimeout(() => successMessage.classList.add('hidden'), 5000); // Hide after 5 seconds
+                emailForm.reset();
+                setTimeout(() => successMessage.classList.add('hidden'), 5000);
             } else {
                 alert('Error sending message. Please try again.');
             }
