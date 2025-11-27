@@ -25,7 +25,7 @@
             --text-primary: #1a202c;
             --text-secondary: #2d3748;
             --text-tertiary: #4a5568;
-            }
+        }
         
         /* ================== BODY & BACKGROUND ================== */
         body {
@@ -91,33 +91,38 @@
         }
         
         @media (max-width: 768px) {
+            /* Show hamburger */
             .mobile-menu-btn {
                 display: block;
             }
             
+            /* Hide the normal horizontal menu */
             .nav-menu {
                 position: fixed;
                 top: var(--nav-height);
-                left: -100%;
+                left: -100%;                /* hidden */
                 width: 100%;
                 height: calc(100vh - var(--nav-height));
+                background: rgba(0,0,0,0.97);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
-                padding: 2rem 0;
-                transition: left 0.3s ease;
-                -webkit-backdrop-filter: blur(10px);
+                padding-top: 3rem;
+                transition: left 0.4s ease;
+                z-index: 9999;
             }
             
-            
+            /* When hamburger is clicked → slide menu in */
             .nav-menu.active {
                 left: 0;
             }
             
             .nav-item {
-                width: 80%;
-                text-align: center;
                 padding: 1rem;
+                font-size: 1.4rem;
+                width: 100%;
+                text-align: center;
             }
         }
         
@@ -591,6 +596,13 @@
         
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking any nav link (very important on mobile!)
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
         });
         
         // ================== NAVIGATION ==================
