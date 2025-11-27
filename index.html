@@ -98,25 +98,20 @@
             .nav-menu {
                 position: fixed;
                 top: var(--nav-height);
-                left: 0; /* optional, use transform instead */
+                left: -100%;
                 width: 100%;
                 height: calc(100vh - var(--nav-height));
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start;
                 padding: 2rem 0;
-                transition: transform 0.3s ease;
-                transform: translateX(-100%);
+                transition: left 0.3s ease;
                 -webkit-backdrop-filter: blur(10px);
-                backdrop-filter: blur(10px);
-                background: rgba(0,0,0,0.4); /* must have opacity */
-                z-index: 100;
             }
+            
             
             .nav-menu.active {
-                transform: translateX(0);
+                left: 0;
             }
-            
             
             .nav-item {
                 width: 80%;
