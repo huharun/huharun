@@ -55,6 +55,8 @@
             z-index: -2;
             transition: background 0.3s ease;
         }
+
+        
         
         /* ================== NAVIGATION ================== */
         nav {
@@ -71,53 +73,6 @@
             transition: background 0.3s;
             overflow: hidden;
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-        }
-        
-        
-        /* Mobile hamburger menu */
-        .mobile-menu-btn {
-            display: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        .mobile-menu-btn span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text-primary);
-            margin: 5px 0;
-            transition: 0.3s;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: var(--nav-height);
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - var(--nav-height));
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                transition: left 0.3s ease;
-                -webkit-backdrop-filter: blur(10px);
-            }
-            
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-item {
-                width: 80%;
-                text-align: center;
-                padding: 1rem;
-            }
         }
         
         .nav-menu {
@@ -333,7 +288,7 @@
     <nav>
         <h1 class="text-xl md:text-2xl font-medium">Arun's Portfolio</h1>
         <div style="display: flex; align-items: center;">
-            <ul class="nav-menu">
+            <ul class="nav-menu hidden md:flex flex-col md:flex-row">
                 <li class="nav-item" data-target="#home">Home</li>
                 <li class="nav-item" data-target="#about">About</li>
                 <li class="nav-item" data-target="#education">Education</li>
@@ -349,11 +304,6 @@
                 <svg class="moon-icon" style="display: none;" viewBox="0 0 24 24">
                     <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"/>
                 </svg>
-            </button>
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
             </button>
         </div>
     </nav>
@@ -584,13 +534,6 @@
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
         
-        // ================== MOBILE MENU ==================
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
         
         // ================== NAVIGATION ==================
         const navItems = document.querySelectorAll('.nav-item');
@@ -599,8 +542,6 @@
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 document.querySelector(item.dataset.target).scrollIntoView({ behavior: 'smooth' });
-                // Close mobile menu on click
-                navMenu.classList.remove('active');
             });
         });
         
