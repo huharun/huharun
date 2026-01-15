@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Arun Thangapalam | Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
         
         :root {
@@ -37,15 +38,16 @@
         }
         
         html.light-mode {
-            --bg: #ffffff;
-            --fg: #000000;
-            --dim: #666666;
+            --bg: #e5e5ea;
+            --fg: #1d1d1f;
+            --dim: #86868b;
         }
         
         html {
             scroll-behavior: smooth;
             background: var(--bg);
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
         }
         
         body {
@@ -55,6 +57,22 @@
             overflow-x: hidden;
             transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overscroll-behavior-y: none;
+        }
+
+        html.light-mode body {
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+                #e5e5ea;
+            background-attachment: fixed;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--glass-blue);
+            outline-offset: 4px;
         }
 
         /* COSMIC CANVAS */
@@ -94,19 +112,21 @@
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
         }
 
-        .glass:hover {
-            transform: translateY(-4px);
-            box-shadow: 
-                0 16px 48px 0 rgba(96, 165, 250, 0.25),
-                0 0 0 1px rgba(96, 165, 250, 0.3),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-        }
+        @media (hover: hover) {
+            .glass:hover {
+                transform: translateY(-4px);
+                box-shadow: 
+                    0 16px 48px 0 rgba(96, 165, 250, 0.25),
+                    0 0 0 1px rgba(96, 165, 250, 0.3),
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+            }
 
-        html.light-mode .glass:hover {
-            box-shadow: 
-                0 16px 48px 0 rgba(0, 0, 0, 0.1),
-                0 0 0 1px rgba(96, 165, 250, 0.3),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+            html.light-mode .glass:hover {
+                box-shadow: 
+                    0 16px 48px 0 rgba(0, 0, 0, 0.1),
+                    0 0 0 1px rgba(96, 165, 250, 0.3),
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+            }
         }
 
         /* NEURAL AVATAR */
@@ -279,6 +299,7 @@
             font-size: 14px;
             font-weight: 300;
             letter-spacing: 0.02em;
+            padding: 8px 0;
         }
 
         .nav-link:hover {
@@ -381,6 +402,12 @@
             font-size: 14px;
         }
 
+        @media (max-width: 768px) {
+            input, textarea {
+                font-size: 16px; /* Prevent iOS zoom */
+            }
+        }
+
         html.light-mode input,
         html.light-mode textarea {
             border-bottom-color: rgba(0, 0, 0, 0.1);
@@ -464,30 +491,6 @@
             background: var(--glass-blue);
         }
 
-        /* CURSOR TRAIL */
-        .particle {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: var(--glass-blue);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            z-index: 9999;
-            animation: particle-fade 1.5s ease-out forwards;
-        }
-
-        @keyframes particle-fade {
-            0% {
-                opacity: 1;
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(calc(var(--tx) * 1px), calc(var(--ty) * 1px)) scale(0);
-            }
-        }
-
         @media (max-width: 1024px) {
             .neural-avatar {
                 width: 80px;
@@ -509,8 +512,8 @@
             <div>
                 <div class="neural-avatar mb-8 glow">
                     <div class="neural-ring"></div>
-                    <div class="neural-core">
-                        <span class="holo">AT</span>
+                    <div class="neural-core" style="overflow: hidden;">
+                        <img src="https://drive.google.com/uc?export=view&id=1mE-uQ_0ZdPhTXqCiDVBPDejcSRRprk17" alt="Arun Thangapalam" class="w-full h-full object-cover">
                     </div>
                 </div>
                 
@@ -537,6 +540,12 @@
                 </a>
                 <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://leetcode.com/u/huharun/" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+                </a>
+                <a href="https://www.kaggle.com/arunthangapalam" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.547 1.475v5.114c0 .222-.128.348-.35.348H5.219c-.223 0-.351-.126-.351-.348V.348c0-.223.128-.349.351-.349h2.619c.222 0 .35.126.35.349v16.286l6.73-7.586c.14-.166.304-.248.492-.248h3.139c.164 0 .259.049.281.141.024.105-.011.199-.105.281l-6.004 6.308 6.203 7.998c.094.094.129.188.105.293z"/></svg>
                 </a>
                 <button id="theme-toggle" class="theme-btn ml-auto" aria-label="Toggle theme">
                     <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"/></svg>
@@ -803,7 +812,7 @@
         
         function initStars() {
             stars = [];
-            const count = Math.floor(window.innerWidth * window.innerHeight / 8000);
+            const count = Math.floor(window.innerWidth * window.innerHeight / (window.innerWidth < 768 ? 15000 : 8000));
             for(let i = 0; i < count; i++) {
                 stars.push({
                     x: Math.random() * canvas.width,
@@ -819,6 +828,11 @@
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             const isLight = document.documentElement.classList.contains('light-mode');
+            
+            if (isLight) {
+                requestAnimationFrame(animate);
+                return;
+            }
             
             // STARS
             stars.forEach(s => {
@@ -864,26 +878,6 @@
         
         window.addEventListener('resize', resize);
         window.addEventListener('scroll', () => scrollY = window.scrollY);
-        
-        // CURSOR PARTICLES
-        let lastParticle = 0;
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            const now = Date.now();
-            if(now - lastParticle > 50) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = e.clientX + 'px';
-                particle.style.top = e.clientY + 'px';
-                particle.style.setProperty('--tx', (Math.random() - 0.5) * 100);
-                particle.style.setProperty('--ty', (Math.random() - 0.5) * 100);
-                document.body.appendChild(particle);
-                setTimeout(() => particle.remove(), 1500);
-                lastParticle = now;
-            }
-        });
         
         resize();
         animate();
