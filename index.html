@@ -245,14 +245,6 @@
 
         /* THEME TOGGLE */
         .theme-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, 
-                rgba(96, 165, 250, 0.15) 0%, 
-                rgba(236, 72, 153, 0.15) 100%);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -262,22 +254,34 @@
             overflow: hidden;
         }
 
-        .theme-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--glass-blue), var(--glass-pink));
-            opacity: 0;
-            transition: opacity 0.4s ease;
+        @media (min-width: 1024px) {
+            .theme-btn {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, 
+                    rgba(96, 165, 250, 0.15) 0%, 
+                    rgba(236, 72, 153, 0.15) 100%);
+                backdrop-filter: blur(40px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .theme-btn::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, var(--glass-blue), var(--glass-pink));
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+            .theme-btn:hover::before {
+                opacity: 0.2;
+            }
         }
 
         .theme-btn:hover {
             transform: scale(1.1) rotate(180deg);
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.4);
-        }
-
-        .theme-btn:hover::before {
-            opacity: 0.2;
+            /* Only show glow on desktop or if needed */
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.4); 
         }
 
         .theme-btn svg {
@@ -319,30 +323,38 @@
                 #main-nav:not(.hidden) {
                     display: flex;
                     position: fixed;
-                    inset: 0;
+                    top: 80px;
+                    right: 24px;
+                    bottom: auto;
+                    left: auto;
+                    width: 200px;
+                    border-radius: 24px;
                     z-index: 40;
                     
                     /* CLEAR LIQUID GLASS (No Blur) */
-                    background: rgba(0, 0, 0, 0.4); /* Dark tint for contrast */
-                    backdrop-filter: saturate(250%) contrast(110%);
-                    -webkit-backdrop-filter: saturate(250%) contrast(110%);
+                    background: rgba(0, 0, 0, 0.6);
+                    backdrop-filter: saturate(180%) blur(20px);
+                    -webkit-backdrop-filter: saturate(180%) blur(20px);
                     
                     /* High Gloss Surface Tension */
                     box-shadow: 
-                        inset 0 0 80px rgba(255, 255, 255, 0.15),
-                        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+                        0 20px 40px rgba(0,0,0,0.4),
+                        inset 0 0 20px rgba(255, 255, 255, 0.1),
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
                         
                     flex-direction: column;
-                    justify-content: center;
+                    justify-content: flex-start;
                     align-items: center;
                     transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
                     overflow: hidden; /* Contain the liquid animation */
+                    padding: 1rem 0;
                 }
                 html.light-mode #main-nav:not(.hidden) {
-                    background: rgba(255, 255, 255, 0.4);
+                    background: rgba(255, 255, 255, 0.8);
                     box-shadow: 
-                        inset 0 0 80px rgba(255, 255, 255, 0.6),
-                        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+                        0 20px 40px rgba(0,0,0,0.1),
+                        inset 0 0 20px rgba(255, 255, 255, 0.5),
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.6);
                 }
                 
                 /* Liquid Atmosphere Animation */
@@ -365,12 +377,13 @@
                 }
 
                 #main-nav:not(.hidden) .nav-link {
-                    font-size: 2.5rem;
-                    font-weight: 600;
-                    color: rgba(255, 255, 255, 0.9);
-                    padding: 1rem 0;
-                    letter-spacing: -0.02em;
-                    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    color: rgba(255, 255, 255, 0.95);
+                    padding: 0.75rem 0;
+                    width: 100%;
+                    text-align: center;
+                    text-shadow: none;
                 }
                 html.light-mode #main-nav:not(.hidden) .nav-link {
                     color: #000;
@@ -584,6 +597,11 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
 
+            <button id="theme-toggle" class="theme-btn fixed top-6 left-6 z-50 lg:static lg:mt-4 lg:ml-0 p-3 lg:p-0 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white hover:bg-white/20 transition-all lg:border-none lg:bg-transparent lg:shadow-none lg:backdrop-blur-none" aria-label="Toggle theme">
+                <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"/></svg>
+                <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+            </button>
+
             <div class="flex flex-col items-center lg:items-start w-full">
                 <div class="neural-avatar mb-8 glow">
                     <div class="neural-ring"></div>
@@ -606,10 +624,6 @@
                     <a href="#projects" class="nav-link">Projects</a>
                     <a href="#education" class="nav-link">Education</a>
                     <a href="#contact" class="nav-link">Contact</a>
-                    <button id="theme-toggle" class="theme-btn mt-6 lg:mt-4" aria-label="Toggle theme">
-                        <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"/></svg>
-                        <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-                    </button>
                 </nav>
             </div>
 
