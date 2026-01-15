@@ -10,6 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <script>
+        // Force scroll to top immediately preventing browser restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -48,7 +54,7 @@
             background: var(--bg);
             -webkit-text-size-adjust: 100%;
             scroll-snap-type: y mandatory;
-            scroll-padding-top: 20px;
+            scroll-padding-top: 0;
         }
         
         body {
@@ -579,7 +585,7 @@
     <div class="lg:flex min-h-[100dvh] w-full max-w-[1920px] mx-auto relative z-10">
         
         <!-- LEFT COLUMN -->
-        <header class="min-h-[100dvh] lg:min-h-0 lg:w-[30%] lg:sticky lg:top-0 lg:h-[100dvh] p-8 lg:p-12 flex flex-col justify-center lg:gap-6 z-50 text-center lg:text-left relative">
+        <header id="home" class="snap-start min-h-[100dvh] lg:min-h-0 lg:w-[30%] lg:sticky lg:top-0 lg:h-[100dvh] p-8 lg:p-12 flex flex-col justify-center lg:gap-6 z-50 text-center lg:text-left relative">
             <button id="mobile-menu-btn" class="lg:hidden fixed top-6 right-6 p-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white hover:bg-white/20 transition-all z-50" aria-label="Toggle menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
@@ -997,10 +1003,11 @@
         resize();
         animate();
 
-        // FORCE SCROLL TO TOP ON LOAD/REFRESH
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
+        // Clear hash to ensure we start at top
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname);
         }
+
         document.documentElement.style.scrollBehavior = 'auto';
         document.body.style.scrollBehavior = 'auto';
         window.scrollTo(0, 0);
