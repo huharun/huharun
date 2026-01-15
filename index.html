@@ -47,6 +47,8 @@
             scroll-behavior: smooth;
             background: var(--bg);
             -webkit-text-size-adjust: 100%;
+            scroll-snap-type: y mandatory;
+            scroll-padding-top: 20px;
         }
         
         body {
@@ -95,28 +97,27 @@
 
         /* GLASS MORPHISM WITH GRADIENT */
         .glass {
-            background: linear-gradient(135deg, 
-                rgba(96, 165, 250, 0.1) 0%, 
-                rgba(236, 72, 153, 0.1) 100%);
-            backdrop-filter: blur(60px);
-            -webkit-backdrop-filter: blur(60px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* LIQUID WATER EFFECT */
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px) saturate(150%);
+            -webkit-backdrop-filter: blur(4px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 
-                0 8px 32px 0 rgba(96, 165, 250, 0.15),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+                inset 0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                0 8px 32px 0 rgba(0, 0, 0, 0.3);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html.light-mode .glass {
-            background: linear-gradient(135deg, 
-                rgba(96, 165, 250, 0.2) 0%, 
-                rgba(236, 72, 153, 0.2) 100%);
-            backdrop-filter: blur(80px);
-            -webkit-backdrop-filter: blur(80px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px) saturate(150%);
+            -webkit-backdrop-filter: blur(4px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 
-                0 8px 32px 0 rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+                inset 0 0 20px rgba(255, 255, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                0 8px 32px 0 rgba(0, 0, 0, 0.1);
         }
 
         @media (hover: hover) {
@@ -236,6 +237,12 @@
             opacity: 0;
             transform: translateY(40px);
             transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            scroll-snap-align: start;
+            scroll-margin-top: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .reveal.visible {
@@ -311,6 +318,7 @@
             font-weight: 300;
             letter-spacing: 0.02em;
             padding: 8px 0;
+            width: fit-content;
         }
 
         .nav-link:hover {
@@ -331,49 +339,28 @@
                     border-radius: 24px;
                     z-index: 40;
                     
-                    /* CLEAR LIQUID GLASS (No Blur) */
-                    background: rgba(0, 0, 0, 0.6);
-                    backdrop-filter: saturate(180%) blur(20px);
-                    -webkit-backdrop-filter: saturate(180%) blur(20px);
-                    
-                    /* High Gloss Surface Tension */
+                    /* LIQUID WATER EFFECT */
+                    background: rgba(255, 255, 255, 0.02);
+                    backdrop-filter: blur(4px) saturate(150%);
+                    -webkit-backdrop-filter: blur(4px) saturate(150%);
+                    border: 1px solid rgba(255, 255, 255, 0.15);
                     box-shadow: 
-                        0 20px 40px rgba(0,0,0,0.4),
                         inset 0 0 20px rgba(255, 255, 255, 0.1),
-                        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                        0 15px 35px rgba(0, 0, 0, 0.4);
                         
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: center;
                     transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-                    overflow: hidden; /* Contain the liquid animation */
                     padding: 1rem 0;
                 }
                 html.light-mode #main-nav:not(.hidden) {
-                    background: rgba(255, 255, 255, 0.8);
+                    background: rgba(255, 255, 255, 0.2);
                     box-shadow: 
-                        0 20px 40px rgba(0,0,0,0.1),
-                        inset 0 0 20px rgba(255, 255, 255, 0.5),
-                        inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-                }
-                
-                /* Liquid Atmosphere Animation */
-                #main-nav:not(.hidden)::before {
-                    content: '';
-                    position: absolute;
-                    top: -50%; left: -50%; width: 200%; height: 200%;
-                    background: radial-gradient(circle at 50% 50%, 
-                        rgba(96, 165, 250, 0.15), 
-                        rgba(236, 72, 153, 0.15), 
-                        transparent 50%);
-                    animation: liquid-spin 20s linear infinite;
-                    z-index: -1;
-                    pointer-events: none;
-                }
-                
-                @keyframes liquid-spin {
-                    from { transform: rotate(0deg); }
-                    to { transform: rotate(360deg); }
+                        inset 0 0 20px rgba(255, 255, 255, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                        0 15px 35px rgba(0, 0, 0, 0.1);
                 }
 
                 #main-nav:not(.hidden) .nav-link {
@@ -381,7 +368,7 @@
                     font-weight: 500;
                     color: rgba(255, 255, 255, 0.95);
                     padding: 0.75rem 0;
-                    width: 100%;
+                    width: fit-content;
                     text-align: center;
                     text-shadow: none;
                 }
@@ -589,34 +576,55 @@
 <body class="antialiased selection:bg-white selection:text-black">
     <canvas id="cosmic-canvas"></canvas>
     
-    <div class="lg:flex min-h-[100dvh] max-w-7xl mx-auto relative z-10">
+    <div class="lg:flex min-h-[100dvh] w-full max-w-[1920px] mx-auto relative z-10">
         
         <!-- LEFT COLUMN -->
-        <header class="lg:w-1/3 lg:fixed lg:h-[100dvh] p-6 lg:p-16 flex flex-col justify-between z-50 text-center lg:text-left relative">
+        <header class="min-h-[100dvh] lg:min-h-0 lg:w-[30%] lg:sticky lg:top-0 lg:h-[100dvh] p-8 lg:p-12 flex flex-col justify-center lg:gap-6 z-50 text-center lg:text-left relative">
             <button id="mobile-menu-btn" class="lg:hidden fixed top-6 right-6 p-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white hover:bg-white/20 transition-all z-50" aria-label="Toggle menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
 
-            <button id="theme-toggle" class="theme-btn fixed top-6 left-6 z-50 lg:static lg:mt-4 lg:ml-0 p-3 lg:p-0 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white hover:bg-white/20 transition-all lg:border-none lg:bg-transparent lg:shadow-none lg:backdrop-blur-none" aria-label="Toggle theme">
+            <button id="theme-toggle" class="theme-btn fixed top-6 left-6 z-50 lg:fixed lg:top-8 lg:right-7 lg:left-auto p-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white hover:bg-white/20 transition-all" aria-label="Toggle theme">
                 <svg class="w-5 h-5 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.08-5.08l4.24-4.24"/></svg>
                 <svg class="w-5 h-5 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
             </button>
 
             <div class="flex flex-col items-center lg:items-start w-full">
-                <div class="neural-avatar mb-8 glow">
+                <div class="neural-avatar mb-6 glow">
                     <div class="neural-ring"></div>
                     <div class="neural-core" style="overflow: hidden;">
-                        <img src="https://drive.google.com/uc?export=view&id=1mE-uQ_0ZdPhTXqCiDVBPDejcSRRprk17" alt="Arun Thangapalam" class="w-full h-full object-cover">
+                        <img src="https://github.com/user-attachments/assets/95c2536f-f1a9-4394-993e-317bb1b5c0cf" alt="Arun Thangapalam" class="w-full h-full object-cover">
                     </div>
                 </div>
                 
-                <h1 class="text-3xl lg:text-4xl font-bold tracking-tight mb-2" style="font-weight: 700;">
-                    Arun<br>Thangapalam
+                <h1 class="text-3xl lg:text-3xl xl:text-4xl font-bold tracking-tight mb-2" style="font-weight: 700;">
+                    Arun Thangapalam
                 </h1>
-                <p class="text-lg mb-8" style="color: var(--dim); font-weight: 200;">
-                    CS Graduate &<br>Software Engineer
+                <p class="text-base lg:text-lg mb-4" style="color: var(--dim); font-weight: 200;">
+                    CS Graduate & Software Engineer
                 </p>
                 
+                <div class="flex flex-col items-center lg:items-start gap-1 mb-6 w-full text-sm" style="color: var(--dim); font-weight: 300;">
+                    <span>Detroit, MI</span>
+                    <span>(313) 639-7215</span>
+                    <span>arunramkrishna997@gmail.com</span>
+                </div>
+
+                <div class="flex items-center justify-center lg:justify-start gap-4 mb-8 w-full">
+                    <a href="https://github.com/huharun" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.419-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.304-.536-1.528.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.655 1.648.243 2.872.12 3.176.769.84 1.235 1.91 1.235 3.221 0 4.61-2.807 5.625-5.479 5.921.431.372.814 1.103.814 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://leetcode.com/u/huharun/" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+                    </a>
+                    <a href="https://www.kaggle.com/arunthangapalam" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.547 1.475v5.114c0 .222-.128.348-.35.348H5.219c-.223 0-.351-.126-.351-.348V.348c0-.223.128-.349.351-.349h2.619c.222 0 .35.126.35.349v16.286l6.73-7.586c.14-.166.304-.248.492-.248h3.139c.164 0 .259.049.281.141.024.105-.011.199-.105.281l-6.004 6.308 6.203 7.998c.094.094.129.188.105.293z"/></svg>
+                    </a>
+                </div>
+
                 <nav id="main-nav" class="hidden lg:block w-full space-y-2 lg:space-y-3 mb-8 lg:mb-0">
                     <a href="#about" class="nav-link">About</a>
                     <a href="#skills" class="nav-link">Skills</a>
@@ -627,36 +635,22 @@
                 </nav>
             </div>
 
-            <div class="flex items-center justify-center lg:justify-start gap-6 mt-8 lg:mt-0 w-full">
-                <a href="https://github.com/huharun" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.419-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.304-.536-1.528.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.655 1.648.243 2.872.12 3.176.769.84 1.235 1.91 1.235 3.221 0 4.61-2.807 5.625-5.479 5.921.431.372.814 1.103.814 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/arun-thangapalam-7b4b4719a/" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="https://leetcode.com/u/huharun/" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
-                </a>
-                <a href="https://www.kaggle.com/arunthangapalam" target="_blank" class="hover:opacity-100 opacity-60 transition-opacity">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.547 1.475v5.114c0 .222-.128.348-.35.348H5.219c-.223 0-.351-.126-.351-.348V.348c0-.223.128-.349.351-.349h2.619c.222 0 .35.126.35.349v16.286l6.73-7.586c.14-.166.304-.248.492-.248h3.139c.164 0 .259.049.281.141.024.105-.011.199-.105.281l-6.004 6.308 6.203 7.998c.094.094.129.188.105.293z"/></svg>
-                </a>
-            </div>
         </header>
 
         <!-- RIGHT COLUMN -->
-        <main class="lg:w-2/3 lg:ml-auto p-6 lg:p-16 space-y-24 lg:space-y-32">
+        <main class="lg:w-[70%] p-6 lg:p-24 space-y-24 lg:space-y-32 xl:space-y-40">
             
             <!-- ABOUT -->
             <section id="about" class="reveal">
                 <span class="section-label">01 — INTRODUCTION</span>
-                <p class="text-2xl md:text-3xl leading-relaxed mb-6" style="font-weight: 200;">
-                    I am an MS Computer Science graduate specializing in <span class="holo" style="font-weight: 500;">AI/ML</span> and <span class="holo" style="font-weight: 500;">Full-Stack Engineering</span>.
+                <p class="text-xl md:text-2xl leading-relaxed mb-6" style="font-weight: 200;">
+                    Computer Science professional with experience spanning <span class="holo" style="font-weight: 500;">full-stack application development</span> and <span class="holo" style="font-weight: 500;">applied machine learning</span>.
                 </p>
-                <p class="text-lg leading-relaxed max-w-2xl" style="color: var(--dim); font-weight: 300;">
-                    My work focuses on building scalable software systems and deploying machine learning pipelines that solve real-world problems. I value clean code, structural integrity, and long-term maintainability.
+                <p class="text-base leading-relaxed max-w-2xl" style="color: var(--dim); font-weight: 300;">
+                    Work includes backend systems, web applications, and data-driven projects across academic and professional settings, with a strong foundation in Python, JavaScript, and modern software development practices.
                 </p>
                 <div class="mt-8">
-                    <a href="https://drive.google.com/file/d/1iB8QKCrWNlgzpz8frhAX_B0EEprAbQlX/view" target="_blank" class="text-sm font-mono border-b pb-1 hover:border-current transition-colors holo" style="border-color: var(--dim);">
+                    <a href="https://drive.google.com/file/d/1HbQqtNja-_oMx607BQg6JHhj-SPxXyw0/view" target="_blank" class="text-sm font-mono border-b pb-1 hover:border-current transition-colors holo" style="border-color: var(--dim);">
                         Download Resume ↗
                     </a>
                 </div>
@@ -669,28 +663,28 @@
                     <div class="glass skill-node">
                         <h3 class="holo font-semibold mb-3 text-sm">LANGUAGES</h3>
                         <p class="font-mono text-xs leading-loose" style="color: var(--dim); font-weight: 400;">
-                            Python / PHP / JavaScript<br>C# / HTML / CSS / SQL
+                            Python / PHP / JavaScript / C# / HTML / CSS / SQL
                         </p>
                     </div>
                     
                     <div class="glass skill-node">
                         <h3 class="holo font-semibold mb-3 text-sm">FRAMEWORKS & TOOLS</h3>
                         <p class="font-mono text-xs leading-loose" style="color: var(--dim); font-weight: 400;">
-                            React / Node.js / CodeIgniter<br>Docker / Git / GitHub Actions
+                            React / Node.js / CodeIgniter / Git / GitHub Actions / VS Code / Docker / Jupyter
                         </p>
                     </div>
                     
                     <div class="glass skill-node">
                         <h3 class="holo font-semibold mb-3 text-sm">AI & DATA</h3>
                         <p class="font-mono text-xs leading-loose" style="color: var(--dim); font-weight: 400;">
-                            scikit-learn / Pandas / NumPy<br>Matplotlib / Seaborn / MySQL
+                            scikit-learn / Pandas / NumPy / Matplotlib / Seaborn / MySQL / MongoDB
                         </p>
                     </div>
                     
                     <div class="glass skill-node">
                         <h3 class="holo font-semibold mb-3 text-sm">CORE COMPETENCIES</h3>
                         <p class="font-mono text-xs leading-loose" style="color: var(--dim); font-weight: 400;">
-                            REST APIs / Agile / Automation<br>NLP / System Design
+                            REST APIs / Agile / CI/CD / NLP / Data Visualization
                         </p>
                     </div>
                 </div>
@@ -700,7 +694,7 @@
             <section id="experience" class="reveal">
                 <span class="section-label">03 — EXPERIENCE</span>
                 <div class="space-y-8">
-                    
+                    <!-- Student Assistant -->
                     <div class="glass timeline-item" style="padding: 2rem; border-radius: 24px;">
                         <div class="flex items-start gap-4">
                             <div class="timeline-dot mt-2"></div>
@@ -713,25 +707,43 @@
                                 <ul class="space-y-2 text-sm" style="color: var(--dim); font-weight: 300;">
                                     <li>▹ Support classroom AV technology and campus IT infrastructure</li>
                                     <li>▹ Troubleshoot hardware/software issues for faculty and students</li>
+                                    <li>▹ Audited and managed classroom AV assets by labeling equipment IDs and maintaining accurate CMDB records.</li> 
                                 </ul>
+                                <div class="flex gap-2 flex-wrap mt-4">
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">IT Support</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">AV Tech</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Troubleshooting</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">Asset Management</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Customer Service</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-
+                    
+                    <!-- Junior Developer -->
                     <div class="glass timeline-item" style="padding: 2rem; border-radius: 24px;">
                         <div class="flex items-start gap-4">
                             <div class="timeline-dot mt-2"></div>
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
                                     <h3 class="text-xl font-medium">Junior Developer</h3>
-                                    <span class="font-mono text-xs" style="color: var(--dim);">06.2022 — 06.2023</span>
+                                    <span class="font-mono text-xs" style="color: var(--dim);">Jun 2022 – Jun 2023</span>
                                 </div>
-                                <p class="text-sm mb-4 holo">Enova Software Solutions</p>
+                                <p class="text-sm mb-4 holo">Enova Software and Hardware Solutions</p>
                                 <ul class="space-y-2 text-sm" style="color: var(--dim); font-weight: 300;">
-                                    <li>▹ Built backend features with CodeIgniter, PHP, and MySQL</li>
-                                    <li>▹ Automated data processing, reducing workload by 40%</li>
-                                    <li>▹ Collaborated in Agile sprints for production releases</li>
+                                    <li>▹ Built and maintained backend features using CodeIgniter, PHP, and MySQL.</li>
+                                    <li>▹ Developed responsive web interfaces with jQuery and Ajax; automated student data processing, reducing manual workload by 40%.</li>
+                                    <li>▹ Collaborated in Agile sprints to deliver production-ready features.</li>
+                                    <li>▹ Assisted in testing, debugging, and documenting code for internal and client projects.</li>
                                 </ul>
+                                <div class="flex gap-2 flex-wrap mt-4">
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">PHP</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">MySQL</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">jQuery</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">AJAX</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">CodeIgniter</span>
+                                    <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">Model-View-Controller (MVC)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -743,10 +755,10 @@
                 <span class="section-label">04 — SELECTED WORK</span>
                 <div class="space-y-6">
                     
+                    <!-- DevSwarm -->
                     <div class="glass project-card">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-medium">DevSwarm</h3>
-                            <a href="https://github.com/huharun/agents" target="_blank" class="text-xs font-mono holo hover:underline">VIEW CODE ↗</a>
+                            <h3 class="text-xl font-medium">DevSwarm <span class="font-mono text-xs" style="color: var(--dim); font-weight: 400;">(Nov 2025)</span></h3>
                         </div>
                         <p class="mb-4 leading-relaxed" style="color: var(--dim); font-weight: 300;">
                             Multi-agent system for software project automation with Jira API integration
@@ -754,53 +766,54 @@
                         <div class="flex gap-2 flex-wrap">
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Python</span>
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">AI/ML</span>
-                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Jira API</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Jira</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">Automation</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Agile</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">Data Analysis</span>
                         </div>
+                        <a href="https://github.com/huharun/agents" target="_blank" class="text-xs font-mono holo hover:underline mt-4 block">VIEW CODE ↗</a>
                     </div>
 
+                    <!-- ICL vs Fine-Tuning & Phishing Website Detection -->
                     <div class="glass project-card">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-medium">ICL vs Fine-Tuning</h3>
-                            <a href="https://github.com/huharun/icl_vs_finetuning" target="_blank" class="text-xs font-mono holo hover:underline">VIEW CODE ↗</a>
+                            <h3 class="text-xl font-medium">ICL vs Fine-Tuning & Phishing Website Detection <span class="font-mono text-xs" style="color: var(--dim); font-weight: 400;">(May 2025)</span></h3>
                         </div>
                         <p class="mb-4 leading-relaxed" style="color: var(--dim); font-weight: 300;">
-                            NLP model analysis app evaluating LLaMA3 and DeepSeek-R1 performance
+                            Built a Streamlit app to compare ICL vs fine-tuned NLP models (LLaMA3, DeepSeek-R1) on QA, classification, and translation tasks; evaluated using F1, Accuracy, BLEU, BERTScore, ROUGE. Developed ML pipelines for phishing URL classification with 11 models; performed feature engineering, EDA, visualization (ROC, confusion matrices); achieved 95%+ accuracy.
                         </p>
                         <div class="flex gap-2 flex-wrap">
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Python</span>
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">HuggingFace</span>
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Streamlit</span>
-                        </div>
-                    </div>
-
-                    <div class="glass project-card">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-medium">Phishing Detection</h3>
-                            <a href="https://github.com/huharun/project_IS" target="_blank" class="text-xs font-mono holo hover:underline">VIEW CODE ↗</a>
-                        </div>
-                        <p class="mb-4 leading-relaxed" style="color: var(--dim); font-weight: 300;">
-                            ML pipeline for URL classification achieving 95%+ accuracy
-                        </p>
-                        <div class="flex gap-2 flex-wrap">
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">scikit-learn</span>
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">Pandas</span>
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Data Viz</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">NLP</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">ML Metrics</span>
                         </div>
+                        <a href="https://github.com/huharun/icl_vs_finetuning" target="_blank" class="text-xs font-mono holo hover:underline mt-4 block">VIEW ICL CODE ↗</a>
+                        <a href="https://github.com/huharun/project_IS" target="_blank" class="text-xs font-mono holo hover:underline mt-2 block">VIEW PHISHING CODE ↗</a>
                     </div>
 
+                    <!-- Driveway Sealing Management System -->
                     <div class="glass project-card">
                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-medium">Driveway Management</h3>
-                            <a href="https://github.com/huharun/reactmysql/tree/main/project2" target="_blank" class="text-xs font-mono holo hover:underline">VIEW CODE ↗</a>
+                            <h3 class="text-xl font-medium">Driveway Sealing Management System <span class="font-mono text-xs" style="color: var(--dim); font-weight: 400;">(Dec 2024)</span></h3>
                         </div>
                         <p class="mb-4 leading-relaxed" style="color: var(--dim); font-weight: 300;">
-                            Full-stack platform with OpenStreetMap integration and PDF export
+                            Created a React/MySQL platform for client registration, quotes, billing, and dashboards; added PDF export, image uploads, session management. Implemented OpenStreetMap address autofetch, chat, pop-up modals, role-based dashboards, and SQL reporting for client-contractor workflows.
                         </p>
                         <div class="flex gap-2 flex-wrap">
-                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">React</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">PHP</span>
                             <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">MySQL</span>
-                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">Node.js</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">JavaScript</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">HTML/CSS</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">OpenStreetMap</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(236, 72, 153, 0.1); color: var(--glass-pink); border: 1px solid rgba(236, 72, 153, 0.2);">jsPDF</span>
+                            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: rgba(96, 165, 250, 0.1); color: var(--glass-blue); border: 1px solid rgba(96, 165, 250, 0.2);">REST APIs</span>
                         </div>
+                        <a href="https://github.com/huharun/reactmysql/tree/main/project2" target="_blank" class="text-xs font-mono holo hover:underline mt-4 block">VIEW CODE ↗</a>
                     </div>
                 </div>
             </section>
@@ -812,20 +825,26 @@
                     <div class="grid grid-cols-1 gap-8">
                         <div>
                             <h3 class="text-lg font-medium mb-2">Wayne State University</h3>
-                            <p class="text-sm mb-1" style="color: var(--dim);">MS in Computer Science (AI/ML) — 3.53 GPA</p>
+                            <p class="text-sm mb-1" style="color: var(--dim);">MS in Computer Science (AI/ML) — GPA: 3.53</p>
                             <p class="text-xs font-mono" style="color: var(--dim);">Dec 2025</p>
+                            <p class="text-xs mt-2" style="color: var(--dim); font-weight: 300;">Relevant coursework: Machine Learning, AI, Algorithms, Cybersecurity, Software Engineering</p>
                         </div>
                         <div>
                             <h3 class="text-lg font-medium mb-2">United Institute of Technology</h3>
                             <p class="text-sm mb-1" style="color: var(--dim);">BE in Computer Science and Engineering</p>
                             <p class="text-xs font-mono" style="color: var(--dim);">June 2022</p>
+                            <p class="text-xs mt-2" style="color: var(--dim); font-weight: 300;">Relevant coursework: Data Structures & Algorithms, OOPS, DBMS, Internet Programming, Cloud Computing</p>
                         </div>
                         <div class="pt-6 border-t" style="border-color: rgba(255, 255, 255, 0.1);">
-                            <h4 class="text-xs font-mono mb-4 uppercase tracking-wider holo">Leadership</h4>
+                            <h4 class="text-xs font-mono mb-4 uppercase tracking-wider holo">Leadership & Activities</h4>
                             <ul class="space-y-3">
                                 <li class="flex justify-between text-sm" style="color: var(--dim); font-weight: 300;">
                                     <span>Secretary, CSE Dept Association</span>
-                                    <span class="font-mono text-xs">2021-22</span>
+                                    <span class="font-mono text-xs">2021–2022</span>
+                                </li>
+                                <li class="flex justify-between text-sm" style="color: var(--dim); font-weight: 300;">
+                                    <span>Member, CSE Dept Association</span>
+                                    <span class="font-mono text-xs">2019–2020</span>
                                 </li>
                                 <li class="flex justify-between text-sm" style="color: var(--dim); font-weight: 300;">
                                     <span>Hockey & Ball Badminton Player</span>
@@ -842,8 +861,8 @@
                 <span class="section-label">06 — CONTACT</span>
                 <p class="text-2xl mb-8" style="font-weight: 300;">Open to opportunities.</p>
                 
-                <form id="email-form" action="https://formspree.io/f/mdklqlvn" method="POST" class="glass" style="padding: 2rem; border-radius: 24px; max-width: 600px;">
-                    <div class="grid grid-cols-2 gap-6 mb-6">
+                <form id="email-form" action="https://formspree.io/f/mdklqlvn" method="POST" class="glass" style="padding: 2rem; border-radius: 24px;">
+                    <div class="grid grid-cols-2 gap-8 mb-6">
                         <input type="text" name="name" placeholder="Name" required>
                         <input type="email" name="email" placeholder="Email" required>
                     </div>
@@ -977,6 +996,30 @@
         
         resize();
         animate();
+
+        // FORCE SCROLL TO TOP ON LOAD/REFRESH
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            setTimeout(() => {
+                document.documentElement.style.scrollBehavior = '';
+                document.body.style.scrollBehavior = '';
+            }, 100);
+        });
+
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
 
         // SCROLL REVEAL
         const sections = document.querySelectorAll('.reveal');
