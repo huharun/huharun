@@ -328,6 +328,9 @@
 .character-viewport.no-scroll {
   overflow-y: hidden;
   scroll-snap-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .character-viewport::-webkit-scrollbar { display: none; }
 
