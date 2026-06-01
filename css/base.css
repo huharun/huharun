@@ -67,6 +67,11 @@
   user-select: none;
 }
 
+.app-body, input, textarea, select {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
 /* Hide scrollbars but keep functionality */
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
@@ -195,7 +200,5 @@ body.light-mode::after { opacity: 0; }
   #star-canvas {
     display: none !important;
   }
-  .widget-music.playing .music-art {
-    animation: none !important;
-  }
+}
 }

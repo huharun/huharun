@@ -5,7 +5,6 @@ export const portfolioData = {
     contactStatus: "Available for Collaboration",
     contactGreeting: "Hey! I'm currently working on AI agents at Wayne State. Feel free to reach out below!",
     labels: {
-      navHome: "Home",
       navAbout: "About Me",
       navBooks: "Books",
       navExperience: "Experience",
@@ -17,33 +16,14 @@ export const portfolioData = {
       aboutHeroRole: "Software Engineer | AI/ML Enthusiast | Agentic AI Developer",
       aboutBioHeading: "Professional Background",
       aboutFocusHeading: "Core Focus & Competencies",
-      aboutResumeBtn: "Download Full Resume",
       projectsSearchPlc: "Search projects…",
       projectsNoResults: "No apps found",
-      experienceBadge: "Notes",
-      experienceSidebarTitle: "Job History",
-      experiencePlaceholder: "Select a role to view details",
-      educationHeading: "DEGREES & CREDENTIALS",
-      contactMeHeader: "CONTACT ME",
-      imessageSender: "Open to Opportunities",
-      imessageText: "Currently seeking full-time roles in AI/ML and full-stack engineering. Let's connect!",
-      imessageTime: "Available now",
-      imessageReplyBtn: "Send a message →",
-      contactLabel: "GET IN TOUCH",
-      formNameLabel: "Your Name",
-      formNamePlc: "Type name…",
-      formEmailLabel: "Your Email",
-      formEmailPlc: "Type email…",
-      formMsgLabel: "Message",
-      formMsgPlc: "Type message…",
-      formSuccess: "✓ Message sent — I'll reply soon!",
-      formError: "✗ Failed to send. Try emailing directly.",
-      musicStatusPaused: "PAUSED",
-      musicStatusPlaying: "♪ NOW PLAYING",
       widgetProfile: "PROFILE",
       widgetGlance: "AT A GLANCE",
       widgetLauncher: "QUICK ACCESS",
-      widgetDrive: "RESUME & LINKS"
+      aboutWorkEmail: "Work Email",
+      aboutLocation: "Location",
+      aboutSocials: "Social Connections"
     }
   },
   site: {
@@ -130,7 +110,7 @@ export const portfolioData = {
     {
       role: "Junior Developer",
       company: "Enova Software and Hardware Solutions",
-      period: "Jun 2022 – Jun 2023",
+      period: "Jun 2022 — Jun 2023",
       bullets: [
         "Built and maintained backend features using CodeIgniter, PHP, and MySQL.",
         "Developed responsive web interfaces with jQuery and Ajax; automated student data processing, reducing manual workload by 40%.",
@@ -254,13 +234,7 @@ export const portfolioData = {
       period: "School Level"
     }
   ],
-  timeline: [
-    { title: "Digital Mfg Intern", sub: "Siemens DISW · June 2026", color: "accent-blue" },
-    { title: "AI Agent Developer", sub: "WSU — IntelliMake · April 2026", color: "accent-cyan" },
-    { title: "MS Computer Science", sub: "Wayne State · Jan 2024 – Dec 2025", color: "accent-purple" },
-    { title: "Student IT Assistant", sub: "Wayne State C&IT · Aug 2024 – Dec 2025", color: "accent-pink" },
-    { title: "Junior Developer", sub: "Enova · Jun 2022 – Jun 2023", color: "accent-blue" }
-  ],
+
   files: [
     { label: "Resume.pdf", icon: "resume", size: "156 KB", url: "https://drive.google.com/file/d/1HbQqtNja-_oMx607BQg6JHhj-SPxXyw0/preview", isPdf: true },
     { label: "BE Degree.pdf", icon: "education", size: "842 KB", url: "https://drive.google.com/file/d/1y9m0y1YrFMgMHZFzAlCAi8-gJ4EfqIld/preview", isPdf: true },
@@ -284,11 +258,7 @@ export const portfolioData = {
     "1Qr17u2S9kNDzTeWAJCY5N", "6h4K1cMkBmJn9FsJ1CCaH6",
     "5UeIwcUIKTVPqBnuXnhmBD", "4FS6WVtI9qTVwZlc0QfwnN", "6g1UKfOWkPmCGaRTwVYntG"
   ],
-  music: {
-    track: "Retro Beats",
-    artist: "Kisses — Anitek",
-    url: "https://assets.codepen.io/4358584/Anitek_-_01_-_Kisses.mp3"
-  },
+
   glance: {
     current: {
       role: "AI Agent Developer",

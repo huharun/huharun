@@ -177,8 +177,7 @@
   justify-items: center;
   align-items: start;
 }
-@media (max-width: 1024px) { .launcher-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 600px) { .launcher-grid { grid-template-columns: repeat(3, 1fr); } }
+
 
 .launcher-btn {
   display: flex;
@@ -491,7 +490,6 @@
   .vision-text { font-size: 14px; }
   .character-nav-label { display: none; }
   .character-segmented-control { max-width: 220px; }
-  .character-vision-pane { padding: 0; }
 }
 
 /* Profile Widget */
@@ -539,57 +537,7 @@
   transform: scale(1.05);
 }
 .social-link:active { transform: scale(0.95); }
-.widget-music.playing::before {
-  animation: liquidGlow 6s linear infinite;
-  opacity: 1;
-}
-@keyframes liquidGlow {
-  0% { filter: hue-rotate(0deg) brightness(1); }
-  50% { filter: hue-rotate(180deg) brightness(1.2); }
-  100% { filter: hue-rotate(360deg) brightness(1); }
-}
 
-.music-body { display: flex; gap: var(--s6); align-items: center; }
-.music-art {
-  width: 72px; height: 72px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #ff2d55, #af52de);
-  position: relative;
-  box-shadow: 0 8px 24px rgba(255, 45, 85, 0.3);
-  transition: border-radius 0.5s ease;
-}
-
-.widget-music.playing .music-art {
-  animation: rotateDisc 10s linear infinite;
-  border-radius: 50%;
-}
-
-@keyframes rotateDisc {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.music-info { flex: 1; min-width: 0; }
-.music-track { font-size: 17px; font-weight: 700; }
-.music-artist { font-size: 15px; color: var(--text-2); }
-
-.scrubber-bar { height: 6px; background: var(--border); border-radius: 3px; }
-.scrubber-fill { background: var(--text); box-shadow: 0 0 10px var(--border); }
-
-/* Calendar Widget */
-.calendar-items { display: flex; flex-direction: column; gap: var(--s2); }
-.calendar-item {
-  padding: 10px 14px;
-  border-radius: var(--radius-md);
-  background: var(--bg-3);
-  border-left: 4px solid transparent;
-}
-.calendar-item.accent-cyan   { border-left-color: var(--accent-cyan); }
-.calendar-item.accent-pink   { border-left-color: var(--accent-pink); }
-.calendar-item.accent-blue   { border-left-color: var(--accent-blue); }
-.calendar-item.accent-orange { border-left-color: var(--accent-orange); }
-
-.calendar-item-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-.calendar-item-sub   { font-size: 12px; color: var(--text-3); }
 
 /* Files Widget — iOS Native Grid */
 .files-grid { 

@@ -1,11 +1,28 @@
 /* ======================== RENDERING LOGIC ======================== */
 import { portfolioData } from './data.js';
 import { icons } from './icons.js';
-import { launchApp, goHome } from './ui.js';
+import { launchApp } from './ui.js';
 
 // --- Helpers ---
 
 const getInitials = (name) => name.split(' ').map(n => n[0]).join('').toUpperCase();
+
+function setupAvatarFallback(container = document) {
+  const avatars = container.querySelectorAll('.avatar-img');
+  avatars.forEach(img => {
+    const handleErr = () => {
+      img.style.display = 'none';
+      const initials = getInitials(portfolioData.profile.name);
+      if (img.parentElement) {
+        img.parentElement.textContent = initials;
+      }
+    };
+    img.addEventListener('error', handleErr);
+    if (img.complete && img.naturalWidth === 0) {
+      handleErr();
+    }
+  });
+}
 
 const setElementContent = (selector, content, isHtml = false) => {
   const el = document.querySelector(selector);
@@ -27,8 +44,6 @@ export function renderDashboard() {
 
   setElementContent('.status-title', c.statusTitle);
   setElementContent('.status-badge', c.statusBadge);
-  setElementContent('.messages-status', `<span class="online-dot"></span> ${c.contactStatus}`, true);
-  setElementContent('.bubble-in p', c.contactGreeting);
 
   document.querySelectorAll('.back-btn').forEach(btn => btn.innerHTML = icons.back);
   
@@ -67,11 +82,9 @@ export function renderDashboard() {
   setElementContent('#dash-title', p.title);
   
   const initials = getInitials(p.name);
-  const avatarHtml = `<img src="${p.avatar}" alt="${p.name}" class="avatar-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${initials}'">`;
+  const avatarHtml = `<img src="${p.avatar}" alt="${p.name}" class="avatar-img">`;
   
   setElementContent('#dash-avatar', avatarHtml, true);
-  setElementContent('#contact-avatar', avatarHtml, true);
-  setElementContent('.messages-name', p.name);
   
   setElementContent('#dash-meta', `
     <div class="meta-row">${icons.location} <span>${p.location}</span></div>
@@ -102,7 +115,7 @@ export function renderDashboard() {
   renderFiles();
   renderQuotes();
   renderCharacterApp();
-  renderContact();
+  setupAvatarFallback(document.getElementById('dash-avatar'));
 }
 
 export function renderQuotes() {
@@ -185,11 +198,10 @@ function renderCharacterPane(paneId) {
           ${soundtrack.map(id => `
             <div class="vision-track-item compact">
               <iframe 
-                style="border-radius:12px" 
+                style="border-radius:12px; border: none;" 
                 src="https://open.spotify.com/embed/track/${id}?utm_source=generator&theme=0" 
                 width="100%" 
                 height="80" 
-                frameBorder="0" 
                 allowfullscreen="" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                 loading="lazy">
@@ -206,9 +218,9 @@ function renderCharacterPane(paneId) {
       <div class="character-repeat-pane">
         <div class="repeat-video-container">
           <iframe 
+            style="border: none;"
             src="https://www.youtube.com/embed/${mainVid}" 
             title="YouTube video player" 
-            frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
           </iframe>
@@ -283,7 +295,7 @@ export function renderAbout() {
     <div class="about-app-container">
       <header class="contact-card-header">
         <div class="contact-avatar-wrapper">
-          <img src="${p.avatar}" alt="${p.name}" class="avatar-img" onerror="this.style.display='none'; this.parentElement.innerText='${initials}'">
+          <img src="${p.avatar}" alt="${p.name}" class="avatar-img">
         </div>
         <h1 class="contact-name-large">${p.name}</h1>
         <p class="contact-title-sub">${L.aboutHeroRole}</p>
@@ -295,15 +307,15 @@ export function renderAbout() {
         </div>
       </header>
       <div class="contact-data-group">
-        <div class="contact-data-row"><span class="contact-data-label">Work Email</span><a href="mailto:${p.email}" class="contact-data-value contact-data-link">${p.email}</a></div>
-        <div class="contact-data-row"><span class="contact-data-label">Location</span><span class="contact-data-value">${p.location}</span></div>
+        <div class="contact-data-row"><span class="contact-data-label">${L.aboutWorkEmail}</span><a href="mailto:${p.email}" class="contact-data-value contact-data-link">${p.email}</a></div>
+        <div class="contact-data-row"><span class="contact-data-label">${L.aboutLocation}</span><span class="contact-data-value">${p.location}</span></div>
       </div>
       <div class="contact-data-group"><div class="contact-data-row"><span class="contact-data-label">${L.aboutBioHeading}</span><p class="contact-data-value">${intro.description}</p></div></div>
       <div class="contact-data-group"><div class="contact-data-row"><span class="contact-data-label">${L.aboutFocusHeading}</span></div><div class="contact-bullets">
           ${intro.bullets.map(b => `<div class="contact-bullet-item"><span class="contact-bullet-dot"></span><span class="contact-bullet-text">${b}</span></div>`).join('')}
       </div></div>
       <div class="contact-data-group">
-        <div class="contact-data-row"><span class="contact-data-label">Social Connections</span></div>
+        <div class="contact-data-row"><span class="contact-data-label">${L.aboutSocials}</span></div>
         <div class="contact-social-grid">
           <a href="${p.socials.github}" target="_blank" rel="noopener" class="contact-social-item"><div class="contact-social-icon">${icons.github}</div><span class="contact-social-label">GitHub</span></a>
           <a href="${p.socials.linkedin}" target="_blank" rel="noopener" class="contact-social-item"><div class="contact-social-icon">${icons.linkedin}</div><span class="contact-social-label">LinkedIn</span></a>
@@ -313,6 +325,8 @@ export function renderAbout() {
       </div>
     </div>
   `;
+
+  setupAvatarFallback(el);
 }
 
 // --- Unified Books (Segmented Navigation) ---
@@ -585,7 +599,7 @@ export function renderContact() {
   const p = portfolioData.profile;
   const c = portfolioData.config;
   const initials = getInitials(p.name);
-  const avatarHtml = `<img src="${p.avatar}" alt="${p.name}" class="avatar-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${initials}'">`;
+  const avatarHtml = `<img src="${p.avatar}" alt="${p.name}" class="avatar-img">`;
 
   container.innerHTML = `
     <div class="imessage-native-layout">
@@ -599,7 +613,7 @@ export function renderContact() {
             <h2 class="imessage-native-name">${p.name}</h2>
             <div class="imessage-native-status">
               <span class="online-pulse-dot"></span>
-              Available for Collaboration
+              ${c.contactStatus}
             </div>
             <button type="button" class="imessage-view-about-btn" data-app="about">View Contact Info</button>
           </div>
@@ -655,4 +669,5 @@ export function renderContact() {
       tx.style.height = (tx.scrollHeight) + 'px';
     });
   }
+  setupAvatarFallback(container);
 }

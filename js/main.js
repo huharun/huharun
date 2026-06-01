@@ -9,7 +9,8 @@ import {
   renderAbout, 
   renderBooks, 
   renderExperience, 
-  renderProjects 
+  renderProjects,
+  renderContact
 } from './renderers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBooks();
   renderExperience();
   renderProjects();
+  renderContact();
 
   // 4. Post-Render Init
   initContactForm();
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Timeline Widget / At a Glance Widget
-    if (e.target.closest('.widget-calendar') || e.target.closest('.widget-glance')) {
+    if (e.target.closest('.widget-glance')) {
       launchApp('experience');
       return;
     }

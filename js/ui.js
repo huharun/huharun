@@ -1,3 +1,5 @@
+import { portfolioData } from './data.js';
+
 /* ======================== UI & NAVIGATION ======================== */
 
 export function launchApp(appId) {
@@ -183,7 +185,7 @@ export function initContactForm() {
       errorBubble.className = 'imessage-native-bubble-in error-bubble';
       errorBubble.innerHTML = `
         <div class="bubble-inner" style="background: rgba(255,59,48,0.15); border: 1px solid rgba(255,59,48,0.3); color: var(--text);">
-          Oops, your message could not be delivered. Please try emailing directly to arunramkrishna997@gmail.com.
+          Oops, your message could not be delivered. Please try emailing directly to ${portfolioData.profile.email}.
         </div>
         <div class="bubble-meta" style="color: #ff3b30;">Not Delivered</div>
       `;

@@ -73,17 +73,5 @@ body.light-mode .skill-pill:hover {
   background: rgba(255, 255, 255, 0.8);
   border-color: var(--accent-orange);
 }
-body.light-mode .projects-chip {
-  background: rgba(255, 255, 255, 0.4);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-body.light-mode .projects-chip:hover {
-  background: rgba(255, 255, 255, 0.7);
-  color: #1c1c1e !important;
-}
-body.light-mode .projects-chip.active {
-  background: var(--accent-blue);
-  color: #fff !important;
-  border-color: var(--accent-blue);
-}
+
 
