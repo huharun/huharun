@@ -1,10 +1,10 @@
 /* ======================== THEME TOGGLE ======================== */
 .theme-toggle {
-  position: fixed;
-  bottom: var(--s5);
+  position: absolute;
+  top: var(--s4);
   right: var(--s4);
-  z-index: 10000;
-  width: 44px; height: 44px;
+  z-index: 10;
+  width: 38px; height: 38px;
   border-radius: 50%;
   background: var(--glass);
   border: 0.5px solid var(--border);
@@ -13,8 +13,12 @@
   transition: all var(--transition);
   box-shadow: var(--shadow);
 }
-.theme-toggle:active { transform: scale(0.9); }
-.theme-toggle svg { width: 22px; height: 22px; }
+.theme-toggle:hover {
+  background: var(--glass-hover);
+  transform: scale(1.05);
+}
+.theme-toggle:active { transform: scale(0.95); }
+.theme-toggle svg { width: 18px; height: 18px; }
 
 /* Light mode overrides — Apple System Colors & Frosted Glassmorphism */
 body.light-mode {
@@ -37,7 +41,7 @@ body.light-mode {
   --text-3:          rgba(28, 28, 30, 0.45);
   
   --border:          rgba(0, 0, 0, 0.08);
-  --shadow:          0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow:          0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 /* Vibrant Light-Mode Pastel Gradient Background */
@@ -82,9 +86,4 @@ body.light-mode .projects-chip.active {
   color: #fff !important;
   border-color: var(--accent-blue);
 }
-body.light-mode .books-nav-btn.active,
-body.light-mode .character-nav-btn.active {
-  color: #fff !important;
-  background: var(--accent-blue) !important;
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3) !important;
-}
+

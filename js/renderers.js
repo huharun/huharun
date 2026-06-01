@@ -30,7 +30,7 @@ export function renderDashboard() {
   setElementContent('.messages-status', `<span class="online-dot"></span> ${c.contactStatus}`, true);
   setElementContent('.bubble-in p', c.contactGreeting);
 
-  document.querySelectorAll('.back-btn').forEach(btn => btn.innerHTML = `${icons.back} ${L.navHome}`);
+  document.querySelectorAll('.back-btn').forEach(btn => btn.innerHTML = icons.back);
   
   const appTitles = {
     'about': L.navAbout,
@@ -288,9 +288,10 @@ export function renderAbout() {
         <h1 class="contact-name-large">${p.name}</h1>
         <p class="contact-title-sub">${L.aboutHeroRole}</p>
         <div class="contact-actions-row">
+          <a href="tel:${p.phone}" class="contact-action-btn"><div class="contact-action-icon">${icons.phone}</div><span class="contact-action-label">Call</span></a>
+          <button class="contact-action-btn" data-app="contact"><div class="contact-action-icon">${icons.contact}</div><span class="contact-action-label">Message</span></button>
           <a href="mailto:${p.email}" class="contact-action-btn"><div class="contact-action-icon">${icons.email}</div><span class="contact-action-label">Email</span></a>
           <button class="contact-action-btn" id="about-resume-trigger" data-url="${p.resumeUrl}"><div class="contact-action-icon">${icons.resume}</div><span class="contact-action-label">Resume</span></button>
-          <button class="contact-action-btn" data-app="contact"><div class="contact-action-icon">${icons.contact}</div><span class="contact-action-label">Message</span></button>
         </div>
       </header>
       <div class="contact-data-group">
