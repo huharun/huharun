@@ -264,7 +264,7 @@ export function renderFiles() {
     const iconClass = isFolder ? 'icon-ios-folder' : 'icon-ios-pdf';
     return `
       <div class="file-item-ios" data-url="${file.url}" data-pdf="${file.isPdf || false}">
-        <div class="file-icon-ios ${iconClass}">${icons[file.icon] || icons.box}</div>
+        <div class="file-icon-ios ${iconClass}">${icons[file.icon] || icons.doc}</div>
         <div class="file-name-ios">${file.label}</div>
       </div>
     `;

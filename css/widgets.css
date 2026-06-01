@@ -306,39 +306,64 @@
 
 .character-segmented-control {
   background: var(--glass-standard);
-  padding: 4px;
-  border-radius: 16px;
+  padding: 5px;
+  border-radius: var(--radius-md);
   display: flex;
   border: 0.5px solid var(--border);
   width: 100%;
-  max-width: 440px;
+  max-width: 400px;
+  gap: 4px;
+  box-shadow: var(--shadow);
 }
 
 .character-nav-btn {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 12px;
+  gap: 4px;
+  padding: 8px 4px;
+  border-radius: var(--radius-sm);
   color: var(--text-3);
   border: 0.5px solid transparent;
   transition: all 0.25s var(--transition);
   background: none;
   cursor: pointer;
   font-family: inherit;
+  outline: none;
+}
+
+.character-nav-btn:hover {
+  background: var(--glass-standard);
+  color: var(--text-2);
+}
+
+.character-nav-btn:active {
+  transform: scale(0.97);
 }
 
 .character-nav-btn.active {
   color: var(--text) !important;
   background: var(--glass-thick);
-  border: 0.5px solid var(--border);
+  border-color: var(--accent-green);
   box-shadow: var(--shadow);
 }
 
 .character-nav-icon svg { width: 18px; height: 18px; }
-.character-nav-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+
+.character-nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.character-nav-btn.active .character-nav-label {
+  color: var(--text);
+  font-weight: 700;
+}
 
 .character-viewport {
   flex: 1;
@@ -593,10 +618,17 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: filter 0.3s;
+  background: var(--glass);
+  border-radius: var(--radius-md);
+  border: 0.5px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.3s var(--spring);
 }
 
-.file-icon-ios svg { width: 44px; height: 44px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+.file-icon-ios svg {
+  width: 24px;
+  height: 24px;
+}
 
 .icon-ios-folder { color: #007aff; } /* Apple Blue */
 .icon-ios-pdf    { color: #ff3b30; } /* Apple Red */
@@ -617,5 +649,7 @@
 }
 
 .file-item-ios:hover .file-icon-ios {
-  filter: brightness(1.1) saturate(1.2);
+  background: var(--glass-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
