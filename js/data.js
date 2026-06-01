@@ -30,7 +30,7 @@ export const portfolioData = {
     formspreeId: "mdklqlvn"
   },
   profile: {
-    name: "Arun Thangapalam",
+    name: "Arun Ramkrishna Thangapalam",
     title: "Software Engineer | AI/ML Enthusiast | Agentic AI Developer",
     location: "Detroit, MI",
     phone: "(313) 639-7215",
@@ -46,7 +46,7 @@ export const portfolioData = {
   },
   intro: {
     tagline: "Computer Science professional with experience spanning full-stack application development and applied machine learning.",
-    description: "Work includes backend systems, web applications, and data-driven projects across academic and professional settings, with a strong foundation in Python, JavaScript, and modern software development practices.",
+    description: "Software Engineer specializing in applied machine learning, distributed automation, and agentic workflows. Currently designing experimental, computer-use AI agents and low-latency MQTT messaging pipelines. Strong foundation in full-stack architecture, model evaluation, and database systems.",
     bullets: [
       "Full-stack web app development",
       "Backend APIs and database work",
@@ -58,77 +58,74 @@ export const portfolioData = {
   skills: [
     {
       category: "LANGUAGES",
-      items: ["Python", "PHP", "JavaScript", "C#", "HTML", "CSS", "SQL"]
+      items: ["Python", "JavaScript", "PHP", "C#", "SQL", "HTML", "CSS"]
     },
     {
-      category: "FRAMEWORKS & TOOLS",
-      items: ["React", "Node.js", "CodeIgniter", "Git", "GitHub Actions", "VS Code", "Docker", "Jupyter"]
+      category: "FRAMEWORKS",
+      items: ["React", "Node.js", "FastAPI", "Flask", "Next.js", "CodeIgniter", "Spring Boot"]
     },
     {
       category: "AI & DATA",
-      items: ["scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn", "MySQL", "MongoDB"]
+      items: ["PyTorch", "scikit-learn", "Pandas", "NumPy", "OpenCV", "NLP", "Ollama", "LLM Evaluation"]
     },
     {
-      category: "CORE COMPETENCIES",
-      items: ["REST APIs", "Agile", "CI/CD", "NLP", "Data Visualization"]
+      category: "TOOLS & INFRASTRUCTURE",
+      items: ["Docker", "Git", "GitHub Actions", "Redis", "MQTT", "Jupyter", "MySQL", "PostgreSQL"]
     }
   ],
   experience: [
     {
-      role: "AI Agent Developer (Volunteer/Intern)",
-      company: "Wayne State University — IntelliMake",
+      role: "AI Agent Developer (Research / Prototyping)",
+      company: "Wayne State University — IntelliMake Lab",
       period: "April 2026 — Present",
       bullets: [
-        "Design and develop sophisticated AI agents with 'computer use' capabilities, enabling autonomous interaction with desktop software and browser environments.",
-        "Engineered robust MQTT-based communication layers for real-time agent orchestration and distributed IoT systems.",
-        "Build and test multi-step agent workflows using advanced orchestration techniques.",
-        "Integrate diverse APIs and external tools into intelligent systems.",
-        "Implement machine learning models to enhance agent decision-making capabilities."
+        "Designing and prototyping computer-use AI agents capable of interacting dynamically with desktop and browser environments to execute multi-step tasks.",
+        "Architecting low-latency MQTT messaging pipelines to coordinate real-time, high-throughput data exchange across distributed agent components.",
+        "Developing robust multi-step workflow orchestration frameworks to enhance the success rates of autonomous task execution.",
+        "Integrating external APIs and system tools into evolving AI agent architectures for validation and academic research."
       ],
       tags: ["AI Agents", "Computer Use", "MQTT", "Agentic Workflows", "API Integration", "Python", "Machine Learning"]
     },
     {
-      role: "Digital Manufacturing Intern (Incoming)",
+      role: "Digital Manufacturing Intern (Incoming / Scheduled)",
       company: "Siemens DISW",
       period: "June 2026 — July 2026",
-      bullets: [
-        "Incoming Summer 2026 internship focused on Digital Manufacturing systems and factory blueprint automation."
-      ],
+      bullets: [],
       tags: ["Digital Manufacturing", "Siemens DISW", "Incoming"]
     },
     {
       role: "Student Assistant",
-      company: "Wayne State University, C&IT",
+      company: "Wayne State University (C&IT)",
       period: "Aug 2024 — Dec 2025",
       bullets: [
-        "Support classroom AV technology and campus IT infrastructure",
-        "Troubleshoot hardware/software issues for faculty and students",
-        "Audited and managed classroom AV assets by labeling equipment IDs and maintaining accurate CMDB records."
+        "Supported campus AV systems and enterprise IT infrastructure, maintaining high system availability for faculty and students.",
+        "Resolved critical hardware/software issues and managed AV asset tracking using Cherwell and TeamDynamix ITSM platforms."
       ],
-      tags: ["IT Support", "AV Tech", "Troubleshooting", "Asset Management"]
+      tags: ["IT Support", "AV Tech", "Troubleshooting", "Asset Management", "Cherwell", "TeamDynamix"]
     },
     {
       role: "Junior Developer",
-      company: "Enova Software and Hardware Solutions",
+      company: "Enova Software",
       period: "Jun 2022 — Jun 2023",
       bullets: [
-        "Built and maintained backend features using CodeIgniter, PHP, and MySQL.",
-        "Developed responsive web interfaces with jQuery and Ajax; automated student data processing, reducing manual workload by 40%.",
-        "Collaborated in Agile sprints to deliver production-ready features.",
-        "Assisted in testing, debugging, and documenting code for internal and client projects."
+        "Engaged in an agile and dynamic software development lifecycle, ensuring efficient project delivery.",
+        "Collaborated with a team to design, code, and test features for the COE Software Application.",
+        "Utilized skills in JQuery, Ajax, PHP, Codeigniter (MVC Framework), and MySQL (phpMyAdmin).",
+        "Played a vital role in the processing and management of students' data, ensuring accuracy and security.",
+        "Worked closely with cross-functional teams to meet project deadlines and requirements."
       ],
       tags: ["PHP", "MySQL", "jQuery", "AJAX", "CodeIgniter", "Model-View-Controller (MVC)"]
     }
   ],
   projects: [
     {
-      title: "RadioPlatform",
+      title: "RadioPlatform — AI Streaming System",
       date: "Mar 2026",
-      description: "Full-stack internet radio platform with 50,000+ live stations, infinite scroll, favorites, playlists, listening stats, and a local AI chat assistant powered by Ollama — no API key required. Built with Next.js 14, FastAPI, MongoDB, Redis, and Docker.",
+      description: "Engineered a full-stack live-radio platform scale-tested for 50,000+ stations, leveraging Redis caching to optimize streaming latency and minimize database overhead. Integrated a local, privacy-focused AI assistant using Ollama to eliminate external API costs and dependencies.",
       problem: "Traditional radio streaming apps rely on costly cloud APIs, lack offline capability, and fail to provide local AI assistance.",
-      solution: "Engineered a microservices infrastructure using Next.js 14, FastAPI, Redis, and MongoDB, integrating local Ollama LLMs to serve users for free.",
+      solution: "Engineered a microservices infrastructure using Next.js 14, FastAPI, Redis, and PostgreSQL, integrating local Ollama LLMs to serve users for free.",
       impact: "Supports 50k+ stations with zero API costs, sub-100ms Redis latency caching, and fully conversational local AI interaction.",
-      tags: ["Next.js", "FastAPI", "MongoDB", "Redis", "Docker", "Ollama", "TypeScript"],
+      tags: ["Next.js", "FastAPI", "PostgreSQL", "Redis", "Docker", "Ollama", "TypeScript"],
       icon: "radio",
       links: [
         { label: "VIEW CODE", url: "https://github.com/huharun/radio-platform" }
@@ -148,9 +145,9 @@ export const portfolioData = {
       ]
     },
     {
-      title: "DevSwarm",
+      title: "DevSwarm — Multi-Agent Automation (Kaggle Capstone)",
       date: "Nov 2025",
-      description: "Multi-agent system for software project automation with Jira API integration",
+      description: "Engineered a multi-agent automation system integrating Google ADK and Jira APIs as a Kaggle Capstone project to automate sprint workflows and technical documentation layout, reducing manual tracking workload by approximately 35%.",
       problem: "Developers lose up to 10 hours a week on repetitive sprint tasks, including writing Jira ticket descriptions and release summaries.",
       solution: "Built a Python-based multi-agent architecture integrating the Jira API to handle automatic description generation and tasks execution.",
       impact: "Reduced manual ticketing admin overhead by 35% and automated documentation workflows in Agile teams.",
@@ -163,7 +160,7 @@ export const portfolioData = {
     {
       title: "Kaggle Data Science Projects",
       date: "Oct 2025",
-      description: "A collection of end-to-end data analysis and ML projects across diverse domains — including TED Talks virality prediction (98% accuracy with XGBoost), AI-powered resume screening, animal face classification with ResNet18 transfer learning, and EDA across Forbes Billionaires, Video Game Sales, and Google Search Trends datasets.",
+      description: "A collection of end-to-end data analysis and ML projects using Google ADK across diverse domains — including TED Talks virality prediction (98% accuracy with XGBoost), AI-powered resume screening, animal face classification with ResNet18 transfer learning, and EDA across Google Search Trends datasets.",
       problem: "Glean insights from massive unstructured data pools and choose optimal ML models across diverse domains.",
       solution: "Developed extensive pipelines with XGBoost, CatBoost, and PyTorch (ResNet18) transfer learning. Used TF-IDF and NLP vectors.",
       impact: "Achieved 98% accuracy on TED Talks virality forecasting and built a reliable resume screening engine.",
@@ -175,9 +172,9 @@ export const portfolioData = {
       ]
     },
     {
-      title: "ICL vs Fine-Tuning & Phishing Website Detection",
+      title: "ML Benchmarking & Phishing Detection",
       date: "May 2025",
-      description: "Built a Streamlit app to compare ICL vs fine-tuned NLP models (LLaMA3, DeepSeek-R1) on QA, classification, and translation tasks; evaluated using F1, Accuracy, BLEU, BERTScore, ROUGE. Developed ML pipelines for phishing URL classification with 11 models; performed feature engineering, EDA, visualization (ROC, confusion matrices); achieved 95%+ accuracy.",
+      description: "Trained and evaluated 11 classical and deep machine learning models for high-accuracy phishing classification, developing a production-ready LLM evaluation pipeline to compare system performance and achieving 95%+ accuracy.",
       problem: "Selecting between In-Context Learning and fine-tuning is complex, while malicious phishing URLs require efficient detection.",
       solution: "Constructed a Streamlit portal evaluating BLEU/ROUGE on LLMs. Built 11 separate classification models (Random Forest, SVM, etc.) for URL defense.",
       impact: "Recorded 95%+ phishing classification accuracy and provided comprehensive LLM evaluation matrices.",
@@ -205,13 +202,13 @@ export const portfolioData = {
   education: [
     {
       school: "Wayne State University",
-      degree: "MS in Computer Science (AI/ML)",
+      degree: "M.S. in Computer Science (Specialization in AI/ML)",
       period: "Jan 2024 — Dec 2025",
       coursework: "Machine Learning, AI, Algorithms, Cybersecurity, Software Engineering"
     },
     {
       school: "United Institute of Technology",
-      degree: "BE in Computer Science and Engineering",
+      degree: "B.E. in Computer Science",
       period: "Sep 2018 — Jul 2022",
       coursework: "Data Structures & Algorithms, OOPS, DBMS, Internet Programming, Cloud Computing"
     }
