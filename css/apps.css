@@ -526,7 +526,7 @@
   overflow: hidden;
 }
 
-#experience, #books {
+#experience {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -540,7 +540,7 @@
   height: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: var(--s4);
+  padding: 0;
   width: 100%;
 }
 
@@ -560,6 +560,7 @@
   border-right: 1px solid rgba(255,255,255,0.06);
   position: relative;
   z-index: 2;
+  overflow: hidden;
 }
 
 .notes-sidebar-header { 
@@ -637,13 +638,15 @@
   .notes-layout {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    overflow-y: hidden;
+    height: 100%;
+    overflow: hidden;
   }
   
   .notes-sidebar {
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: rgba(255,255,255,0.05);
+    background: rgba(0,0,0,0.2);
+    flex-shrink: 0;
   }
 
   .notes-sidebar-header {
@@ -654,7 +657,7 @@
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: var(--s2) var(--s4) var(--s3);
+    padding: var(--s2) var(--s4) var(--s4);
     gap: var(--s3);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -662,8 +665,10 @@
   .note-items-list::-webkit-scrollbar { display: none; }
 
   .note-item {
-    flex: 0 0 200px;
+    flex: 0 0 160px;
+    width: 160px;
     margin-bottom: 0;
+    padding: var(--s3);
     background: rgba(255,255,255,0.03);
   }
 
@@ -675,7 +680,7 @@
   }
 
   .notes-editor {
-    padding: var(--s6) var(--s6) 120px;
+    padding: var(--s6) var(--s5) 150px;
   }
   
   .exp-company-header {
