@@ -83,9 +83,19 @@ export function openModal(url, title = 'Viewer') {
     fallback.textContent = 'Open in New Tab ↗';
     document.querySelector('.modal-header').insertBefore(fallback, document.getElementById('modal-close'));
   }
-  fallback.href = url.replace('/preview', '/view');
 
-  iframe.src = url;
+  let embedUrl = url;
+  let viewUrl = url;
+  if (url.includes('drive.google.com')) {
+    if (url.endsWith('/view')) {
+      embedUrl = url.replace('/view', '/preview');
+    } else if (url.endsWith('/preview')) {
+      viewUrl = url.replace('/preview', '/view');
+    }
+  }
+  fallback.href = viewUrl;
+  iframe.src = embedUrl;
+
   if (titleEl) titleEl.textContent = title;
   modal.classList.remove('hidden');
 }

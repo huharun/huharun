@@ -36,7 +36,7 @@ export const portfolioData = {
     phone: "(313) 639-7215",
     email: "arunramkrishna997@gmail.com",
     avatar: "https://drive.google.com/thumbnail?id=1E8VP68Y1TkufcYdu5VYbVew2jg-XrQOG&sz=w1000",
-    resumeUrl: "https://drive.google.com/file/d/1HbQqtNja-_oMx607BQg6JHhj-SPxXyw0/preview",
+    resumeUrl: "https://drive.google.com/file/d/10TMWUUyaA7K-32n8iVzzoHfMY95SST-I/view",
     socials: {
       github: "https://github.com/huharun",
       linkedin: "https://linkedin.com/in/arun-thangapalam-7b4b4719a/",
@@ -208,7 +208,7 @@ export const portfolioData = {
     },
     {
       school: "United Institute of Technology",
-      degree: "B.E. in Computer Science",
+      degree: "B.E. in Computer Science and Engineering",
       period: "Sep 2018 — Jul 2022",
       coursework: "Data Structures & Algorithms, OOPS, DBMS, Internet Programming, Cloud Computing"
     }
@@ -233,7 +233,7 @@ export const portfolioData = {
   ],
 
   files: [
-    { label: "Resume.pdf", icon: "resume", size: "156 KB", url: "https://drive.google.com/file/d/1HbQqtNja-_oMx607BQg6JHhj-SPxXyw0/preview", isPdf: true },
+    { label: "Resume.pdf", icon: "resume", size: "156 KB", url: "https://drive.google.com/file/d/10TMWUUyaA7K-32n8iVzzoHfMY95SST-I/view", isPdf: true },
     { label: "BE Degree.pdf", icon: "education", size: "842 KB", url: "https://drive.google.com/file/d/1y9m0y1YrFMgMHZFzAlCAi8-gJ4EfqIld/preview", isPdf: true },
     { label: "MS Degree.pdf", icon: "education", size: "920 KB", url: "https://drive.google.com/file/d/17mg4kBPyGpM5RafEbjjr3FQ8meLyAPXT/preview", isPdf: true },
     { label: "MS Transcript.pdf", icon: "doc", size: "1.1 MB", url: "https://drive.google.com/file/d/1q-xNLWPgGD8UA9fpdSVUb7U6yy8O4_Go/preview", isPdf: true }
