@@ -225,7 +225,7 @@ export const portfolioData = {
   education: [
     {
       school: "Wayne State University",
-      degree: "MS in Computer Science (AI/ML) — GPA: 3.53",
+      degree: "MS in Computer Science (AI/ML)",
       period: "Jan 2024 — Dec 2025",
       coursework: "Machine Learning, AI, Algorithms, Cybersecurity, Software Engineering"
     },
