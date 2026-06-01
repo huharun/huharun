@@ -1,0 +1,11 @@
+<svg width="800" height="150" viewBox="0 0 800 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A84FF"/>
+      <stop offset="1" stop-color="#BF5AF2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="150" rx="20" fill="#111111"/>
+  <text fill="url(#paint0_linear)" font-family="Arial, sans-serif" font-size="48" font-weight="bold" x="400" y="70" text-anchor="middle">Arun Thangapalam</text>
+  <text fill="#888888" font-family="Arial, sans-serif" font-size="18" x="400" y="110" text-anchor="middle">Software Engineer | AI/ML Enthusiast | Agentic AI Developer</text>
+</svg>

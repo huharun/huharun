@@ -1,7 +1,21 @@
-# Arun Thangapalam
-**Software Engineer | AI/ML Enthusiast | Agentic AI Developer**
+<div align="center">
 
-Computer Science professional with experience spanning full-stack application development and applied machine learning. Currently focused on building intelligent AI agents at Wayne State University.
+<img src="assets/profile-header.svg" width="800" alt="Arun Thangapalam" />
+
+### Connect with me
+<p align="center">
+  <a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/"><img src="assets/linkedin.svg" width="30" /></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/huharun"><img src="assets/github.svg" width="30" /></a>
+  &nbsp;&nbsp;
+  <a href="mailto:arunramkrishna997@gmail.com"><img src="assets/email.svg" width="30" /></a>
+</p>
+
+---
+
+<p>
+  Computer Science professional with experience spanning full-stack application development and applied machine learning. Currently focused on building intelligent AI agents at Wayne State University.
+</p>
 
 ---
 
@@ -20,11 +34,10 @@ Computer Science professional with experience spanning full-stack application de
 *   Built multi-agent systems for software project automation (DevSwarm).
 *   Achieved 95%+ accuracy in phishing website detection using ML pipelines.
 
-### 📬 Connect with Me
-*   **Email:** [arunramkrishna997@gmail.com](mailto:arunramkrishna997@gmail.com)
-*   **LinkedIn:** [arun-thangapalam](https://linkedin.com/in/arun-thangapalam-7b4b4719a/)
-*   **GitHub:** [huharun](https://github.com/huharun)
-*   **Portfolio:** [Live Site](https://huharun.github.io/)
-
 ---
+
+[Portfolio](https://huharun.github.io/) | [LinkedIn](https://linkedin.com/in/arun-thangapalam-7b4b4719a/) | [GitHub](https://github.com/huharun)
+
 © 2025 Arun Thangapalam. **All Rights Reserved.**
+
+</div>
