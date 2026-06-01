@@ -7,14 +7,11 @@ export function launchApp(appId) {
 
   if (navigator.vibrate) navigator.vibrate(8);
   
-  // Deactivate and reset z-index for all apps
+  // Deactivate all apps
   document.querySelectorAll('.app-view').forEach(v => {
     v.classList.remove('active');
-    v.style.zIndex = "1000";
   });
 
-  // Set current app to top
-  appView.style.zIndex = "1001";
   dashboard.classList.add('exiting');
 
   requestAnimationFrame(() => {
@@ -106,30 +103,92 @@ export function initContactForm() {
     if (!form) return;
     
     e.preventDefault();
-    const success = document.getElementById('success-message');
-    const error   = document.getElementById('error-message');
-    const btn     = form.querySelector('button[type="submit"]');
     
-    if (btn) btn.disabled = true;
-
+    const chatContainer = form.querySelector('.imessage-native-chat');
+    const nameInput = form.querySelector('input[name="name"]');
+    const emailInput = form.querySelector('input[name="email"]');
+    const messageInput = form.querySelector('textarea[name="message"]');
+    const sendBtn = form.querySelector('.imessage-native-send');
+    
+    if (!nameInput || !emailInput || !messageInput || !chatContainer) return;
+    
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+    
+    if (!name || !email || !message) return;
+    
+    // 1. Append Outgoing Bubble
+    const userBubble = document.createElement('div');
+    userBubble.className = 'imessage-native-bubble-out animate-bubble';
+    userBubble.innerHTML = `
+      <div class="bubble-inner">${message.replace(/\n/g, '<br>')}</div>
+      <div class="bubble-meta">Sent</div>
+    `;
+    chatContainer.appendChild(userBubble);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    
+    // Disable inputs during transmission
+    messageInput.value = '';
+    messageInput.style.height = 'auto';
+    messageInput.disabled = true;
+    if (sendBtn) sendBtn.disabled = true;
+    
     try {
       const res = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' },
       });
+      
       if (res.ok) {
-        form.reset();
-        success?.classList.remove('hidden');
-        error?.classList.add('hidden');
-        setTimeout(() => success?.classList.add('hidden'), 5000);
+        // Keep name/email filled so they don't have to re-enter them for next messages
+        messageInput.disabled = false;
+        if (sendBtn) sendBtn.disabled = false;
+        
+        // 2. Append Typing Indicator
+        const typingBubble = document.createElement('div');
+        typingBubble.className = 'imessage-native-bubble-in imessage-typing-bubble';
+        typingBubble.innerHTML = `
+          <div class="bubble-inner typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="bubble-meta">Arun is typing...</div>
+        `;
+        chatContainer.appendChild(typingBubble);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+        
+        // 3. Remove typing and append Auto-Reply
+        setTimeout(() => {
+          typingBubble.remove();
+          const replyBubble = document.createElement('div');
+          replyBubble.className = 'imessage-native-bubble-in animate-bubble';
+          replyBubble.innerHTML = `
+            <div class="bubble-inner">Thanks for reaching out, ${name}! I've received your message and will get back to you soon.</div>
+            <div class="bubble-meta">Delivered</div>
+          `;
+          chatContainer.appendChild(replyBubble);
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+          
+          if (navigator.vibrate) navigator.vibrate([10, 30]);
+        }, 1500);
+        
       } else throw new Error();
     } catch {
-      error?.classList.remove('hidden');
-      success?.classList.add('hidden');
-      setTimeout(() => error?.classList.add('hidden'), 5000);
-    } finally {
-      if (btn) btn.disabled = false;
+      messageInput.disabled = false;
+      if (sendBtn) sendBtn.disabled = false;
+      
+      // Append Delivery Failure Bubble
+      const errorBubble = document.createElement('div');
+      errorBubble.className = 'imessage-native-bubble-in error-bubble';
+      errorBubble.innerHTML = `
+        <div class="bubble-inner" style="background: rgba(255,59,48,0.15); border: 1px solid rgba(255,59,48,0.3); color: var(--text);">
+          Oops, your message could not be delivered. Please try emailing directly to arunramkrishna997@gmail.com.
+        </div>
+        <div class="bubble-meta" style="color: #ff3b30;">Not Delivered</div>
+      `;
+      chatContainer.appendChild(errorBubble);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
     }
   });
 }

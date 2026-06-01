@@ -8,7 +8,7 @@
   flex-shrink: 0;
   position: relative;
   z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid var(--border);
 }
 
 .back-btn {
@@ -25,7 +25,7 @@
 .app-topbar-title {
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   flex: 1;
   text-align: center;
   letter-spacing: -0.02em;
@@ -45,7 +45,7 @@
 .section-label {
   font-size: 11px;
   font-weight: 700;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-3);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: var(--s5);
@@ -58,7 +58,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(90deg, var(--border), transparent);
 }
 
 /* ======================== 1. ABOUT ME (iOS 26 Contact Card) ======================== */
@@ -235,7 +235,7 @@
 
 .contact-data-row {
   padding: var(--s4) var(--s5);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -248,14 +248,14 @@
 .contact-data-label {
   font-size: 12px;
   font-weight: 600;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-3);
   text-transform: uppercase;
 }
 
 .contact-data-value {
   font-size: 17px;
   font-weight: 400;
-  color: #fff;
+  color: var(--text);
   line-height: 1.4;
 }
 
@@ -277,7 +277,7 @@
   align-items: center;
   gap: var(--s3);
   padding: 12px var(--s4);
-  background: rgba(255,255,255,0.05);
+  background: var(--bg-3);
   border-radius: var(--radius-md);
 }
 
@@ -300,10 +300,16 @@
   margin-top: 8px;
   flex-shrink: 0;
 }
-.contact-bullet-text { font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.4; }
+.contact-bullet-text { font-size: 16px; color: var(--text-2); line-height: 1.4; }
 
 /* ======================== 2. BOOKS (Segmented Nav) ======================== */
 #app-books .app-body { padding: 0; overflow: hidden; }
+
+#books {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 .books-app-wrapper {
   display: flex;
@@ -322,11 +328,11 @@
 }
 
 .books-segmented-control {
-  background: rgba(255,255,255,0.06);
+  background: var(--bg-3);
   padding: 4px;
   border-radius: 14px;
   display: flex;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
   width: 100%;
   max-width: 500px;
 }
@@ -340,13 +346,13 @@
   gap: 8px;
   padding: 10px;
   border-radius: 10px;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-3);
   transition: all 0.2s var(--transition);
 }
 
 .books-nav-btn.active {
-  color: #fff;
-  background: rgba(255,255,255,0.12);
+  color: var(--text);
+  background: var(--glass-thick);
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
@@ -386,7 +392,7 @@
 .chapter-index { 
   font-size: 10px; 
   font-weight: 800; 
-  color: rgba(255,255,255,0.3); 
+  color: var(--text-3); 
   letter-spacing: 0.12em;
   display: block;
   margin-bottom: 4px;
@@ -395,14 +401,14 @@
 .chapter-title { 
   font-size: 26px; 
   font-weight: 800; 
-  color: #fff; 
+  color: var(--text); 
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 .chapter-sub { 
   font-size: 14px; 
-  color: rgba(255,255,255,0.4); 
+  color: var(--text-3); 
   margin-top: 2px;
 }
 
@@ -424,7 +430,7 @@
 
 .chapter-details.skills-card-variant {
   padding: var(--s5);
-  background: rgba(255,255,255,0.03);
+  background: var(--bg-3);
 }
 
 .skills-pill-grid {
@@ -438,19 +444,19 @@
 .skill-pill {
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255,255,255,0.8);
-  background: rgba(255,255,255,0.06);
+  color: var(--text-2);
+  background: var(--bg-3);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
   transition: all 0.2s var(--transition);
 }
 
 .skill-pill:hover {
-  background: rgba(255,255,255,0.12);
+  background: var(--glass-thick);
   border-color: var(--accent-orange);
   transform: translateY(-2px);
-  color: #fff;
+  color: var(--text);
 }
 
 .chapter-details::before {
@@ -497,7 +503,7 @@
 }
 
 .chapter-row-label { 
-  color: rgba(255,255,255,0.3); 
+  color: var(--text-3); 
   font-weight: 700; 
   text-transform: uppercase; 
   font-size: 10px; 
@@ -506,7 +512,7 @@
 }
 
 .chapter-row-value { 
-  color: rgba(255,255,255,0.9); 
+  color: var(--text); 
   text-align: right; 
   flex: 1; 
   line-height: 1.4;
@@ -552,10 +558,10 @@
 
 .notes-sidebar {
   width: 280px;
-  background: rgba(255,255,255,0.02);
+  background: var(--bg-3);
   display: flex;
   flex-direction: column;
-  border-right: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid var(--border);
   flex-shrink: 0;
 }
 
@@ -566,7 +572,7 @@
 .notes-title-large { 
   font-size: 26px; 
   font-weight: 800; 
-  color: #fff; 
+  color: var(--text); 
   letter-spacing: -0.03em;
   display: block;
 }
@@ -574,7 +580,7 @@
 .notes-count-sub { 
   font-size: 12px; 
   font-weight: 700; 
-  color: rgba(255,255,255,0.3);
+  color: var(--text-3);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
@@ -603,7 +609,7 @@
   cursor: pointer;
 }
 
-.note-item:hover { background: rgba(255,255,255,0.04); }
+.note-item:hover { background: var(--glass-hover); }
 
 .note-item.active { 
   background: rgba(255, 204, 0, 0.12); 
@@ -613,13 +619,13 @@
 .note-item-title { 
   font-size: 15px; 
   font-weight: 700; 
-  color: #fff; 
+  color: var(--text); 
   line-height: 1.2;
 }
 
 .note-item-date-sub { 
   font-size: 12px; 
-  color: rgba(255,255,255,0.4); 
+  color: var(--text-3); 
   font-weight: 500;
 }
 
@@ -649,7 +655,7 @@
 .exp-company-header { 
   font-size: 36px; 
   font-weight: 900; 
-  color: #fff; 
+  color: var(--text); 
   line-height: 1.1; 
   margin-bottom: 6px;
   letter-spacing: -0.02em;
@@ -688,7 +694,7 @@
   gap: 14px; 
   font-size: 16px; 
   line-height: 1.6; 
-  color: rgba(255,255,255,0.9); 
+  color: var(--text-2); 
   align-items: flex-start;
 }
 
@@ -706,14 +712,14 @@
   flex-wrap: wrap; 
   gap: 10px; 
   padding-top: var(--s8); 
-  border-top: 1px solid rgba(255,255,255,0.06); 
+  border-top: 1px solid var(--border); 
 }
 
 .tech-tag-note { 
   font-size: 11px; 
   font-weight: 700; 
-  color: rgba(255,255,255,0.6); 
-  background: rgba(255,255,255,0.06); 
+  color: var(--text-2); 
+  background: var(--bg-3); 
   padding: 6px 12px; 
   border-radius: 8px; 
   text-transform: uppercase;
@@ -729,8 +735,8 @@
     width: 100%;
     height: auto;
     border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-3);
   }
 
   .notes-sidebar-header {
@@ -756,7 +762,7 @@
     width: 160px;
     margin-bottom: 0;
     padding: 12px 14px;
-    background: rgba(255,255,255,0.04);
+    background: var(--bg-3);
     border-radius: 14px;
   }
 
@@ -782,14 +788,14 @@
 }
 
 .projects-search-wrapper {
-  background: rgba(255,255,255,0.06);
+  background: var(--bg-3);
   border-radius: 14px;
   padding: 8px 16px;
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-  margin: var(--s4) auto var(--s8);
+  border: 1px solid var(--border);
+  margin: var(--s4) auto var(--s3);
   max-width: 450px;
   position: sticky;
   top: 0;
@@ -797,8 +803,46 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.projects-search-input { background: none; border: none; color: #fff; font-size: 16px; width: 100%; outline: none; }
-.projects-search-wrapper svg { width: 18px; height: 18px; color: rgba(255,255,255,0.4); }
+.projects-search-input { background: none; border: none; color: var(--text); font-size: 16px; width: 100%; outline: none; }
+.projects-search-wrapper svg { width: 18px; height: 18px; color: var(--text-3); }
+
+/* Premium Projects Filter Chips */
+.projects-filter-chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-bottom: var(--s5);
+  padding: 0 var(--s6);
+}
+
+.projects-chip {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-2);
+  background: var(--glass-standard);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1.2px solid var(--border);
+  transition: all 0.25s var(--transition);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.projects-chip:hover {
+  background: var(--glass-hover);
+  color: var(--text);
+  border-color: var(--border);
+  transform: translateY(-1px);
+}
+
+.projects-chip.active {
+  background: var(--accent-blue);
+  color: #fff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 14px rgba(0, 122, 255, 0.35);
+}
 
 .projects-liquid-grid { 
   display: grid; 
@@ -871,16 +915,16 @@
   border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
   color: var(--accent-blue);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid var(--border);
 }
 .project-liquid-icon svg { width: 30px; height: 32px; }
 
 .project-info-main { flex: 1; display: flex; flex-direction: column; gap: 1px; }
-.project-liquid-name { font-size: 17px; font-weight: 700; color: #fff; }
-.project-liquid-cat { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.3); text-transform: uppercase; }
+.project-liquid-name { font-size: 17px; font-weight: 700; color: var(--text); }
+.project-liquid-cat { font-size: 12px; font-weight: 600; color: var(--text-3); text-transform: uppercase; }
 
 .project-get-btn {
-  background: rgba(255,255,255,0.12);
+  background: var(--bg-3);
   color: var(--accent-blue);
   font-size: 14px;
   font-weight: 800;
@@ -891,10 +935,10 @@
 }
 
 .project-content-simple { margin: var(--s2) 0; flex: 1; position: relative; z-index: 2; }
-.project-description-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+.project-description-text { font-size: 14px; color: var(--text-2); line-height: 1.5; }
 
 .project-liquid-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--s4); position: relative; z-index: 2; }
-.project-liquid-tag { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; }
+.project-liquid-tag { font-size: 10px; font-weight: 700; color: var(--text-3); background: var(--bg-3); padding: 2px 8px; border-radius: 4px; }
 
 /* ======================== 6. CONTACT (iMessage Native) ======================== */
 #app-contact .app-body { 
@@ -918,8 +962,8 @@
   flex-direction: column;
   align-items: center;
   padding: var(--s5) var(--s4) var(--s4);
-  background: rgba(255,255,255,0.02);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: transparent;
+  border-bottom: 1px solid var(--border);
   text-align: center;
   z-index: 10;
 }
@@ -946,7 +990,7 @@
   border-radius: 50%;
 }
 
-.imessage-native-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.imessage-native-name { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
 .imessage-native-status { font-size: 11px; color: var(--accent-green); font-weight: 600; text-transform: uppercase; display: flex; align-items: center; gap: 6px; letter-spacing: 0.04em; }
 
 .imessage-view-about-btn {
@@ -1003,19 +1047,19 @@
   border-bottom-left-radius: 4px;
   font-size: 16px;
   line-height: 1.5;
-  color: #fff;
+  color: var(--text);
   box-shadow: var(--rim-light), 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .imessage-native-bubble-in .bubble-meta {
-  font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.3); padding-left: 4px; text-transform: uppercase;
+  font-size: 10px; font-weight: 700; color: var(--text-3); padding-left: 4px; text-transform: uppercase;
 }
 
 .imessage-native-footer {
   flex-shrink: 0;
   padding: var(--s4) var(--s4) var(--s10);
-  background: rgba(0,0,0,0.2);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  border-top: 1px solid var(--border);
   z-index: 10;
 }
 
@@ -1029,27 +1073,27 @@
 .imessage-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
 .imessage-input-field {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--glass-standard);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 14px;
-  color: #fff;
+  color: var(--text);
   font-size: 14px;
   outline: none;
   transition: all 0.2s;
 }
-.imessage-input-field:focus { border-color: var(--accent-blue); background: rgba(255,255,255,0.08); }
+.imessage-input-field:focus { border-color: var(--accent-blue); background: var(--glass-hover); }
 
 .imessage-input-bar {
   display: flex; align-items: flex-end; gap: 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--glass-standard);
+  border: 1px solid var(--border);
   border-radius: 22px;
   padding: 4px 4px 4px 16px;
 }
 
 .imessage-native-textarea {
-  flex: 1; background: none; border: none; color: #fff; font-size: 15px; padding: 10px 0; resize: none; outline: none; max-height: 100px;
+  flex: 1; background: none; border: none; color: var(--text); font-size: 15px; padding: 10px 0; resize: none; outline: none; max-height: 100px;
 }
 
 .imessage-native-send {
@@ -1065,4 +1109,163 @@
 @media (max-width: 600px) {
   .imessage-form-row { grid-template-columns: 1fr; }
   .imessage-native-footer { padding-bottom: var(--s6); }
+}
+
+/* Coursework Grid in Books */
+.coursework-row {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: var(--s2) !important;
+  border-bottom: none !important;
+}
+.coursework-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+.coursework-tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-2);
+  background: var(--bg-3);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 0.5px solid var(--border);
+  transition: background var(--transition);
+}
+.coursework-tag:hover {
+  background: var(--glass-hover);
+}
+
+/* iOS New Message Header Fields */
+.imessage-fields-header {
+  padding: 0 var(--s6);
+  border-bottom: 1.2px solid var(--border);
+  background: transparent;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+}
+.imessage-field-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 0.5px solid var(--border);
+}
+.imessage-field-line:last-child {
+  border-bottom: none;
+}
+.imessage-field-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-3);
+  width: 48px;
+  flex-shrink: 0;
+}
+.imessage-field-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.imessage-field-inputs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.imessage-input-meta {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  font-size: 14px;
+  color: var(--text);
+  padding: 0;
+  width: 150px;
+}
+.imessage-input-meta::placeholder {
+  color: var(--text-3);
+  opacity: 0.8;
+}
+.imessage-field-separator {
+  color: var(--text-3);
+  font-size: 14px;
+}
+
+/* Outgoing Message Bubbles */
+.imessage-native-bubble-out {
+  align-self: flex-end;
+  max-width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.imessage-native-bubble-out .bubble-inner {
+  background: var(--accent-blue);
+  padding: 12px 18px;
+  border-radius: 20px;
+  border-bottom-right-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
+}
+.imessage-native-bubble-out .bubble-meta {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-3);
+  padding-right: 4px;
+  text-transform: uppercase;
+}
+
+/* iMessage Typing Indicator */
+.imessage-typing-bubble .bubble-inner {
+  background: var(--glass-thick);
+  padding: 14px 22px;
+  border-radius: 20px;
+  border-bottom-left-radius: 4px;
+  box-shadow: var(--rim-light), 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.typing-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 8px;
+}
+.typing-dots span {
+  width: 7px;
+  height: 7px;
+  background: var(--text-2);
+  border-radius: 50%;
+  animation: typingBounce 1.2s infinite ease-in-out;
+  display: inline-block;
+}
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Animations */
+.animate-bubble {
+  animation: bubblePop 0.25s var(--spring) forwards;
+  transform-origin: bottom left;
+}
+.imessage-native-bubble-out.animate-bubble {
+  transform-origin: bottom right;
+}
+@keyframes bubblePop {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }

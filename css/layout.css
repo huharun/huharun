@@ -23,7 +23,7 @@
   grid-auto-rows: min-content;
   gap: var(--s5);
   padding: var(--s6) var(--s6) var(--s12);
-  overflow-y: auto; /* Grid itself can scroll if widgets overflow, but home is locked */
+  overflow: hidden; /* Desktop locked, fits viewport */
   
   /* Centering & Flexibility */
   max-width: 1200px;
@@ -45,6 +45,7 @@
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
     padding: var(--s4) var(--s4) var(--s10);
+    overflow-y: auto; /* Enable scroll on smaller screens */
   }
   .col-span-3 { grid-column: span 2; }
 }
@@ -120,6 +121,7 @@
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
+  z-index: 1001;
 }
 
 @media (max-width: 600px) {
@@ -147,7 +149,7 @@
   width: 100%;
   max-width: 900px;
   height: 92vh;
-  background: #111;
+  background: var(--bg-2);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   border: 1px solid var(--border);
   display: flex;
@@ -164,10 +166,10 @@
   justify-content: space-between;
   padding: 14px 20px;
   border-bottom: 1px solid var(--border);
-  background: rgba(255,255,255,0.02);
+  background: var(--bg-3);
 }
 
-.modal-title { font-size: 14px; font-weight: 700; color: #fff; }
+.modal-title { font-size: 14px; font-weight: 700; color: var(--text); }
 .modal-close { 
   font-size: 14px; 
   font-weight: 700; 
@@ -182,14 +184,15 @@
 .modal-fallback-btn {
   font-size: 11px;
   font-weight: 700;
-  color: #fff;
-  background: rgba(255,255,255,0.1);
+  color: var(--text);
+  background: var(--bg-3);
+  border: 1px solid var(--border);
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   text-decoration: none;
   margin-right: var(--s4);
 }
-.modal-fallback-btn:hover { background: rgba(255,255,255,0.2); }
+.modal-fallback-btn:hover { background: var(--glass-hover); }
 
 .modal-iframe { 
   flex: 1; 

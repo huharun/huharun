@@ -16,7 +16,15 @@ export function initMusicPlayer() {
   const L        = portfolioData.config.labels;
 
   let isPlaying  = false;
-  if (audio) audio.volume = 0.7;
+  if (audio && portfolioData.music) {
+    audio.src = portfolioData.music.url;
+    audio.volume = 0.7;
+  }
+
+  const trackNameEl = document.getElementById('music-track-name');
+  const artistNameEl = document.getElementById('music-artist-name');
+  if (trackNameEl && portfolioData.music) trackNameEl.textContent = portfolioData.music.track;
+  if (artistNameEl && portfolioData.music) artistNameEl.textContent = portfolioData.music.artist;
 
   function fmtTime(s) {
     const m = Math.floor(s / 60);

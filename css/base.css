@@ -18,10 +18,14 @@
   --rim-light: inset 0 1px 0 rgba(255, 255, 255, 0.35),
                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 
-  /* Blur Tiers — Disabled for Clean Glass Aesthetic */
-  --blur-standard: none;
-  --blur-thick:    none;
-  --blur-glass:    none;
+  /* Clean Glass Aesthetic (No Frosted Blur) */
+  --text:          #ffffff;
+  --text-2:        rgba(255,255,255,0.75);
+  --text-3:        rgba(255,255,255,0.45);
+  
+  --glass:         var(--glass-standard);
+  --border:        rgba(255, 255, 255, 0.08);
+  --shadow:        0 8px 32px rgba(0,0,0,0.35);
 
   /* Spacing System (8pt Grid) */
   --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
@@ -75,7 +79,7 @@
 body {
   font-family: var(--font-family);
   background: var(--bg);
-  color: #fff;
+  color: var(--text);
   height: 100dvh;
   overflow: hidden;
   position: relative;
@@ -151,3 +155,47 @@ body.light-mode::after { opacity: 0; }
   animation: holoShift 6s linear infinite;
 }
 @keyframes holoShift { to { background-position: 200% center; } }
+
+/* ======================== ACCESSIBILITY & SYSTEM ADAPTATION ======================== */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-standard: #16161a;
+    --glass-thick:    #24242b;
+    --glass-hover:    #2e2e38;
+    --glass:          var(--glass-standard);
+    --rim-light:      none;
+    --bg-2:           #111115;
+    --border:         rgba(255, 255, 255, 0.15);
+  }
+  body.light-mode {
+    --glass-standard: #ffffff;
+    --glass-thick:    #e5e5ea;
+    --glass-hover:    #d1d1d6;
+    --glass:          var(--glass-standard);
+    --rim-light:      none;
+    --bg-2:           #f5f5fb;
+    --border:         rgba(0, 0, 0, 0.15);
+  }
+  .widget, .chapter-details, .project-liquid-card, .imessage-native-bubble-in .bubble-inner {
+    background: var(--glass-standard) !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  #star-canvas {
+    display: none !important;
+  }
+  .widget-music.playing .music-art {
+    animation: none !important;
+  }
+}

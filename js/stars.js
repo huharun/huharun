@@ -45,6 +45,7 @@ export function initStars() {
 
     ctx.clearRect(0, 0, W, H);
     const now = t * 0.001;
+    const isLight = document.body.classList.contains('light-mode');
 
     stars.forEach(s => {
       s.a = s.baseA + Math.sin(now * s.speed * 6000 + s.phase) * (s.baseA * 0.4);
@@ -52,7 +53,14 @@ export function initStars() {
 
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${s.hue},${s.a.toFixed(3)})`;
+
+      let colorStr = s.hue;
+      if (isLight) {
+        // Render dark slate grey or dark blue stars in light mode
+        colorStr = s.hue === '255,255,255' ? '44,44,46' : '0,122,255';
+      }
+
+      ctx.fillStyle = `rgba(${colorStr},${s.a.toFixed(3)})`;
       ctx.fill();
     });
   }

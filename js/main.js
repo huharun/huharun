@@ -4,21 +4,18 @@
 
 import { launchApp, goHome, updateClock, initTheme, initContactForm, openModal, closeModal } from './ui.js';
 import { initStars } from './stars.js';
-import { initMusicPlayer } from './music.js';
 import { 
   renderDashboard, 
   renderAbout, 
   renderBooks, 
   renderExperience, 
-  renderProjects, 
-  renderEducation 
+  renderProjects 
 } from './renderers.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initial Core Init
   initStars();
   initTheme();
-  initMusicPlayer();
   
   // 2. Start Clock
   updateClock();
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBooks();
   renderExperience();
   renderProjects();
-  renderEducation();
 
   // 4. Post-Render Init
   initContactForm();
@@ -78,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Timeline Widget
-    if (e.target.closest('.widget-calendar')) {
+    // Timeline Widget / At a Glance Widget
+    if (e.target.closest('.widget-calendar') || e.target.closest('.widget-glance')) {
       launchApp('experience');
       return;
     }

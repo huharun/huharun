@@ -414,12 +414,24 @@ function renderBooksPane(sectionId) {
                     ${ch.details.map(d => `<span class="skill-pill">${d.value}</span>`).join('')}
                   </div>
                 ` : `
-                  ${ch.details.map(d => `
-                    <div class="chapter-row">
-                      <span class="chapter-row-label">${d.label}</span>
-                      <span class="chapter-row-value">${d.value}</span>
-                    </div>
-                  `).join('')}
+                  ${ch.details.map(d => {
+                    if (d.label.toLowerCase() === 'coursework') {
+                      return `
+                        <div class="chapter-row coursework-row">
+                          <span class="chapter-row-label">${d.label}</span>
+                          <div class="coursework-list">
+                            ${d.value.split(',').map(c => `<span class="coursework-tag">${c.trim()}</span>`).join('')}
+                          </div>
+                        </div>
+                      `;
+                    }
+                    return `
+                      <div class="chapter-row">
+                        <span class="chapter-row-label">${d.label}</span>
+                        <span class="chapter-row-value">${d.value}</span>
+                      </div>
+                    `;
+                  }).join('')}
                 `}
               </div>
             ` : ''}
@@ -517,12 +529,15 @@ export function renderProjects() {
 
   const grid = document.getElementById('liquid-grid');
   const searchInput = document.getElementById('project-search-input');
+  
+  let currentSearch = '';
 
-  const updateGrid = (filter = '') => {
-    const filtered = P.filter(p => 
-      p.title.toLowerCase().includes(filter.toLowerCase()) || 
-      p.tags.some(t => t.toLowerCase().includes(filter.toLowerCase()))
-    );
+  const updateGrid = () => {
+    const filtered = P.filter(p => {
+      return p.title.toLowerCase().includes(currentSearch.toLowerCase()) || 
+             p.tags.some(t => t.toLowerCase().includes(currentSearch.toLowerCase())) ||
+             p.description.toLowerCase().includes(currentSearch.toLowerCase());
+    });
 
     if (filtered.length === 0) { 
       grid.innerHTML = `<div class="empty-state">${L.projectsNoResults}</div>`; 
@@ -554,65 +569,75 @@ export function renderProjects() {
     }).join('');
   };
 
-  searchInput?.addEventListener('input', (e) => updateGrid(e.target.value));
+  searchInput?.addEventListener('input', (e) => {
+    currentSearch = e.target.value;
+    updateGrid();
+  });
+
   updateGrid();
 }
 
-export function renderEducation() {
-  console.log('Education information integrated.');
-}
 
 export function renderContact() {
   const container = document.getElementById('contact');
   if (!container) return;
   const p = portfolioData.profile;
   const c = portfolioData.config;
-  const L = c.labels;
   const initials = getInitials(p.name);
   const avatarHtml = `<img src="${p.avatar}" alt="${p.name}" class="avatar-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${initials}'">`;
 
   container.innerHTML = `
     <div class="imessage-native-layout">
-      <header class="imessage-native-header">
-        <div class="imessage-native-avatar-wrap">
-          ${avatarHtml}
-          <div class="imessage-native-online"></div>
-        </div>
-        <div class="imessage-native-meta">
-          <h2 class="imessage-native-name">${p.name}</h2>
-          <div class="imessage-native-status">
-            <span class="online-pulse-dot"></span>
-            Available for Collaboration
+      <form id="email-form" action="https://formspree.io/f/${portfolioData.site.formspreeId}" method="POST" class="imessage-native-form">
+        <header class="imessage-native-header">
+          <div class="imessage-native-avatar-wrap">
+            ${avatarHtml}
+            <div class="imessage-native-online"></div>
           </div>
-          <button class="imessage-view-about-btn" data-app="about">View Contact Info</button>
-        </div>
-      </header>
-
-      <div class="imessage-native-chat no-scrollbar">
-        <div class="imessage-native-bubble-in">
-          <div class="bubble-inner">${c.contactGreeting}</div>
-          <div class="bubble-meta">Delivered</div>
-        </div>
-      </div>
-
-      <footer class="imessage-native-footer">
-        <div class="imessage-native-form-wrap">
-          <form id="email-form" action="https://formspree.io/f/${portfolioData.site.formspreeId}" method="POST" class="imessage-native-form">
-            <div class="imessage-form-row">
-              <input type="text" name="name" class="imessage-input-field" placeholder="Name" required>
-              <input type="email" name="email" class="imessage-input-field" placeholder="Email" required>
+          <div class="imessage-native-meta">
+            <h2 class="imessage-native-name">${p.name}</h2>
+            <div class="imessage-native-status">
+              <span class="online-pulse-dot"></span>
+              Available for Collaboration
             </div>
-            <div class="imessage-input-bar">
-              <textarea name="message" class="imessage-native-textarea" placeholder="iMessage" rows="1" required></textarea>
-              <button type="submit" class="imessage-native-send" aria-label="Send">${icons.send}</button>
+            <button type="button" class="imessage-view-about-btn" data-app="about">View Contact Info</button>
+          </div>
+        </header>
+
+        <div class="imessage-fields-header">
+          <div class="imessage-field-line">
+            <span class="imessage-field-label">To:</span>
+            <span class="imessage-field-value">${p.name}</span>
+          </div>
+          <div class="imessage-field-line">
+            <span class="imessage-field-label">From:</span>
+            <div class="imessage-field-inputs">
+              <input type="text" name="name" class="imessage-input-meta" placeholder="Your Name" required>
+              <span class="imessage-field-separator">&lt;</span>
+              <input type="email" name="email" class="imessage-input-meta" placeholder="your.email@example.com" required>
+              <span class="imessage-field-separator">&gt;</span>
             </div>
-          </form>
+          </div>
+        </div>
+
+        <div class="imessage-native-chat no-scrollbar">
+          <div class="imessage-native-bubble-in">
+            <div class="bubble-inner">${c.contactGreeting}</div>
+            <div class="bubble-meta">Delivered</div>
+          </div>
+        </div>
+
+        <footer class="imessage-native-footer">
+          <div class="imessage-input-bar">
+            <textarea name="message" class="imessage-native-textarea" placeholder="iMessage" rows="1" required></textarea>
+            <button type="submit" class="imessage-native-send" aria-label="Send">${icons.send}</button>
+          </div>
           <div id="imessage-feedback" class="imessage-feedback-area">
             <p id="success-message" class="hidden feedback-success">Delivered</p>
             <p id="error-message" class="hidden feedback-error">Not Delivered</p>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </form>
     </div>
   `;
 
@@ -623,6 +648,7 @@ export function renderContact() {
   // Auto-resize textarea
   const tx = container.querySelector('.imessage-native-textarea');
   if (tx) {
+    tx.style.height = 'auto';
     tx.addEventListener('input', () => {
       tx.style.height = 'auto';
       tx.style.height = (tx.scrollHeight) + 'px';

@@ -62,10 +62,11 @@
         <div id="character-mini-quote" class="quote-container"></div>
       </div>
 
-    </div>
+    </main>
+  </div>
 
-    <!-- App Views Root -->
-    <div class="app-views-root">
+  <!-- App Views Root -->
+  <div class="app-views-root">
       
       <!-- 0. Character App (Music + Quotes) -->
       <div id="app-character" class="app-view">
@@ -117,20 +118,7 @@
         <div class="topbar-spacer"></div>
       </div>
       <div class="app-body">
-        <section id="projects">
-          <div class="section-label">BUILT BY ME</div>
-          <div class="search-bar-row">
-            <div class="search-bar"><input type="text" id="project-search" placeholder="Search projects…"></div>
-          </div>
-          <div class="filter-chips">
-            <button class="chip active" data-tag="all">All</button>
-            <button class="chip" data-tag="Python">Python</button>
-            <button class="chip" data-tag="JavaScript">JavaScript</button>
-            <button class="chip" data-tag="Next.js">Next.js</button>
-            <button class="chip" data-tag="Docker">Docker</button>
-          </div>
-          <div id="projects-list" class="projects-grid"></div>
-        </section>
+        <section id="projects"></section>
       </div>
     </div>
 
@@ -181,10 +169,26 @@
   </div>
 
   <!-- Theme Toggle -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <!-- Sun Icon (visible in light mode) -->
+    <svg class="sun-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <!-- Moon Icon (visible in dark mode) -->
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
 
   <!-- Main Entry Module -->
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
-l>
