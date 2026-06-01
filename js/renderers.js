@@ -448,10 +448,7 @@ export function renderExperience() {
             ${E.map((exp, i) => `
               <button class="note-item ${i === 0 ? 'active' : ''}" data-idx="${i}">
                 <div class="note-item-title">${exp.company.split('—')[0].trim()}</div>
-                <div class="note-item-preview">
-                  <span class="note-item-date">${exp.period.split('—')[0].trim()}</span>
-                  <span>${exp.role}</span>
-                </div>
+                <div class="note-item-date-sub">${exp.period.split('—')[0].trim()}</div>
               </button>
             `).join('')}
           </div>
