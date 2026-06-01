@@ -1,11 +1,9 @@
 # Arun Thangapalam
 **Software Engineer | AI/ML Enthusiast | Agentic AI Developer**
-<p>
-  <a href="mailto:arunramkrishna997@gmail.com">Email</a> | 
-  <a href="https://linkedin.com/in/arun-thangapalam-7b4b4719a/">LinkedIn</a> | 
-  <a href="https://github.com/huharun">GitHub</a> | 
-  <a href="https://huharun.github.io/">Portfolio</a>
-</p>
+
+[Email](mailto:arunramkrishna997@gmail.com) | [LinkedIn](https://linkedin.com/in/arun-thangapalam-7b4b4719a/) | [GitHub](https://github.com/huharun) | [Portfolio](https://huharun.github.io/)
+
+---
 
 Computer Science professional with experience spanning full-stack application development and applied machine learning. Currently focused on building intelligent AI agents at Wayne State University.
 

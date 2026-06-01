@@ -548,6 +548,7 @@
   flex: 1;
   min-height: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 .notes-sidebar {
@@ -568,6 +569,7 @@
   font-weight: 800; 
   color: #fff; 
   letter-spacing: -0.03em;
+  display: block;
 }
 
 .notes-count-sub { 
@@ -582,7 +584,9 @@
   flex: 1;
   overflow-y: auto;
   padding: var(--s2);
+  scrollbar-width: none;
 }
+.note-items-list::-webkit-scrollbar { display: none; }
 
 .note-item {
   width: 100%;
@@ -595,6 +599,7 @@
   flex-direction: column;
   gap: 4px;
   margin-bottom: 4px;
+  background: transparent;
 }
 
 .note-item:hover { background: rgba(255,255,255,0.05); }
@@ -623,9 +628,10 @@
   -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
   .notes-layout {
     flex-direction: column;
+    overflow: hidden;
   }
   
   .notes-sidebar {
@@ -633,50 +639,49 @@
     height: auto;
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.4);
+    flex-shrink: 0;
   }
 
   .notes-sidebar-header {
     padding: var(--s4) var(--s5) var(--s2);
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
   }
   
-  .notes-title-large { font-size: 20px; }
+  .notes-title-large { font-size: 18px; }
+  .notes-count-sub { font-size: 10px; }
 
   .note-items-list {
     display: flex;
     overflow-x: auto;
-    padding: var(--s2) var(--s4) var(--s4);
-    gap: var(--s2);
+    overflow-y: hidden;
+    padding: 0 var(--s4) var(--s4);
+    gap: var(--s3);
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
-  .note-items-list::-webkit-scrollbar { display: none; }
 
   .note-item {
     flex: 0 0 auto;
-    min-width: 140px;
-    max-width: 180px;
+    width: 160px;
     margin-bottom: 0;
-    padding: 10px 14px;
+    padding: 12px;
     background: rgba(255,255,255,0.04);
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
-  .note-item-preview {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  .note-item-title { font-size: 13px; }
+  .note-item-preview { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   .notes-editor {
     padding: var(--s6) var(--s5) 120px;
   }
   
-  .exp-company-header { font-size: 24px; }
+  .exp-company-header { font-size: 24px; line-height: 1.1; margin-bottom: 8px; }
   .exp-role-line { font-size: 16px; margin-bottom: var(--s6); }
+  .exp-date-heading { font-size: 10px; margin-bottom: 4px; }
+  .exp-note-bullet { font-size: 15px; }
 }
 
 /* ======================== 4. PROJECTS (App Store Liquid) ======================== */
