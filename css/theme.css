@@ -1,0 +1,37 @@
+/* ======================== THEME TOGGLE ======================== */
+.theme-toggle {
+  position: fixed;
+  bottom: var(--s5);
+  right: var(--s4);
+  z-index: 10000;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--glass);
+  border: 0.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text);
+  transition: all var(--transition);
+  box-shadow: var(--shadow);
+}
+.theme-toggle:active { transform: scale(0.9); }
+.theme-toggle svg { width: 22px; height: 22px; }
+
+/* Light mode overrides — Apple System Colors */
+body.light-mode {
+  --bg:              #f2f2f7;
+  --bg-2:            #ffffff;
+  --bg-3:            #e5e5ea;
+  
+  --system-gray:     #8e8e93;
+
+  --glass-standard:  rgba(255,255,255,0.75);
+  --glass-hover:     rgba(255,255,255,0.9);
+  --rim-light:       inset 0 1px 0 rgba(255,255,255,1),
+                     inset 0 0 0 1px rgba(0,0,0,0.05);
+  
+  --text:            #000000;
+  
+  --border:          rgba(0,0,0,0.1);
+}
+
+body::after { display: none; }
