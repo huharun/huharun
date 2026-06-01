@@ -530,44 +530,37 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 .experience-app-container {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0;
-  width: 100%;
 }
 
 .notes-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
+  display: flex;
   flex: 1;
   min-height: 0;
-  overflow: hidden;
-  position: relative;
+  height: 100%;
 }
 
 .notes-sidebar {
+  width: 280px;
   background: rgba(255,255,255,0.03);
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(255,255,255,0.06);
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .notes-sidebar-header { 
   padding: var(--s6) var(--s5) var(--s4);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
 }
 
 .notes-title-large { 
@@ -575,6 +568,7 @@
   font-weight: 800; 
   color: #fff; 
   letter-spacing: -0.02em;
+  display: block;
 }
 
 .notes-count-sub { 
@@ -601,6 +595,7 @@
   flex-direction: column;
   gap: 2px;
   margin-bottom: 4px;
+  background: transparent;
 }
 
 .note-item:hover { background: rgba(255,255,255,0.05); }
@@ -620,37 +615,29 @@
 .note-item-preview { 
   font-size: 12px; 
   color: rgba(255,255,255,0.4); 
-  display: flex;
-  flex-direction: column;
 }
 
 .notes-editor {
-  background: transparent;
   flex: 1;
   overflow-y: auto;
-  padding: var(--s10) var(--s12) 180px;
-  position: relative;
-  z-index: 2;
+  padding: var(--s10) var(--s12) 100px;
   -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .notes-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-    height: 100%;
-    overflow: hidden;
+    flex-direction: column;
   }
   
   .notes-sidebar {
+    width: 100%;
+    height: auto;
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: rgba(0,0,0,0.2);
-    flex-shrink: 0;
   }
 
   .notes-sidebar-header {
-    padding: var(--s4) var(--s5) var(--s2);
+    padding: var(--s4) var(--s5) var(--s1);
   }
 
   .note-items-list {
@@ -660,37 +647,28 @@
     padding: var(--s2) var(--s4) var(--s4);
     gap: var(--s3);
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
-  .note-items-list::-webkit-scrollbar { display: none; }
 
   .note-item {
     flex: 0 0 160px;
-    width: 160px;
     margin-bottom: 0;
     padding: var(--s3);
     background: rgba(255,255,255,0.03);
   }
 
   .note-item-preview {
-    display: block;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: block;
   }
 
   .notes-editor {
-    padding: var(--s6) var(--s5) 150px;
+    padding: var(--s6) var(--s5) 120px;
   }
   
-  .exp-company-header {
-    font-size: 24px;
-  }
-  
-  .exp-role-line {
-    font-size: 16px;
-    margin-bottom: var(--s6);
-  }
+  .exp-company-header { font-size: 26px; }
+  .exp-role-line { font-size: 17px; margin-bottom: var(--s6); }
 }
 
 /* ======================== 4. PROJECTS (App Store Liquid) ======================== */
