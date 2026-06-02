@@ -30,7 +30,7 @@ export const portfolioData = {
     formspreeId: "mdklqlvn"
   },
   profile: {
-    name: "Arun Ramkrishna Thangapalam",
+    name: "Arun Thangapalam",
     title: "Software Engineer | AI/ML Enthusiast | Agentic AI Developer",
     location: "Detroit, MI",
     phone: "(313) 639-7215",
