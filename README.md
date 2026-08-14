@@ -1,7 +1,9 @@
 # Arun Thangapalam
 **Software Engineer | AI/ML Enthusiast | Agentic AI Developer**
 
-[Email](mailto:arunramkrishna997@gmail.com) | [LinkedIn](https://linkedin.com/in/arun-thangapalam-7b4b4719a/) | [GitHub](https://github.com/huharun) | [Portfolio](https://huharun.github.io/huharun/)
+[Email](mailto:arunramkrishna997@gmail.com) | [LinkedIn](https://linkedin.com/in/arun-thangapalam-7b4b4719a/) | [GitHub](https://github.com/huharun) | 
+[insta] ([713064](https://www.instagram.com/arunxh?igsh=MXh1NnBsMHl4ZTJ1Mw%3D%3D&utm_source=qr))|
+[Portfolio](https://huharun.github.io/huharun/)
 
 ---
 
