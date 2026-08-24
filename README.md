@@ -1,30 +1,26 @@
 # Arun Thangapalam
-**Software Engineer | AI/ML Enthusiast | Agentic AI Developer**
+**Software Engineer | AI/ML | Agentic AI Developer**
 
-[Email](mailto:arunramkrishna997@gmail.com) | [LinkedIn](https://linkedin.com/in/arun-thangapalam-7b4b4719a/) | [GitHub](https://github.com/huharun) | 
-[insta](https://www.instagram.com/arunxh?igsh=MXh1NnBsMHl4ZTJ1Mw%3D%3D&utm_source=qr) |
-[Portfolio](https://huharun.github.io/huharun/)
+[Email](mailto:arunramkrishna997@gmail.com) | [LinkedIn](https://linkedin.com/in/arun-thangapalam-7b4b4719a/) | [GitHub](https://github.com/huharun) | [Instagram](https://www.instagram.com/arunxh/) | [Portfolio](https://huharun.github.io/huharun/)
 
 ---
 
-Computer Science professional with experience spanning full-stack application development and applied machine learning. Currently focused on building intelligent AI agents at Wayne State University.
+Computer Science professional interested in building software at the intersection of AI, automation, and real-world systems. Currently working on AI agents and computer-use systems at Wayne State University.
+
+### Current Focus
+
+* AI agents and computer-use systems
+* MCP and tool integration
+* Digital manufacturing and digital twins
+* Machine learning and software automation
+
+### Core Skills
+
+* **Languages:** Python, JavaScript, TypeScript, PHP, SQL, C#
+* **AI & ML:** Agentic AI, Machine Learning, NLP, PyTorch, scikit-learn
+* **Development:** React, Node.js, FastAPI, Docker
+* **Data & Systems:** PostgreSQL, MySQL, Redis, Neo4j, MQTT
 
 ---
 
-### 📍 Current Focus
-*   **AI Agent Developer** @ IntelliMake (WSU) — Designing autonomous agents with computer-use capabilities.
-*   **MS in Computer Science** @ Wayne State University.
-*   **Incoming Digital Manufacturing Intern** @ Siemens DISW (Summer 2026).
-
-### 🛠️ Core Skills
-*   **Languages:** Python, JavaScript, PHP, SQL, C#.
-*   **AI & ML:** Agents, NLP, scikit-learn, PyTorch, Data Analysis.
-*   **Web Tech:** React, Node.js, FastAPI, MySQL, Docker.
-
-### 💼 Career Highlights
-*   Developed a full-stack internet radio platform with local AI assistance.
-*   Built multi-agent systems for software project automation (DevSwarm).
-*   Achieved 95%+ accuracy in phishing website detection using ML pipelines.
-
----
-© 2025 Arun Thangapalam. **All Rights Reserved.**
+© 2026 Arun Thangapalam
