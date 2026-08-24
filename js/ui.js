@@ -87,10 +87,21 @@ export function openModal(url, title = 'Viewer') {
   let embedUrl = url;
   let viewUrl = url;
   if (url.includes('drive.google.com')) {
-    if (url.endsWith('/view')) {
-      embedUrl = url.replace('/view', '/preview');
-    } else if (url.endsWith('/preview')) {
-      viewUrl = url.replace('/preview', '/view');
+    try {
+      const urlObj = new URL(url);
+      if (urlObj.pathname.endsWith('/view')) {
+        urlObj.pathname = urlObj.pathname.replace(/\/view$/, '/preview');
+        embedUrl = urlObj.toString();
+      } else if (urlObj.pathname.endsWith('/preview')) {
+        urlObj.pathname = urlObj.pathname.replace(/\/preview$/, '/view');
+        viewUrl = urlObj.toString();
+      }
+    } catch (e) {
+      if (url.includes('/view')) {
+        embedUrl = url.replace('/view', '/preview');
+      } else if (url.includes('/preview')) {
+        viewUrl = url.replace('/preview', '/view');
+      }
     }
   }
   fallback.href = viewUrl;

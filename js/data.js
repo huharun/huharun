@@ -13,7 +13,7 @@ export const portfolioData = {
       glanceActive: "Active Focus",
       glanceComp: "Core Competencies",
       glanceTimeline: "Career Timeline",
-      aboutHeroRole: "Software Engineer | AI/ML Enthusiast | Agentic AI Developer",
+      aboutHeroRole: "Software Engineer | AI/ML | AI Automation & Digital Manufacturing",
       aboutBioHeading: "Professional Background",
       aboutFocusHeading: "Core Focus & Competencies",
       projectsSearchPlc: "Search projects…",
@@ -31,12 +31,12 @@ export const portfolioData = {
   },
   profile: {
     name: "Arun Thangapalam",
-    title: "Software Engineer | AI/ML Enthusiast | Agentic AI Developer",
+    title: "Software Engineer | AI/ML | AI Automation & Digital Manufacturing",
     location: "Detroit, MI",
-    phone: "(313) 639-7215",
+    phoneObfuscated: "KDMxMykgNjM5LTcyMTU=",
     email: "arunramkrishna997@gmail.com",
     avatar: "https://drive.google.com/thumbnail?id=1E8VP68Y1TkufcYdu5VYbVew2jg-XrQOG&sz=w1000",
-    resumeUrl: "https://drive.google.com/file/d/10TMWUUyaA7K-32n8iVzzoHfMY95SST-I/view",
+    resumeUrl: "https://drive.google.com/file/d/1XW70JTabxeObf4V0mdI5xQl06oqViKCG/view?usp=sharing",
     socials: {
       github: "https://github.com/huharun",
       linkedin: "https://linkedin.com/in/arun-thangapalam-7b4b4719a/",
@@ -45,87 +45,88 @@ export const portfolioData = {
     }
   },
   intro: {
-    tagline: "Computer Science professional with experience spanning full-stack application development and applied machine learning.",
-    description: "Software Engineer specializing in applied machine learning, distributed automation, and agentic workflows. Currently designing experimental, computer-use AI agents and low-latency MQTT messaging pipelines. Strong foundation in full-stack architecture, model evaluation, and database systems.",
+    tagline: "Software Engineer with experience in AI automation, digital manufacturing, full-stack development, and data-driven systems.",
+    description: "Experienced in building software applications, automation solutions, and AI-driven tools across academic and industry environments.",
     bullets: [
-      "Full-stack web app development",
-      "Backend APIs and database work",
-      "Machine learning project development",
-      "Data analysis and visualization",
-      "Debugging and feature implementation"
+      "AI Agent Development & Automation",
+      "Digital Manufacturing & Digital Twins",
+      "Full-Stack Web Development",
+      "Database & Caching Systems",
+      "CI/CD & DevOps Workflows"
     ]
   },
   skills: [
     {
       category: "LANGUAGES",
-      items: ["Python", "JavaScript", "PHP", "C#", "SQL", "HTML", "CSS"]
+      items: ["Python", "PHP", "JavaScript", "TypeScript", "SQL", "C++", "HTML", "CSS"]
     },
     {
       category: "FRAMEWORKS",
-      items: ["React", "Node.js", "FastAPI", "Flask", "Next.js", "CodeIgniter", "Spring Boot"]
+      items: ["React", "Node.js", "FastAPI", "Flask", "Next.js", "CodeIgniter"]
     },
     {
-      category: "AI & DATA",
+      category: "AI / ML",
       items: ["PyTorch", "scikit-learn", "Pandas", "NumPy", "OpenCV", "NLP", "Ollama", "LLM Evaluation"]
     },
     {
-      category: "TOOLS & INFRASTRUCTURE",
-      items: ["Docker", "Git", "GitHub Actions", "Redis", "MQTT", "Jupyter", "MySQL", "PostgreSQL"]
+      category: "TOOLS / CLOUD",
+      items: ["MCP", "MQTT", "Docker", "Git", "GitHub Actions", "Redis", "Jupyter", "MySQL", "PostgreSQL", "Neo4j", "AWS", "GCP"]
     }
   ],
   experience: [
     {
-      role: "AI Agent Developer (Research / Prototyping)",
-      company: "Wayne State University — IntelliMake Lab",
-      period: "April 2026 — Present",
-      bullets: [
-        "Designing and prototyping computer-use AI agents capable of interacting dynamically with desktop and browser environments to execute multi-step tasks.",
-        "Architecting low-latency MQTT messaging pipelines to coordinate real-time, high-throughput data exchange across distributed agent components.",
-        "Developing robust multi-step workflow orchestration frameworks to enhance the success rates of autonomous task execution.",
-        "Integrating external APIs and system tools into evolving AI agent architectures for validation and academic research."
-      ],
-      tags: ["AI Agents", "Computer Use", "MQTT", "Agentic Workflows", "API Integration", "Python", "Machine Learning"]
-    },
-    {
-      role: "Digital Manufacturing Intern (Incoming / Scheduled)",
+      role: "Digital Manufacturing Intern",
       company: "Siemens DISW",
-      period: "June 2026 — July 2026",
-      bullets: [],
-      tags: ["Digital Manufacturing", "Siemens DISW", "Incoming"]
+      period: "Jun 2026 – Aug 2026",
+      bullets: [
+        "Researched factory blueprint definitions and structured manufacturing representations across enterprise levels to support digital manufacturing and digital twin initiatives.",
+        "Initiated Phase 1 development of a web-based digital twin application using TypeScript, Python, React, Neo4j, PostgreSQL, Redis, and Siemens iX, using research papers, SiemensGPT, and Claude Code within Siemens’ development environment.",
+        "Proposed and prototyped an AI-expert-driven simulator for predictive maintenance and Overall Equipment Effectiveness (OEE) optimization in collaboration with Siemens’ Enterprise Intelligence team."
+      ],
+      tags: ["TypeScript", "Python", "React", "Neo4j", "PostgreSQL", "Redis", "Siemens iX", "SiemensGPT", "Claude Code", "Digital Twin", "Predictive Maintenance"]
     },
     {
-      role: "Student Assistant",
-      company: "Wayne State University (C&IT)",
-      period: "Aug 2024 — Dec 2025",
+      role: "AI Agent Developer and AI Engineer",
+      company: "Wayne State University — IntelliMake Lab",
+      period: "Apr 2026 – Present",
       bullets: [
-        "Supported campus AV systems and enterprise IT infrastructure, maintaining high system availability for faculty and students.",
+        "Designed and prototyped a computer-use AI agent for computer interaction and task execution, currently integrating MCP tools for xTool laser engraver operations.",
+        "Developed a separate MQTT-based dashboard and agent system for device communication and monitoring, establishing a modular architecture for swapping MCP tools and supporting integration with additional machines and devices.",
+        "Served as a core technical contributor, establishing the organization’s GitHub infrastructure, solving critical technical problems, and contributing to manufacturing-focused initiatives through plant visits and technical exploration."
+      ],
+      tags: ["AI Agents", "MCP Tools", "MQTT", "Device Communication", "GitHub Infrastructure", "Python", "Automation"]
+    },
+    {
+      role: "Student Assistant (IT Support)",
+      company: "Wayne State University (C&IT)",
+      period: "Aug 2024 – Dec 2025",
+      bullets: [
+        "Maintained campus AV systems and enterprise IT infrastructure ensuring high availability for faculty and students.",
         "Resolved critical hardware/software issues and managed AV asset tracking using Cherwell and TeamDynamix ITSM platforms."
       ],
-      tags: ["IT Support", "AV Tech", "Troubleshooting", "Asset Management", "Cherwell", "TeamDynamix"]
+      tags: ["IT Support", "Enterprise IT", "AV Systems", "Troubleshooting", "Asset Tracking", "Cherwell", "TeamDynamix"]
     },
     {
       role: "Junior Developer",
       company: "Enova Software",
-      period: "Jun 2022 — Jun 2023",
+      period: "Jun 2022 – Jun 2023",
       bullets: [
-        "Engaged in an agile and dynamic software development lifecycle, ensuring efficient project delivery.",
-        "Collaborated with a team to design, code, and test features for the COE Software Application.",
-        "Utilized skills in JQuery, Ajax, PHP, Codeigniter (MVC Framework), and MySQL (phpMyAdmin).",
-        "Played a vital role in the processing and management of students' data, ensuring accuracy and security.",
-        "Worked closely with cross-functional teams to meet project deadlines and requirements."
+        "Developed and tested features for the COE Software Application using PHP, CodeIgniter, jQuery, Ajax, and MySQL.",
+        "Processed and managed student data with emphasis on accuracy, security, and reliable database operations.",
+        "Collaborated with cross-functional teams in an agile development environment to deliver project requirements on schedule."
       ],
-      tags: ["PHP", "MySQL", "jQuery", "AJAX", "CodeIgniter", "Model-View-Controller (MVC)"]
+      tags: ["PHP", "CodeIgniter", "jQuery", "AJAX", "MySQL", "Agile Development"]
     }
   ],
   projects: [
     {
-      title: "RadioPlatform — AI Streaming System",
+      title: "RadioPlatform",
       date: "Mar 2026",
-      description: "Engineered a full-stack live-radio platform scale-tested for 50,000+ stations, leveraging Redis caching to optimize streaming latency and minimize database overhead. Integrated a local, privacy-focused AI assistant using Ollama to eliminate external API costs and dependencies.",
+      description: "Engineered a full-stack live-radio platform scale-tested for 50,000+ stations, using Redis caching to reduce database overhead and improve streaming performance. Integrated a local Ollama-based AI assistant to provide privacy-focused inference without external API dependencies.",
       problem: "Traditional radio streaming apps rely on costly cloud APIs, lack offline capability, and fail to provide local AI assistance.",
-      solution: "Engineered a microservices infrastructure using Next.js 14, FastAPI, Redis, and PostgreSQL, integrating local Ollama LLMs to serve users for free.",
+      solution: "Engineered a microservices infrastructure using Next.js, FastAPI, Redis, and PostgreSQL, integrating local Ollama LLMs to serve users.",
       impact: "Supports 50k+ stations with zero API costs, sub-100ms Redis latency caching, and fully conversational local AI interaction.",
-      tags: ["Next.js", "FastAPI", "PostgreSQL", "Redis", "Docker", "Ollama", "TypeScript"],
+      tags: ["TypeScript", "Next.js", "FastAPI", "PostgreSQL", "Redis", "Docker", "Ollama"],
       icon: "radio",
       links: [
         { label: "VIEW CODE", url: "https://github.com/huharun/radio-platform" }
@@ -145,17 +146,28 @@ export const portfolioData = {
       ]
     },
     {
-      title: "DevSwarm — Multi-Agent Automation (Kaggle Capstone)",
+      title: "DevSwarm",
       date: "Nov 2025",
-      description: "Engineered a multi-agent automation system integrating Google ADK and Jira APIs as a Kaggle Capstone project to automate sprint workflows and technical documentation layout, reducing manual tracking workload by approximately 35%.",
-      problem: "Developers lose up to 10 hours a week on repetitive sprint tasks, including writing Jira ticket descriptions and release summaries.",
+      description: "Engineered a multi-agent system using Google ADK and Jira APIs to automate Agile workflows and technical documentation. Reduced manual sprint tracking and documentation workload by approximately 35%.",
+      problem: "Developers lose time on repetitive sprint tasks, including writing Jira ticket descriptions and release summaries.",
       solution: "Built a Python-based multi-agent architecture integrating the Jira API to handle automatic description generation and tasks execution.",
       impact: "Reduced manual ticketing admin overhead by 35% and automated documentation workflows in Agile teams.",
-      tags: ["Python", "AI/ML", "Jira", "Automation", "Agile", "Data Analysis"],
+      tags: ["Python", "Google ADK", "Jira API", "AI Agents", "Automation", "Agile"],
       icon: "cpu",
       links: [
         { label: "VIEW CODE", url: "https://github.com/huharun/agents" }
       ]
+    },
+    {
+      title: "AI Telegram Tutor",
+      date: "Oct 2025",
+      description: "Built a fully local AI English tutor that processes Telegram messages, performs grammar correction, and maintains persistent conversation history. Orchestrated Telegram, Ollama, PostgreSQL, and n8n workflows with Docker for reproducible local deployment.",
+      problem: "Language tutors often require subscription fees, store private conversation histories in the cloud, and lack easy local deployment options.",
+      solution: "Developed a fully local translation and tutoring agent using Ollama, integrated into Telegram through n8n workflows and backed by a local PostgreSQL database.",
+      impact: "Established a completely private, cost-free grammar correction and chat bot with easy, reproducible Docker deployment.",
+      tags: ["Python", "Ollama", "n8n", "PostgreSQL", "Docker", "Telegram API", "AI/ML"],
+      icon: "contact",
+      links: []
     },
     {
       title: "Kaggle Data Science Projects",
@@ -202,14 +214,14 @@ export const portfolioData = {
   education: [
     {
       school: "Wayne State University",
-      degree: "M.S. in Computer Science (Specialization in AI/ML)",
-      period: "Jan 2024 — Dec 2025",
+      degree: "M.S. Computer Science (AI/ML)",
+      period: "Jan 2024 – Dec 2025",
       coursework: "Machine Learning, AI, Algorithms, Cybersecurity, Software Engineering"
     },
     {
       school: "United Institute of Technology",
-      degree: "B.E. in Computer Science and Engineering",
-      period: "Sep 2018 — Jul 2022",
+      degree: "B.E. Computer Science",
+      period: "Sep 2018 – Jul 2022",
       coursework: "Data Structures & Algorithms, OOPS, DBMS, Internet Programming, Cloud Computing"
     }
   ],
@@ -233,7 +245,7 @@ export const portfolioData = {
   ],
 
   files: [
-    { label: "Resume.pdf", icon: "resume", size: "156 KB", url: "https://drive.google.com/file/d/10TMWUUyaA7K-32n8iVzzoHfMY95SST-I/view", isPdf: true },
+    { label: "Resume.pdf", icon: "resume", size: "156 KB", url: "https://drive.google.com/file/d/1XW70JTabxeObf4V0mdI5xQl06oqViKCG/view?usp=sharing", isPdf: true },
     { label: "BE Degree.pdf", icon: "education", size: "842 KB", url: "https://drive.google.com/file/d/1y9m0y1YrFMgMHZFzAlCAi8-gJ4EfqIld/preview", isPdf: true },
     { label: "MS Degree.pdf", icon: "education", size: "920 KB", url: "https://drive.google.com/file/d/17mg4kBPyGpM5RafEbjjr3FQ8meLyAPXT/preview", isPdf: true },
     { label: "MS Transcript.pdf", icon: "doc", size: "1.1 MB", url: "https://drive.google.com/file/d/1q-xNLWPgGD8UA9fpdSVUb7U6yy8O4_Go/preview", isPdf: true }
@@ -259,13 +271,13 @@ export const portfolioData = {
 
   glance: {
     current: {
-      role: "AI Agent Developer",
+      role: "AI Agent Developer & AI Engineer",
       company: "IntelliMake (WSU)",
       status: "Active Now"
     },
     milestones: [
-      { period: "Jun 2026 – Jul 2026", duration: "2 mos",  label: "Digital Mfg Intern @ Siemens DISW" },
-      { period: "Apr 2026 – Present", duration: "3 mos",  label: "AI Agent Developer @ IntelliMake" },
+      { period: "Jun 2026 – Aug 2026", duration: "3 mos",  label: "Digital Mfg Intern @ Siemens DISW" },
+      { period: "Apr 2026 – Present", duration: "5 mos",  label: "AI Agent Developer @ IntelliMake" },
       { period: "Aug 2024 – Dec 2025", duration: "1y 5m",  label: "Student IT Assistant @ WSU C&IT" },
       { period: "Jan 2024 – Dec 2025", duration: "2 yrs",   label: "MS Computer Science @ Wayne State" },
       { period: "Jun 2022 – Jun 2023", duration: "1 yr",   label: "Junior Developer @ Enova" },

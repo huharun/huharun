@@ -2,6 +2,7 @@
    HUHARUN — main.js (Entry Point)
 ============================================================ */
 
+import { portfolioData } from './data.js';
 import { launchApp, goHome, updateClock, initTheme, initContactForm, openModal, closeModal } from './ui.js';
 import { initStars } from './stars.js';
 import { 
@@ -35,6 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. Global Event Delegation (No Inline Clicks)
   document.body.addEventListener('click', e => {
+    const callTrigger = e.target.closest('#about-call-trigger');
+    if (callTrigger) {
+      const p = portfolioData.profile;
+      if (p.phoneObfuscated) {
+        window.location.href = `tel:${atob(p.phoneObfuscated)}`;
+      }
+      return;
+    }
+
     // About Resume Trigger
     const resumeTrigger = e.target.closest('#about-resume-trigger');
     if (resumeTrigger && resumeTrigger.dataset.url) {

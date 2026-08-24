@@ -300,7 +300,7 @@ export function renderAbout() {
         <h1 class="contact-name-large">${p.name}</h1>
         <p class="contact-title-sub">${L.aboutHeroRole}</p>
         <div class="contact-actions-row">
-          <a href="tel:${p.phone}" class="contact-action-btn"><div class="contact-action-icon">${icons.phone}</div><span class="contact-action-label">Call</span></a>
+          <button id="about-call-trigger" class="contact-action-btn"><div class="contact-action-icon">${icons.phone}</div><span class="contact-action-label">Call</span></button>
           <button class="contact-action-btn" data-app="contact"><div class="contact-action-icon">${icons.contact}</div><span class="contact-action-label">Message</span></button>
           <a href="mailto:${p.email}" class="contact-action-btn"><div class="contact-action-icon">${icons.email}</div><span class="contact-action-label">Email</span></a>
           <button class="contact-action-btn" id="about-resume-trigger" data-url="${p.resumeUrl}"><div class="contact-action-icon">${icons.resume}</div><span class="contact-action-label">Resume</span></button>
