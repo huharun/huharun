@@ -75,6 +75,17 @@ export const portfolioData = {
   ],
   experience: [
     {
+      role: "AI Agent Developer / AI Engineer",
+      company: "Wayne State University — IntelliMake Lab",
+      period: "Apr 2026 – Present",
+      bullets: [
+        "Designed and prototyped a computer-use AI agent for computer interaction and task execution, currently integrating MCP tools for xTool laser engraver operations.",
+        "Developed a separate MQTT-based dashboard and agent system for device communication and monitoring, establishing a modular architecture for swapping MCP tools and supporting integration with additional machines and devices.",
+        "Served as a core technical contributor, establishing the organization’s GitHub infrastructure, solving critical technical problems, and contributing to manufacturing-focused initiatives through plant visits and technical exploration."
+      ],
+      tags: ["AI Agents", "MCP Tools", "MQTT", "Device Communication", "GitHub Infrastructure", "Python", "Automation"]
+    },
+    {
       role: "Digital Manufacturing Intern",
       company: "Siemens DISW",
       period: "Jun 2026 – Aug 2026",
@@ -84,17 +95,6 @@ export const portfolioData = {
         "Proposed and prototyped an AI-expert-driven simulator for predictive maintenance and Overall Equipment Effectiveness (OEE) optimization in collaboration with Siemens’ Enterprise Intelligence team."
       ],
       tags: ["TypeScript", "Python", "React", "Neo4j", "PostgreSQL", "Redis", "Siemens iX", "SiemensGPT", "Claude Code", "Digital Twin", "Predictive Maintenance"]
-    },
-    {
-      role: "AI Agent Developer and AI Engineer",
-      company: "Wayne State University — IntelliMake Lab",
-      period: "Apr 2026 – Present",
-      bullets: [
-        "Designed and prototyped a computer-use AI agent for computer interaction and task execution, currently integrating MCP tools for xTool laser engraver operations.",
-        "Developed a separate MQTT-based dashboard and agent system for device communication and monitoring, establishing a modular architecture for swapping MCP tools and supporting integration with additional machines and devices.",
-        "Served as a core technical contributor, establishing the organization’s GitHub infrastructure, solving critical technical problems, and contributing to manufacturing-focused initiatives through plant visits and technical exploration."
-      ],
-      tags: ["AI Agents", "MCP Tools", "MQTT", "Device Communication", "GitHub Infrastructure", "Python", "Automation"]
     },
     {
       role: "Student Assistant (IT Support)",
@@ -271,13 +271,13 @@ export const portfolioData = {
 
   glance: {
     current: {
-      role: "AI Agent Developer & AI Engineer",
+      role: "AI Agent Developer / AI Engineer",
       company: "IntelliMake (WSU)",
       status: "Active Now"
     },
     milestones: [
+      { period: "Apr 2026 – Present", duration: "Active",  label: "AI Agent Developer @ IntelliMake" },
       { period: "Jun 2026 – Aug 2026", duration: "3 mos",  label: "Digital Mfg Intern @ Siemens DISW" },
-      { period: "Apr 2026 – Present", duration: "5 mos",  label: "AI Agent Developer @ IntelliMake" },
       { period: "Aug 2024 – Dec 2025", duration: "1y 5m",  label: "Student IT Assistant @ WSU C&IT" },
       { period: "Jan 2024 – Dec 2025", duration: "2 yrs",   label: "MS Computer Science @ Wayne State" },
       { period: "Jun 2022 – Jun 2023", duration: "1 yr",   label: "Junior Developer @ Enova" },
