@@ -248,7 +248,6 @@ export const portfolioData = {
     { label: "Resume.pdf", icon: "resume", size: "156 KB", url: "https://drive.google.com/file/d/1tiQmzjLdmK46yAxyrlENSemUqiJV9qc5/view", isPdf: true },
     { label: "BE Degree.pdf", icon: "education", size: "842 KB", url: "https://drive.google.com/file/d/1y9m0y1YrFMgMHZFzAlCAi8-gJ4EfqIld/preview", isPdf: true },
     { label: "MS Degree.pdf", icon: "education", size: "920 KB", url: "https://drive.google.com/file/d/17mg4kBPyGpM5RafEbjjr3FQ8meLyAPXT/preview", isPdf: true },
-    { label: "MS Transcript.pdf", icon: "doc", size: "1.1 MB", url: "https://drive.google.com/file/d/1q-xNLWPgGD8UA9fpdSVUb7U6yy8O4_Go/preview", isPdf: true }
   ],
   quotes: [
     { text: "It's easy to feel hopeful on a beautiful day like today, but there will be dark days ahead of us too. There will be days where you feel all alone. No matter how buried it gets or how lost you feel, you must promise me that you will hold on to hope. Keep it alive! We have to be greater than what we suffer.. My wish for you is to become hope... People need that... And even if we fail... what better way is there to live?", author: "Gwen Stacy" },
