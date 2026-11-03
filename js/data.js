@@ -275,7 +275,7 @@ export const portfolioData = {
     { text: "Men are still good. We fight. We kill. We betray one another. But we can rebuild. We can do better. We will. We have to.", author: "Bruce Wayne" }
   ],
   repeatVideos: [
-    "UgHq7cZLr_c?si=DKu6nQL4_H1IxmXD&start=161"
+    "rsWGdZoo1xY?si=cy66A0e9FLSzNn4C"
   ],
   soundtrack: [
     "0UWa0AdUscdQUI7mjjx6G1", "3OJK0HKdgMiZBTsdLZoAhI", "717udbypnRK5wccr1kAkRU", "28DF6KjGAnplw4VloHNSqX",
