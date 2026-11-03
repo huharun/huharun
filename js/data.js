@@ -13,7 +13,7 @@ export const portfolioData = {
       glanceActive: "Active Focus",
       glanceComp: "Core Competencies",
       glanceTimeline: "Career Timeline",
-      aboutHeroRole: "Software Engineer | Physical AI | Smart Manufacturing",
+      aboutHeroRole: "Software Engineer | Physical AI Researcher | Smart Manufacturing",
       aboutBioHeading: "Professional Background",
       aboutFocusHeading: "Core Focus & Competencies",
       projectsSearchPlc: "Search projects…",
@@ -31,7 +31,7 @@ export const portfolioData = {
   },
   profile: {
     name: "Arun Thangapalam",
-    title: "Software Engineer | Physical AI | Smart Manufacturing",
+    title: "Software Engineer | Physical AI Researcher | Smart Manufacturing",
     location: "Detroit, MI",
     phoneObfuscated: "KDMxMykgNjM5LTcyMTU=",
     email: "arunramkrishna997@gmail.com",
