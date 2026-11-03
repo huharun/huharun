@@ -474,7 +474,7 @@ export function renderExperience() {
           <div class="note-items-list no-scrollbar">
             ${E.map((exp, i) => `
               <button class="note-item ${i === 0 ? 'active' : ''}" data-idx="${i}">
-                <div class="note-item-title">${exp.company.split('—')[0].trim()}</div>
+                <div class="note-item-title">${exp.shortCompany || exp.company.split('—')[0].trim()}</div>
                 <div class="note-item-date-sub">${exp.period.split('—')[0].trim()}</div>
               </button>
             `).join('')}
@@ -506,12 +506,56 @@ function openNote(idx) {
   const content = document.getElementById('active-note-content');
   if (!exp || !content) return;
 
+  if (exp.roles && exp.roles.length > 0) {
+    content.innerHTML = `
+      <div class="exp-date-heading">${exp.period}</div>
+      <h2 class="exp-company-header">${exp.company}</h2>
+      <div class="exp-meta-sub">${exp.totalDuration ? exp.totalDuration + ' · ' : ''}${exp.location || ''}</div>
+
+      <div class="exp-timeline-chain">
+        ${exp.roles.map((r, rIdx) => `
+          <div class="timeline-role-node ${rIdx === 0 && r.period.includes('Present') ? 'is-active' : ''}">
+            <div class="timeline-rail">
+              <span class="timeline-dot"></span>
+              ${rIdx < exp.roles.length - 1 ? '<span class="timeline-line"></span>' : ''}
+            </div>
+            <div class="timeline-role-content">
+              <div class="timeline-role-top">
+                <h3 class="timeline-role-title">${r.title}</h3>
+                ${r.badge ? `<span class="timeline-badge">${r.badge}</span>` : ''}
+              </div>
+              <div class="timeline-role-meta">
+                ${r.type ? `<span class="timeline-role-type">${r.type}</span> · ` : ''}
+                <span>${r.period}</span>
+                ${r.duration ? ` · <span>${r.duration}</span>` : ''}
+                ${r.locationType ? ` · <span>${r.locationType}</span>` : ''}
+              </div>
+
+              ${r.bullets && r.bullets.length > 0 ? `
+                <ul class="exp-notes-list" style="margin-top: 14px;">
+                  ${r.bullets.map(b => `<li class="exp-note-bullet">${b}</li>`).join('')}
+                </ul>
+              ` : ''}
+
+              ${r.tags && r.tags.length > 0 ? `
+                <footer class="exp-tech-footer" style="margin-top: 14px; padding-top: 10px;">
+                  ${r.tags.map(t => `<span class="tech-tag-note">${t}</span>`).join('')}
+                </footer>
+              ` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    return;
+  }
+
   content.innerHTML = `
     <div class="exp-date-heading">${exp.period}</div>
     <h2 class="exp-company-header">${exp.company}</h2>
     <div class="exp-role-line">
       ${exp.role}
-      ${exp.tags.includes('Incoming') ? '<span class="exp-tag-pill">Incoming</span>' : ''}
+      ${exp.tags && exp.tags.includes('Incoming') ? '<span class="exp-tag-pill">Incoming</span>' : ''}
     </div>
     
     <div class="exp-notes-content">
@@ -521,7 +565,7 @@ function openNote(idx) {
     </div>
 
     <footer class="exp-tech-footer">
-      ${exp.tags.map(t => `<span class="tech-tag-note">${t}</span>`).join('')}
+      ${exp.tags ? exp.tags.map(t => `<span class="tech-tag-note">${t}</span>`).join('') : ''}
     </footer>
   `;
 }

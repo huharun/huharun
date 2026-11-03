@@ -13,7 +13,7 @@ export const portfolioData = {
       glanceActive: "Active Focus",
       glanceComp: "Core Competencies",
       glanceTimeline: "Career Timeline",
-      aboutHeroRole: "Software Engineer | AI/ML | AI Automation & Digital Manufacturing",
+      aboutHeroRole: "Physical AI Research Assistant | Applied AI & Digital Manufacturing",
       aboutBioHeading: "Professional Background",
       aboutFocusHeading: "Core Focus & Competencies",
       projectsSearchPlc: "Search projects…",
@@ -31,7 +31,7 @@ export const portfolioData = {
   },
   profile: {
     name: "Arun Thangapalam",
-    title: "Software Engineer | AI/ML | AI Automation & Digital Manufacturing",
+    title: "Physical AI Research Assistant | Applied AI & Digital Manufacturing",
     location: "Detroit, MI",
     phoneObfuscated: "KDMxMykgNjM5LTcyMTU=",
     email: "arunramkrishna997@gmail.com",
@@ -48,7 +48,7 @@ export const portfolioData = {
     tagline: "Software Engineer with experience in AI automation, digital manufacturing, full-stack development, and data-driven systems.",
     description: "Experienced in building software applications, automation solutions, and AI-driven tools across academic and industry environments.",
     bullets: [
-      "AI Agent Development & Automation",
+      "Physical AI & Applied AI Systems",
       "Digital Manufacturing & Digital Twins",
       "Full-Stack Web Development",
       "Database & Caching Systems",
@@ -75,15 +75,34 @@ export const portfolioData = {
   ],
   experience: [
     {
-      role: "AI Agent Developer / AI Engineer",
       company: "Wayne State University — IntelliMake Lab",
+      shortCompany: "IntelliMake Lab",
       period: "Apr 2026 – Present",
-      bullets: [
-        "Designed and prototyped a computer-use AI agent for computer interaction and task execution, currently integrating MCP tools for xTool laser engraver operations.",
-        "Developed a separate MQTT-based dashboard and agent system for device communication and monitoring, establishing a modular architecture for swapping MCP tools and supporting integration with additional machines and devices.",
-        "Served as a core technical contributor, establishing the organization’s GitHub infrastructure, solving critical technical problems, and contributing to manufacturing-focused initiatives through plant visits and technical exploration."
-      ],
-      tags: ["AI Agents", "MCP Tools", "MQTT", "Device Communication", "GitHub Infrastructure", "Python", "Automation"]
+      location: "Detroit, MI",
+      totalDuration: "8 mos",
+      roles: [
+        {
+          title: "Physical AI Research Assistant",
+          type: "Contract",
+          period: "Nov 2026 – Present",
+          duration: "1 mo",
+          locationType: "On-site",
+          bullets: [],
+          tags: ["Physical AI", "AI Agents", "MIX Platform", "Multi-Agent Systems"]
+        },
+        {
+          title: "Applied AI Engineer",
+          period: "Apr 2026 – Nov 2026",
+          duration: "8 mos",
+          locationType: "Hybrid",
+          bullets: [
+            "Designed and prototyped a computer-use AI agent for computer interaction and task execution, integrating MCP tools for xTool laser engraver operations.",
+            "Developed a separate MQTT-based dashboard and agent system for device communication and monitoring, establishing a modular architecture for swapping MCP tools.",
+            "Served as a core technical contributor, establishing the organization's GitHub infrastructure and contributing to manufacturing-focused initiatives through plant visits."
+          ],
+          tags: ["AI Agents", "MCP Tools", "MQTT", "Device Communication", "GitHub Infrastructure", "Python", "Automation"]
+        }
+      ]
     },
     {
       role: "Digital Manufacturing Intern",
@@ -107,8 +126,8 @@ export const portfolioData = {
       tags: ["IT Support", "Enterprise IT", "AV Systems", "Troubleshooting", "Asset Tracking", "Cherwell", "TeamDynamix"]
     },
     {
-      role: "Junior Developer",
-      company: "Enova Software",
+      role: "Programmer Analyst",
+      company: "eNova Software",
       period: "Jun 2022 – Jun 2023",
       bullets: [
         "Developed and tested features for the COE Software Application using PHP, CodeIgniter, jQuery, Ajax, and MySQL.",
@@ -270,17 +289,18 @@ export const portfolioData = {
 
   glance: {
     current: {
-      role: "AI Agent Developer / AI Engineer",
+      role: "Physical AI Research Assistant",
       company: "IntelliMake (WSU)",
       status: "Active Now"
     },
     milestones: [
-      { period: "Apr 2026 – Present", duration: "Active",  label: "AI Agent Developer @ IntelliMake" },
-      { period: "Jun 2026 – Aug 2026", duration: "3 mos",  label: "Digital Mfg Intern @ Siemens DISW" },
-      { period: "Aug 2024 – Dec 2025", duration: "1y 5m",  label: "Student IT Assistant @ WSU C&IT" },
+      { period: "Nov 2026 – Present", duration: "Active",  label: "Physical AI Research Assistant @ IntelliMake" },
+      { period: "Apr 2026 – Nov 2026", duration: "8 mos",   label: "Applied AI Engineer @ IntelliMake" },
+      { period: "Jun 2026 – Aug 2026", duration: "3 mos",   label: "Digital Mfg Intern @ Siemens DISW" },
+      { period: "Aug 2024 – Dec 2025", duration: "1y 5m",   label: "Student IT Assistant @ WSU C&IT" },
       { period: "Jan 2024 – Dec 2025", duration: "2 yrs",   label: "MS Computer Science @ Wayne State" },
-      { period: "Jun 2022 – Jun 2023", duration: "1 yr",   label: "Junior Developer @ Enova" },
-      { period: "Sep 2018 – Jul 2022", duration: "4 yrs",  label: "BE Computer Science @ UIT" }
+      { period: "Jun 2022 – Jun 2023", duration: "1 yr",    label: "Programmer Analyst @ eNova" },
+      { period: "Sep 2018 – Jul 2022", duration: "4 yrs",   label: "BE Computer Science @ UIT" }
     ]
   }
 };
