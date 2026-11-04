@@ -35,7 +35,7 @@ export const portfolioData = {
     location: "Detroit, MI",
     phoneObfuscated: "KDMxMykgNjM5LTcyMTU=",
     email: "arunramkrishna997@gmail.com",
-    avatar: "https://drive.google.com/thumbnail?id=1ZtDZPLFAYkqhKJoOqO9Lb_uKU0aPRZmt&sz=w1000",
+    avatar: "https://drive.google.com/thumbnail?id=1lgZhV83_eUeliqKsYzyX46jp_5OZ-KkP&sz=w1000",
     resumeUrl: "https://drive.google.com/file/d/1tiQmzjLdmK46yAxyrlENSemUqiJV9qc5/view",
     socials: {
       github: "https://github.com/huharun",
